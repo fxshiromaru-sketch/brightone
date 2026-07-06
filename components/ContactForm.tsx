@@ -5,27 +5,41 @@ import { useState } from "react";
 export default function ContactForm() {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    await fetch("https://formspree.io/f/maqgkykl", {
+    // 簡易バリデーション
+    if (!name || !phone || !email || !message) {
+      alert("全ての項目を入力してください");
+      return;
+    }
+
+    const formData = new FormData();
+    formData.append("name", name);
+    formData.append("phone", phone);
+    formData.append("email", email);
+    formData.append("message", message);
+
+    const res = await fetch("https://formspree.io/f/maqgkykl", {
       method: "POST",
       headers: {
-        "Content-Type": "application/json",
+        Accept: "application/json",
       },
-      body: JSON.stringify({
-        name,
-        phone,
-        message,
-      }),
+      body: formData,
     });
 
-    alert("送信しました！");
-    setName("");
-    setPhone("");
-    setMessage("");
+    if (res.ok) {
+      alert("送信しました！");
+      setName("");
+      setPhone("");
+      setEmail("");
+      setMessage("");
+    } else {
+      alert("送信に失敗しました。もう一度お試しください。");
+    }
   };
 
   return (
@@ -35,25 +49,37 @@ export default function ContactForm() {
     >
       <input
         type="text"
-        placeholder="お名前"
+        placeholder="お名前（必須）"
         value={name}
         onChange={(e) => setName(e.target.value)}
         className="p-3 rounded bg-black border border-gray-600 text-white"
+        required
       />
 
       <input
         type="tel"
-        placeholder="電話番号"
+        placeholder="電話番号（必須）"
         value={phone}
         onChange={(e) => setPhone(e.target.value)}
         className="p-3 rounded bg-black border border-gray-600 text-white"
+        required
+      />
+
+      <input
+        type="email"
+        placeholder="メールアドレス（必須）"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        className="p-3 rounded bg-black border border-gray-600 text-white"
+        required
       />
 
       <textarea
-        placeholder="お問い合わせ内容"
+        placeholder="お問い合わせ内容（必須）"
         value={message}
         onChange={(e) => setMessage(e.target.value)}
         className="p-3 rounded bg-black border border-gray-600 text-white h-32"
+        required
       />
 
       <button

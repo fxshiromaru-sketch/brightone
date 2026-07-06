@@ -11,6 +11,7 @@ export default function Services() {
           <h3 className="text-2xl font-bold mb-4">🚗 中古車販売</h3>
           <p className="text-gray-400">
             スポーツカーから軽自動車まで幅広く対応します。
+            修理、カスタムも可能です。お気軽にご相談ください。
           </p>
         </div>
 
@@ -18,13 +19,17 @@ export default function Services() {
           <h3 className="text-2xl font-bold mb-4">💰 車買取</h3>
           <p className="text-gray-400">
             高価買取・無料査定対応しています。
+            ラインかメールで気軽にご連絡ください。
+            他社より高く買い取れる自信があります。
           </p>
         </div>
 
         <div className="bg-zinc-900 rounded-2xl p-8">
           <h3 className="text-2xl font-bold mb-4">🔧 タイヤ交換</h3>
           <p className="text-gray-400">
-            持ち込みタイヤも対応可能です。
+            持ち込みタイヤの交換を安くやります！
+            予約して直接こちらに送ってもらうことも可能です。
+            
           </p>
         </div>
 
@@ -32,6 +37,7 @@ export default function Services() {
           <h3 className="text-2xl font-bold mb-4">🚨 レッカー</h3>
           <p className="text-gray-400">
             事故・故障時も迅速対応します。
+            緊急時は携帯電話にご連絡ください。
           </p>
         </div>
 
