@@ -7,17 +7,25 @@ export default function ContactForm() {
   const [phone, setPhone] = useState("");
   const [message, setMessage] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    const text =
-      `お問い合わせ内容%0A` +
-      `お名前: ${name}%0A` +
-      `電話番号: ${phone}%0A` +
-      `内容: ${message}`;
+    await fetch("https://formspree.io/f/maqgkykl", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name,
+        phone,
+        message,
+      }),
+    });
 
-    // LINE送信用（仮リンク）
-    window.open(`https://line.me/R/msg/text/?${text}`, "_blank");
+    alert("送信しました！");
+    setName("");
+    setPhone("");
+    setMessage("");
   };
 
   return (
@@ -52,7 +60,7 @@ export default function ContactForm() {
         type="submit"
         className="bg-yellow-500 hover:bg-yellow-400 text-black font-bold py-3 rounded-full transition"
       >
-        LINEで送信する
+        送信する
       </button>
     </form>
   );

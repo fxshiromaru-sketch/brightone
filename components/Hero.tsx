@@ -33,7 +33,7 @@ export default function Hero() {
           href="#contact"
           className="border border-white px-8 py-4 rounded-full hover:bg-white hover:text-black transition"
         >
-          LINEで相談
+          メールで相談
         </a>
       </div>
     </section>
