@@ -16,7 +16,7 @@ export default function Access() {
       </p>
 
       <p className="mt-6 text-gray-400">
-        TEL：0479-21-3038
+        TEL/FAX：0479-21-3038
         携帯：080-5563-7830
       </p>
 

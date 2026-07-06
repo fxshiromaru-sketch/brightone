@@ -18,7 +18,7 @@ export default function Hero() {
       </p>
 
       <p className="mt-8 text-xl text-gray-300">
-        中古車販売・買取・タイヤ交換・レッカー
+        中古車販売・買取・タイヤ交換・修理・カスタム・緊急事故、故障レッカー
       </p>
 
       <div className="flex gap-4 mt-10 flex-wrap justify-center">
