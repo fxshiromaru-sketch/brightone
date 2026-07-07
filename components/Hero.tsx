@@ -1,7 +1,7 @@
 export default function Hero() {
   return (
     <section
-      className="min-h-screen flex flex-col items-center justify-center text-center px-6 pt-40 md:pt-24"
+      className="min-h-screen flex flex-col items-center justify-center text-center px-6 pt-45 md:pt-24"
       style={{
         backgroundImage:
           "linear-gradient(rgba(0,0,0,.6), rgba(0,0,0,.6)), url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=2000')",
