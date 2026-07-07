@@ -64,7 +64,7 @@ export default function Hero() {
 
 
   <a
-    href="ttps://x.com/yuya_kf"
+    href="https://x.com/yuya_kf"
     target="_blank"
     className="bg-white hover:bg-gray-200 text-black px-6 py-3 rounded-full font-bold transition"
   >
