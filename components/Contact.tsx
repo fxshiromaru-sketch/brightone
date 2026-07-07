@@ -9,7 +9,7 @@ export default function Contact() {
       </h2>
 
       <p className="text-gray-400">
-        お気軽にお問い合わせください
+        お車に関することはお気軽にお問い合わせください
       </p>
 
       <ContactForm />
