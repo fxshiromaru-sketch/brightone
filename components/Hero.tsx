@@ -22,6 +22,7 @@ export default function Hero() {
   スポーツカーから軽自動車まで幅広く取り扱い、
   車両販売・買取・修理・カスタム・タイヤ交換・レッカーサービスまで
   お客様のカーライフをサポートいたします。
+  お車の査定依頼はＬＩＮＥ、メールで気軽にお問い合わせください。
 </p>
 <div className="flex gap-4 mt-10 flex-wrap justify-center">
 
