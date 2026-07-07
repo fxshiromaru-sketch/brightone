@@ -49,8 +49,7 @@ export default function Hero() {
   </a>
 
 </div>
-<div className="flex gap-4 mt-8 flex-wrap justify-center">
-
+<div className="flex gap-4 mt-12 flex-wrap justify-center">
   <a
     href="https://www.instagram.com/brightone2026k/"
     target="_blank"
