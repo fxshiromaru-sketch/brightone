@@ -3,11 +3,12 @@ import CarCard from "../../components/CarCard";
 export default function Inventory() {
   const cars = [
     {
+      slug:"gtr",
       name: "車両名サンプル",
       price: "価格準備中",
       year: "年式",
       mileage: "走行距離",
-      image: "/car.jpg",
+      image: "/cars/看板.png",
     },
   ];
 

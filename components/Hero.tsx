@@ -18,7 +18,7 @@ export default function Hero() {
       </p>
 
       <p className="mt-8 text-xl text-gray-300">
-        千葉県銚子市で中古車販売・買取・タイヤ交換・修理・カスタム・緊急時の事故故障レッカー
+        千葉県銚子市で中古車販売・買取・タイヤ交換・修理・カスタム・緊急時の事故故障レッカーを行ってます。
       </p>
 <div className="flex gap-4 mt-10 flex-wrap justify-center">
 

@@ -1,4 +1,5 @@
 type Car = {
+  slug: string;
   name: string;
   price: string;
   year: string;
@@ -36,9 +37,12 @@ export default function CarCard({ car }: { car: Car }) {
           走行距離：{car.mileage}
         </p>
 
-        <button className="mt-5 w-full border border-white py-2 rounded-full hover:bg-white hover:text-black transition">
-          詳細を見る
-        </button>
+     <a
+  href={`/inventory/${car.slug}`}
+  className="mt-5 block w-full text-center border border-white py-2 rounded-full hover:bg-white hover:text-black transition"
+>
+  詳細を見る
+</a>
 
       </div>
 
