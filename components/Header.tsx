@@ -5,7 +5,7 @@ export default function Header() {
 
         <div>
           <h1 className="text-2xl font-bold tracking-[0.3em] text-white">
-            BRIGHT ONE
+            Bright One
           </h1>
           <p className="text-xs text-yellow-400">
             Drive Your Dream.

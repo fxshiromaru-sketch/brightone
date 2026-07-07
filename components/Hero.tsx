@@ -10,7 +10,7 @@ export default function Hero() {
       }}
     >
       <h1 className="text-6xl md:text-8xl font-bold tracking-widest">
-        BRIGHT ONE
+        Bright One
       </h1>
 
       <p className="text-yellow-400 text-2xl mt-6 italic">
