@@ -5,6 +5,7 @@ import Footer from "../components/Footer";
 import Hero from "../components/Hero";
 import Contact from "../components/Contact";
 import MobileCTA from "../components/MobileCTA";
+import FixedContact from "../components/FixedContact";
 
 
 export default function Home() {
@@ -18,6 +19,7 @@ export default function Home() {
     <Footer />
     <Contact />
     <MobileCTA />
+    <FixedContact />
   </div>
 </main>
   );
