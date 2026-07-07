@@ -17,7 +17,7 @@ export default function Hero() {
         Drive Your Dream.
       </p>
 
-     <p className="mt-6 text-gray-400 max-w-3xl leading-relaxed">
+     <p className="mt-6 text-gray-300 max-w-3xl leading-relaxed">
   千葉県銚子市の中古車販売店 Bright One。<br />
   スポーツカーから軽自動車まで幅広く取り扱い、<br />
   車両販売・買取・修理・カスタム・タイヤ交換・レッカーサービスまで<br />
