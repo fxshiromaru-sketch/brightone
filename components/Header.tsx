@@ -33,7 +33,7 @@ export default function Header() {
         </nav>
 
         <a
-          href="tel:08055637930
+          href="tel:08055637930"
           className="hidden lg:flex bg-yellow-500 text-black px-5 py-3 rounded-full font-bold hover:bg-yellow-400 transition"
         >
           📞 お問い合わせ
