@@ -49,6 +49,26 @@ export default function Hero() {
   </a>
 
 </div>
+<div className="flex gap-4 mt-8 flex-wrap justify-center">
+
+  <a
+    href="https://www.instagram.com/brightone2026k/"
+    target="_blank"
+    className="bg-pink-600 hover:bg-pink-500 text-white px-6 py-3 rounded-full font-bold transition"
+  >
+    📷 Instagram
+  </a>
+
+
+  <a
+    href="ttps://x.com/yuya_kf"
+    target="_blank"
+    className="bg-white hover:bg-gray-200 text-black px-6 py-3 rounded-full font-bold transition"
+  >
+    𝕏 X
+  </a>
+
+</div>
     </section>
   );
 }
