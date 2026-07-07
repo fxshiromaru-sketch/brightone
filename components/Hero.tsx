@@ -35,7 +35,7 @@ export default function Hero() {
     rel="noopener noreferrer"
     className="bg-green-500 hover:bg-green-400 text-white px-8 py-4 rounded-full font-bold transition"
   >
-    LINEで友だち追加・相談
+    LINEで相談
   </a>
 
   <a
