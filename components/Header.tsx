@@ -7,11 +7,11 @@ export default function Header() {
 
         {/* ロゴ */}
         <Link href="/">
-          <img
-            src="/logo.png"
-            alt="Bright One"
-            className="h-10 md:h-12 w-auto"
-          />
+         <img
+  src="/logo.png"
+  alt="Bright One"
+  className="h-20 md:h-24 w-auto"
+/>
         </Link>
 
         {/* メニュー */}
