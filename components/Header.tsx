@@ -2,79 +2,63 @@ import Link from "next/link";
 
 export default function Header() {
   return (
-    <header className="fixed top-0 left-0 w-full z-50 bg-black/90 backdrop-blur border-b border-red-600">
-
-      {/* 赤ライン */}
-      <div className="h-1 bg-red-600"></div>
-
+    <header className="fixed top-0 left-0 w-full z-50 bg-black/80 backdrop-blur-md border-b border-yellow-500/20">
       <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
 
         {/* ロゴ */}
-        <Link href="/" className="flex items-center">
+        <Link href="/">
           <img
             src="/logo.png"
             alt="Bright One"
-            className="h-16 w-auto"
+            className="h-10 md:h-12 w-auto"
           />
         </Link>
 
         {/* メニュー */}
-        <nav className="hidden lg:flex items-center gap-10 font-bold text-white">
-
-          <Link href="/">
+        <nav className="hidden md:flex items-center gap-8 text-white font-medium">
+          <Link href="/" className="hover:text-yellow-400 transition">
             HOME
           </Link>
 
-          <Link href="/inventory">
+          <Link href="/inventory" className="hover:text-yellow-400 transition">
             在庫車一覧
           </Link>
 
-          <a href="#service">
+          <a href="#service" className="hover:text-yellow-400 transition">
             サービス
           </a>
 
-          <a href="#access">
+          <a href="#access" className="hover:text-yellow-400 transition">
             アクセス
           </a>
 
-          <a href="#contact">
+          <a href="#contact" className="hover:text-yellow-400 transition">
             お問い合わせ
           </a>
-
         </nav>
 
-        {/* 電話番号 */}
-        <div className="hidden xl:flex flex-col border border-red-600 rounded-lg overflow-hidden">
+        {/* 右側ボタン */}
+        <div className="hidden lg:flex items-center gap-3">
 
           <a
             href="tel:0479213038"
-            className="bg-black px-5 py-2 text-white hover:bg-red-600 transition"
+            className="bg-yellow-500 text-black px-5 py-3 rounded-full font-bold hover:bg-yellow-400 transition"
           >
-            ☎ 0479-21-3038
+            📞 電話で相談
           </a>
 
           <a
-            href="tel:08055637830"
-            className="bg-zinc-900 px-5 py-2 text-white hover:bg-red-600 transition"
+            href="https://line.me/ti/p/qd6RpQYTLe"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-green-500 text-white px-5 py-3 rounded-full font-bold hover:bg-green-400 transition"
           >
-            📱 080-5563-7830
+            💬 LINE登録
           </a>
 
         </div>
 
       </div>
-
-      {/* 下ライン */}
-      <div className="flex h-3">
-
-        <div className="bg-red-600 w-1/3"></div>
-
-        <div className="bg-white w-12 skew-x-[-35deg]"></div>
-
-        <div className="bg-black flex-1"></div>
-
-      </div>
-
     </header>
   );
 }
