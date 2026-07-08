@@ -2,7 +2,7 @@ import Header from "@/components/Header";
 import { supabase } from "@/lib/supabase";
 import Link from "next/link";
 
- {
+ export default async function StockPage() {
 
 
   const { data: cars } = await supabase
