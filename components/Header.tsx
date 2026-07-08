@@ -1,52 +1,80 @@
+import Link from "next/link";
+
 export default function Header() {
   return (
-    <header className="fixed top-0 left-0 w-full z-50 bg-black/80 backdrop-blur-md border-b border-yellow-500/20">
-      <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+    <header className="fixed top-0 left-0 w-full z-50 bg-black/90 backdrop-blur border-b border-red-600">
 
-        <div>
-          <h1 className="text-2xl font-bold tracking-[0.3em] text-white">
-            Bright One
-          </h1>
-          <p className="text-xs text-yellow-400">
-            Drive Your Dream.
-          </p>
-        </div>
+      {/* 赤ライン */}
+      <div className="h-1 bg-red-600"></div>
 
-        <nav className="hidden md:flex gap-8 text-white">
+      <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
 
-          <a href="#" className="hover:text-yellow-400 transition">
+        {/* ロゴ */}
+        <Link href="/" className="flex items-center">
+          <img
+            src="/logo.png"
+            alt="Bright One"
+            className="h-16 w-auto"
+          />
+        </Link>
+
+        {/* メニュー */}
+        <nav className="hidden lg:flex items-center gap-10 font-bold text-white">
+
+          <Link href="/">
             HOME
-          </a>
+          </Link>
 
-          <a href="#service" className="hover:text-yellow-400 transition">
+          <Link href="/inventory">
+            在庫車一覧
+          </Link>
+
+          <a href="#service">
             サービス
           </a>
 
-          <a href="#access" className="hover:text-yellow-400 transition">
+          <a href="#access">
             アクセス
           </a>
 
-          <a href="#contact" className="hover:text-yellow-400 transition">
+          <a href="#contact">
             お問い合わせ
           </a>
 
         </nav>
 
-        <a
-          href="tel:08055637930"
-          className="hidden lg:flex bg-yellow-500 text-black px-5 py-3 rounded-full font-bold hover:bg-yellow-400 transition"
-        >
-          📞 お問い合わせ
-        </a>
-<a
-  href="https://line.me/ti/p/qd6RpQYTLe"
-  target="_blank"
-  rel="noopener noreferrer"
-  className="bg-green-500 text-white px-4 py-2 rounded-full font-bold"
->
-  LINE登録
-</a>
+        {/* 電話番号 */}
+        <div className="hidden xl:flex flex-col border border-red-600 rounded-lg overflow-hidden">
+
+          <a
+            href="tel:0479213038"
+            className="bg-black px-5 py-2 text-white hover:bg-red-600 transition"
+          >
+            ☎ 0479-21-3038
+          </a>
+
+          <a
+            href="tel:08055637830"
+            className="bg-zinc-900 px-5 py-2 text-white hover:bg-red-600 transition"
+          >
+            📱 080-5563-7830
+          </a>
+
+        </div>
+
       </div>
+
+      {/* 下ライン */}
+      <div className="flex h-3">
+
+        <div className="bg-red-600 w-1/3"></div>
+
+        <div className="bg-white w-12 skew-x-[-35deg]"></div>
+
+        <div className="bg-black flex-1"></div>
+
+      </div>
+
     </header>
   );
 }
