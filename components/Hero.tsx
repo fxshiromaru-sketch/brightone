@@ -1,3 +1,4 @@
+import Link from "next/link";
 export default function Hero() {
   return (
     <section
@@ -25,6 +26,9 @@ export default function Hero() {
   <br />
   お車の査定依頼はLINE、メールで気軽にお問い合わせください。
 </p>
+
+
+
 <div className="flex gap-4 mt-10 flex-wrap justify-center">
 
   <a
@@ -51,6 +55,14 @@ export default function Hero() {
   </a>
 
 </div>
+
+<Link
+href="/stock"
+className="inline-block mt-8 bg-white text-black font-bold px-8 py-4 rounded-xl hover:bg-gray-200"
+>
+🚗 中古車・バイクの在庫はこちら
+</Link>
+
 <div className="mt-16 text-gray-400 text-sm leading-relaxed">
   SNSで最新情報更新中<br />
   入庫車両・作業風景・営業情報などを発信しています。

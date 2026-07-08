@@ -20,7 +20,7 @@ export default function Header() {
             HOME
           </Link>
 
-          <Link href="/inventory" className="hover:text-yellow-400 transition">
+          <Link href="/stock" className="hover:text-yellow-400 transition">
             在庫車一覧
           </Link>
 
