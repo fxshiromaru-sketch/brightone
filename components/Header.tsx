@@ -44,7 +44,7 @@ export default function Header() {
             href="tel:0479213038"
             className="bg-yellow-500 text-black px-5 py-3 rounded-full font-bold hover:bg-yellow-400 transition"
           >
-            📞 電話で相談
+            📞 電話
           </a>
 
           <a
