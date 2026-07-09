@@ -8,26 +8,21 @@ export default async function StockDetailPage({
 }) {
 
 
-  const { id } = await params;
+ const { id } = await params;
 
-
-const { data: car } = await supabase
+const { data: car, error } = await supabase
   .from("cars")
   .select("*")
-  .order("created_at", {
-    ascending: false,
-  });
+  .eq("id", id)
+  .single();
 
-
-  if(!car){
-
-    return (
-      <main className="p-10">
-        車両が見つかりません
-      </main>
-    );
-
-  }
+if (!car) {
+  return (
+    <main className="p-10">
+      車両が見つかりません
+    </main>
+  );
+}
 
 
 
