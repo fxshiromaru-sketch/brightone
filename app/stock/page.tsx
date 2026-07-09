@@ -10,7 +10,7 @@ export default async function StockPage() {
   const { data: cars } = await supabase
     .from("cars")
     .select("*")
-    .in("status", ["published"])
+  
     .order("created_at", {
       ascending: false
     });
