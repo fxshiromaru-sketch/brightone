@@ -63,13 +63,16 @@ export default async function StockPage() {
                   走行距離：{car.mileage}
                 </p>
 
-                <Link
-                  href={`/stock/${car.id}`}
-                  className="inline-block mt-5 bg-yellow-500 text-black px-5 py-2 rounded-xl font-bold"
-                >
-                  詳細を見る
-                </Link>
-
+              <Link
+  href={`/stock/${car.id}`}
+  className={`inline-block mt-5 px-5 py-2 rounded-xl font-bold ${
+    car.status === "sold"
+      ? "bg-gray-600 text-white"
+      : "bg-yellow-500 text-black"
+  }`}
+>
+  {car.status === "sold" ? "売約済み" : "詳細を見る"}
+</Link>
               </div>
 
             </div>

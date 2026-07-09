@@ -69,10 +69,10 @@ async function deleteCar(id:string){
 }
 async function toggleSold(car:any){
 
-  const newStatus =
-    car.status === "sold"
-      ? "public"
-      : "sold";
+ const newStatus =
+  car.status === "sold"
+    ? "published"
+    : "sold";
 
 
   const { error } = await supabase

@@ -11,13 +11,12 @@ export default async function StockDetailPage({
   const { id } = await params;
 
 
-
-  const { data: car } = await supabase
-    .from("cars")
-    .select("*")
-    .eq("id", id)
-    .single();
-
+const { data: cars } = await supabase
+  .from("cars")
+  .select("*")
+  .order("created_at", {
+    ascending: false,
+  });
 
 
   if(!car){
@@ -43,15 +42,27 @@ return (
 <div className="max-w-5xl mx-auto">
 
 
-{car.images?.[0] && (
+<div className="relative">
 
-<img
-src={car.images[0]}
-alt={car.name}
-className="w-full h-[500px] object-cover rounded-2xl"
-/>
+  {car.images?.[0] && (
+    <img
+      src={car.images[0]}
+      alt={car.name || "車両画像"}
+      className={`w-full h-64 object-cover ${
+        car.status === "sold" ? "opacity-50" : ""
+      }`}
+    />
+  )}
 
-)}
+  {car.status === "sold" && (
+    <div className="absolute inset-0 flex items-center justify-center">
+      <span className="bg-red-600 text-white text-3xl font-bold px-6 py-3 rounded-xl rotate-[-12deg] shadow-lg">
+        SOLD OUT
+      </span>
+    </div>
+  )}
+
+</div>
 
 <div className="mt-12">
 
