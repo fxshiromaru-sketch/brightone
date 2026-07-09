@@ -28,8 +28,7 @@ export default function Access() {
       <p className="text-gray-400">
         定休日：日曜日
       </p>
-      <br>
-      <br />
+    
       <p className="text-gray-400 text-center mb-6">
   ご来店前にお電話またはLINEでご連絡いただけますと、スムーズにご案内できます。
 </p>
