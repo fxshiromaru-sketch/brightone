@@ -28,11 +28,11 @@ export default function Access() {
       <p className="text-gray-400">
         定休日：日曜日
       </p>
+      <br>
       <p className="text-gray-400 text-center mb-6">
-  ご来店前にお電話またはLINEでご連絡いただけますと、
-  スムーズにご案内できます。
+  ご来店前にお電話またはLINEでご連絡いただけますと、スムーズにご案内できます。
 </p>
-<div className="mt-10 rounded-2xl overflow-hidden shadow-xl">
+<div className="mt-10 max-w-3xl mx-auto rounded-2xl overflow-hidden shadow-xl">
   <iframe
     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3238.1100606647174!2d140.7385857!3d35.748099499999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60231ee8f18346bb%3A0xf3748575914adf89!2z44CSMjg4LTA4NTUg5Y2D6JGJ55yM6Yqa5a2Q5biC54y_55Sw55S677yW77yS77yS4oiS77yR!5e0!3m2!1sja!2sjp!4v1783586531403!5m2!1sja!2sjp"
     width="100%"
