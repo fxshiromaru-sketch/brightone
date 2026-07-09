@@ -15,27 +15,27 @@ export default function Header() {
         </Link>
 
         {/* メニュー */}
-        <nav className="hidden md:flex items-center gap-8 text-white font-medium">
-          <Link href="/" className="hover:text-yellow-400 transition">
-            HOME
-          </Link>
+<nav className="hidden md:flex items-center gap-8 text-white font-medium">
+  <Link href="/" className="hover:text-yellow-400 transition">
+    HOME
+  </Link>
 
-          <Link href="/stock" className="hover:text-yellow-400 transition">
-            在庫車一覧
-          </Link>
+  <Link href="/stock" className="hover:text-yellow-400 transition">
+    在庫車一覧
+  </Link>
 
-          <a href="#service" className="hover:text-yellow-400 transition">
-            サービス
-          </a>
+  <Link href="/#service" className="hover:text-yellow-400 transition">
+    サービス
+  </Link>
 
-          <a href="#access" className="hover:text-yellow-400 transition">
-            アクセス
-          </a>
+  <Link href="/#access" className="hover:text-yellow-400 transition">
+    アクセス
+  </Link>
 
-          <a href="#contact" className="hover:text-yellow-400 transition">
-            お問い合わせ
-          </a>
-        </nav>
+  <Link href="/#contact" className="hover:text-yellow-400 transition">
+    お問い合わせ
+  </Link>
+</nav>
 
         {/* 右側ボタン */}
         <div className="hidden lg:flex items-center gap-3">
