@@ -13,11 +13,11 @@ export default function Contact() {
         メールでのお問い合わせは一番下のフォームからお願いします。<br />
       </p>
 
-    <a
+  <a
   href="https://line.me/ti/p/qd6RpQYTLe"
   target="_blank"
   rel="noopener noreferrer"
-  className="block bg-green-500 text-white text-center py-3 rounded-xl font-bold text-xl mb-6 hover:bg-green-600 transition"
+  className="inline-block bg-green-500 text-white py-3 px-8 rounded-xl font-bold text-xl mb-6 hover:bg-green-600 transition"
 >
   🚗 ＼ LINEからのお問い合わせ大歓迎！ ／
 </a>
