@@ -9,7 +9,8 @@ export default function Contact() {
       </h2>
 
       <p className="text-gray-400 mb-10">
-        お車に関することはお気軽にお問い合わせください
+        お車に関することはお気軽にお問い合わせください<br />
+        メールでのお問い合わせは一番下のフォームからお願いします。<br />
       </p>
 
       <div className="bg-green-500 text-white text-center py-3 rounded-xl font-bold text-xl mb-8 max-w-3xl mx-auto">
