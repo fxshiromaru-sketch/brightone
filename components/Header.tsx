@@ -41,7 +41,7 @@ export default function Header() {
         <div className="hidden lg:flex items-center gap-3">
 
           <a
-            href="tel:0479213038"
+            href="tel:08055637930"
             className="bg-yellow-500 text-black px-5 py-3 rounded-full font-bold hover:bg-yellow-400 transition"
           >
             📞 電話

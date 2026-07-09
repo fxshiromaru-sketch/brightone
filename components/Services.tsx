@@ -1,4 +1,6 @@
-export default function Services() {
+
+  
+  export default function Services() {
   return (
     <section id="service" className="py-24 px-6 max-w-6xl mx-auto">
       <h2 className="text-5xl font-bold text-center mb-16">
