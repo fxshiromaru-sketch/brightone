@@ -1,4 +1,4 @@
-<section id="access">
+
 export default function Access() {
   return (
     <section id="access" className="bg-zinc-950 py-24 text-center px-6">
@@ -57,3 +57,4 @@ export default function Access() {
     </section>
   );
 }
+  <section id="access">
