@@ -18,10 +18,10 @@ export default async function StockPage() {
 
       <Header />
 
-      <div className="p-10">
+     <div className="pt-32 px-10">
 
         <h1 className="text-4xl font-bold mb-10">
-          Bright One 在庫車両
+          在庫車両
         </h1>
 
         <div className="grid gap-8 md:grid-cols-3">
