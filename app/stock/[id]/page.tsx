@@ -11,7 +11,7 @@ export default async function StockDetailPage({
   const { id } = await params;
 
 
-const { data: cars } = await supabase
+const { data: car } = await supabase
   .from("cars")
   .select("*")
   .order("created_at", {
