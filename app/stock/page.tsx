@@ -78,7 +78,7 @@ export default async function StockPage() {
  <div className="mt-5 bg-black border border-zinc-700 rounded-xl p-5">
 
   <p className="text-xs uppercase tracking-widest text-zinc-400">
-    PRICE
+    車両本体価格
   </p>
 
   <p className="text-4xl font-extrabold text-yellow-400 mt-1">
