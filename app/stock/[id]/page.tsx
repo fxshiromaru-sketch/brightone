@@ -74,14 +74,17 @@ return (
 
 
 
-<p className="text-yellow-400 text-3xl font-bold mt-5">
-
-{car.price
-? `${car.price.toLocaleString()}円（税込）`
-:"価格相談"}
-
+<p>
+車両価格：
+{Math.floor(car.price / 10000)}万円（税込）
 </p>
 
+<p>
+支払総額：
+{car.total_price
+ ? Math.floor(car.total_price / 10000) + "万円（税込）"
+ : ""}
+</p>
 
 
 <div className="grid md:grid-cols-2 gap-5 mt-8">
