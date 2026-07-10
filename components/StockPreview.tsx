@@ -14,7 +14,7 @@ const { data: cars } = await supabase
   })
   .limit(6);
 
-  
+
   if (!cars || cars.length === 0) {
 
     return null;
@@ -109,25 +109,58 @@ transition
 >
 
 
+<div className="relative">
 
 {car.images?.[0] && (
 
 <img
-
 src={car.images[0]}
-
 alt={car.name}
-
 className="
 w-full
 h-48
 object-cover
 "
-
 />
 
 )}
 
+
+{car.status === "sold" && (
+
+<div
+className="
+absolute
+inset-0
+flex
+items-center
+justify-center
+bg-black/40
+"
+>
+
+<span
+className="
+bg-red-600
+text-white
+font-bold
+text-xl
+px-5
+py-2
+rounded-xl
+rotate-[-10deg]
+"
+>
+
+SOLD OUT
+
+</span>
+
+</div>
+
+)}
+
+</div>
 
 
 <div className="p-5">

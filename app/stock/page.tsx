@@ -75,32 +75,29 @@ export default async function StockPage() {
   {car.name}
 </h2>
 
- <div className="mt-5 bg-black border border-zinc-700 rounded-xl p-5">
+ <div className="mt-4">
 
-  <p className="text-xs uppercase tracking-widest text-zinc-400">
-    車両本体価格
+  <p className="text-sm text-zinc-400">
+    支払総額（税込）
   </p>
 
-  <p className="text-4xl font-extrabold text-yellow-400 mt-1">
+  <div className="text-yellow-400 text-3xl font-black">
+    {car.total_price
+      ? `${Math.floor(car.total_price / 10000)}万円`
+      : "-"}
+  </div>
+
+
+  <div className="text-sm text-zinc-400 mt-3">
+    車両本体価格
+  </div>
+
+  <div className="text-white text-lg font-bold">
     {car.price
       ? `${Math.floor(car.price / 10000)}万円`
-      : ""}
-  </p>
-
-  <div className="border-t border-zinc-700 my-4"></div>
-
-  <div className="flex justify-between text-sm">
-    <span className="text-zinc-400">
-      支払総額
-    </span>
-
-    <span className="font-bold text-white">
-      {car.total_price
-        ? `${Math.floor(car.total_price / 10000)}万円（税込）`
-        : "-"}
-    </span>
-
+      : "-"}
   </div>
+
 
 
 
