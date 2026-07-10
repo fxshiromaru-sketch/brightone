@@ -16,12 +16,15 @@ export default function Gallery({
 
       <div className="relative">
 
-        <img
-          src={selectedImage}
-          className={`w-full h-[500px] object-cover rounded-2xl border border-zinc-800 ${
-            sold ? "opacity-50" : ""
-          }`}
-        />
+<img
+  key={selectedImage}
+  src={selectedImage}
+  alt="車両画像"
+className={`w-full h-[250px] md:h-[500px] object-contain md:object-cover bg-zinc-950 rounded-2xl ${
+  sold ? "opacity-50" : ""
+}`}
+/>
+<div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-black/70 to-transparent rounded-b-2xl pointer-events-none" />
 
         {sold && (
           <div className="absolute inset-0 flex items-center justify-center">
