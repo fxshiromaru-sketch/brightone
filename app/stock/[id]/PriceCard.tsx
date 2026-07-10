@@ -21,39 +21,35 @@ export default function PriceCard({
 
     <div
       className="
-     bg-zinc-100
-border
-border-yellow-500
-text-black
       rounded-2xl
       overflow-hidden
+      border
+      border-zinc-300
+      bg-white
+      text-black
       shadow-xl
       "
     >
 
 
-      {/* タイトル */}
+      {/* 黄色タイトル */}
 
       <div
         className="
-        border-b
-        border-yellow-500/40
+        bg-yellow-500
         px-6
-        py-3
+        py-4
         "
       >
 
         <p
           className="
-          text-sm
-          text-zinc-600
           font-bold
-          tracking-widest
+          text-black
+          text-lg
           "
         >
-
           支払総額（税込）
-
         </p>
 
       </div>
@@ -66,36 +62,30 @@ text-black
       <div
         className="
         px-6
-        py-6
+        py-7
+        text-center
         "
       >
+
+        <p className="text-sm text-zinc-500">
+          お支払い総額
+        </p>
+
 
         <div
           className="
           text-5xl
-          font-bold
-          text-black
+          font-black
+          mt-2
           "
         >
 
           {totalPrice
             ? `${Math.floor(totalPrice / 10000)}万円`
-            : "-"}
+            : "-"
+          }
 
         </div>
-
-
-        <p
-          className="
-          mt-2
-          text-yellow-400
-          text-sm
-          "
-        >
-
-          諸費用込み
-
-        </p>
 
 
       </div>
@@ -107,67 +97,53 @@ text-black
 
       <div
         className="
-        bg-white
-border-t
-border-zinc-300
+        border-t
+        border-zinc-200
         px-6
-        py-4
-        space-y-2
+        py-5
+        space-y-5
         "
       >
 
 
-        <div
-          className="
-          flex
-          justify-between
-          text-sm
-          "
-        >
+        <div>
 
-          <span className="text-zinc-400">
+          <p className="text-sm text-zinc-500">
             車両本体価格
-          </span>
+          </p>
 
 
-          <span className="font-bold">
+          <p className="text-2xl font-bold">
             {price
               ? `${Math.floor(price / 10000)}万円`
               : "-"
             }
-          </span>
-
+          </p>
 
         </div>
 
 
 
-        <div
-          className="
-          flex
-          justify-between
-          text-sm
-          "
-        >
 
-          <span className="text-zinc-400">
+        <div>
+
+          <p className="text-sm text-zinc-500">
             諸費用
-          </span>
+          </p>
 
 
-          <span className="font-bold">
+          <p className="text-2xl font-bold">
             {expense
               ? `${Math.floor(expense / 10000)}万円`
               : "-"
             }
-          </span>
-
+          </p>
 
         </div>
 
 
-      </div>
 
+      </div>
 
 
     </div>
