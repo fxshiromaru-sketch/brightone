@@ -75,12 +75,17 @@ export default async function StockPage() {
         {car.name}
       </h2>
 
-      <p className="text-3xl text-yellow-400 font-bold mt-5">
-        {car.price
-          ? `${Number(car.price).toLocaleString()}円`
-          : "価格相談"}
-      </p>
+      <p>
+車両価格：
+{Math.floor(car.price / 10000)}万円（税込）
+</p>
 
+<p>
+支払総額：
+{car.total_price
+ ? Math.floor(car.total_price / 10000) + "万円（税込）"
+ : ""}
+</p>
       <div className="grid grid-cols-2 gap-y-3 mt-6 text-sm">
 
         <div>
