@@ -104,30 +104,48 @@ export default async function StockPage() {
 
 
 
+</div><div className="mt-6 overflow-hidden rounded-xl border border-zinc-700">
+
+  <div className="grid grid-cols-[120px_1fr]">
+
+    <div className="bg-zinc-800 px-4 py-3 text-zinc-400 font-medium border-b border-r border-zinc-700">
+      年式
+    </div>
+    <div className="bg-zinc-900 px-4 py-3 border-b border-zinc-700">
+      {car.year}
+    </div>
+
+    <div className="bg-zinc-800 px-4 py-3 text-zinc-400 font-medium border-b border-r border-zinc-700">
+      走行距離
+    </div>
+    <div className="bg-zinc-900 px-4 py-3 border-b border-zinc-700">
+      {car.mileage}
+    </div>
+
+    <div className="bg-zinc-800 px-4 py-3 text-zinc-400 font-medium border-b border-r border-zinc-700">
+      車検
+    </div>
+    <div className="bg-zinc-900 px-4 py-3 border-b border-zinc-700">
+      {car.inspection}
+    </div>
+
+    <div className="bg-zinc-800 px-4 py-3 text-zinc-400 font-medium border-b border-r border-zinc-700">
+      ミッション
+    </div>
+    <div className="bg-zinc-900 px-4 py-3 border-b border-zinc-700">
+      {car.transmission}
+    </div>
+
+    <div className="bg-zinc-800 px-4 py-3 text-zinc-400 font-medium border-r border-zinc-700">
+      駆動方式
+    </div>
+    <div className="bg-zinc-900 px-4 py-3">
+      {car.drive}
+    </div>
+
+  </div>
+
 </div>
-<div className="grid grid-cols-2 gap-3 mt-6">
-
-        <div>
-          <span className="text-gray-500">年式</span>
-          <p>{car.year}</p>
-        </div>
-
-        <div>
-          <span className="text-gray-500">走行距離</span>
-          <p>{car.mileage}</p>
-        </div>
-
-        <div>
-          <span className="text-gray-500">車検</span>
-          <p>{car.inspection}</p>
-        </div>
-
-        <div>
-          <span className="text-gray-500">駆動</span>
-          <p>{car.drive}</p>
-        </div>
-
-      </div>
 
       <Link
         href={`/stock/${car.id}`}
