@@ -28,7 +28,7 @@ export default async function StockPage() {
 
          {cars?.map((car) => (
 
-  <div
+ <div
   key={car.id}
   className="group bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-800 shadow-lg hover:shadow-yellow-500/20 hover:-translate-y-1 transition duration-300"
 >
@@ -75,29 +75,37 @@ export default async function StockPage() {
   {car.name}
 </h2>
 
-  <div className="mt-5 bg-black rounded-xl p-4 border border-zinc-700">
+ <div className="mt-5 bg-black border border-zinc-700 rounded-xl p-5">
 
-<p className="text-xs text-gray-400">
-車両価格（税込）
-</p>
+  <p className="text-xs uppercase tracking-widest text-zinc-400">
+    PRICE
+  </p>
 
-<div className="text-yellow-400 text-3xl font-bold">
-{car.price
- ? `${Math.floor(car.price / 10000)}万円`
- : ""}
+  <p className="text-4xl font-extrabold text-yellow-400 mt-1">
+    {car.price
+      ? `${Math.floor(car.price / 10000)}万円`
+      : ""}
+  </p>
+
+  <div className="border-t border-zinc-700 my-4"></div>
+
+  <div className="flex justify-between text-sm">
+    <span className="text-zinc-400">
+      支払総額
+    </span>
+
+    <span className="font-bold text-white">
+      {car.total_price
+        ? `${Math.floor(car.total_price / 10000)}万円（税込）`
+        : "-"}
+    </span>
+
+  </div>
+
+
+
 </div>
-
-<p className="text-sm mt-2">
-支払総額：
-<span className="font-bold">
-{car.total_price
- ? `${Math.floor(car.total_price / 10000)}万円`
- : ""}
-</span>
-</p>
-
-</div>
-<div className="grid grid-cols-2 gap-3 mt-6 text-sm">
+<div className="grid grid-cols-2 gap-3 mt-6">
 
         <div>
           <span className="text-gray-500">年式</span>
@@ -123,7 +131,7 @@ export default async function StockPage() {
 
       <Link
         href={`/stock/${car.id}`}
-        className="mt-8 block text-center bg-yellow-500 hover:bg-yellow-400 text-black font-bold py-3 rounded-xl transition"
+       className="mt-8 block text-center bg-yellow-500 hover:bg-yellow-400 text-black font-bold py-3 rounded-xl transition duration-300 hover:scale-[1.02]"
       >
         詳細を見る →
       </Link>
