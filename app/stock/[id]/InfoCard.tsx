@@ -1,59 +1,83 @@
-import { ReactNode } from "react";
-import {
-  Calendar,
-  Gauge,
-  ShieldCheck,
-  Fuel,
-  Cog,
-  Car,
-  Palette,
-  Wrench,
-  Users,
-  DoorOpen,
-} from "lucide-react";
-
 type Props = {
   title: string;
-  value: any;
+  value?: string | number | null;
 };
 
 export default function InfoCard({
   title,
   value,
 }: Props) {
-const icons: Record<string, ReactNode> = {
-    年式: <Calendar size={20} />,
-    走行距離: <Gauge size={20} />,
-    車検: <ShieldCheck size={20} />,
-    燃料: <Fuel size={20} />,
-    ミッション: <Cog size={20} />,
-    駆動方式: <Car size={20} />,
-    カラー: <Palette size={20} />,
-    排気量: <Wrench size={20} />,
-    修復歴: <Wrench size={20} />,
-    保証: <ShieldCheck size={20} />,
-    法定整備: <Wrench size={20} />,
-    定員: <Users size={20} />,
-    ドア数: <DoorOpen size={20} />,
-  };
+
 
   return (
-    <div className="group rounded-2xl border border-zinc-800 bg-zinc-900 p-5 transition-all duration-300 hover:border-yellow-500 hover:-translate-y-1 hover:shadow-lg hover:shadow-yellow-500/20">
 
-      <div className="flex items-center gap-2 text-zinc-400">
+    <div
+      className="
+      bg-zinc-900
+      border
+      border-zinc-800
+      rounded-xl
+      overflow-hidden
+      transition
+      hover:border-yellow-500
+      hover:-translate-y-1
+      "
+    >
 
-        {icons[title]}
+      {/* タイトル */}
 
-        <span className="text-sm">
+      <div
+        className="
+        bg-zinc-800
+        px-4
+        py-2
+        "
+      >
+
+        <p
+          className="
+          text-xs
+          text-zinc-400
+          font-bold
+          tracking-wider
+          "
+        >
+
           {title}
-        </span>
+
+        </p>
 
       </div>
 
-      <p className="mt-4 text-2xl font-bold text-white group-hover:text-yellow-400 transition-colors">
-        {value || "-"}
-      </p>
+
+
+      {/* 内容 */}
+
+      <div
+        className="
+        px-4
+        py-5
+        "
+      >
+
+        <p
+          className="
+          text-lg
+          md:text-xl
+          font-bold
+          text-white
+          "
+        >
+
+          {value || "-"}
+
+        </p>
+
+      </div>
+
 
     </div>
+
   );
+
 }

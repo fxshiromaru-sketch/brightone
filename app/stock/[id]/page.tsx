@@ -82,7 +82,7 @@ sold={car.status === "sold"}
 <div className="mt-10">
 
 
-<p className="text-zinc-400 text-sm">
+<p className="text-zinc-500 text-xs tracking-widest">
 
 {car.maker}
 
@@ -90,8 +90,7 @@ sold={car.status === "sold"}
 
 
 
-<h1 className="text-4xl md:text-5xl font-bold mt-2">
-
+<h1 className="text-3xl md:text-4xl font-bold mt-2">
 {car.name}
 
 </h1>
