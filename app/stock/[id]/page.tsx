@@ -93,36 +93,6 @@ return (
     </div>
 
 
-
-
-
-
-<h1 className="text-4xl font-bold mt-8">
-
-{car.maker} {car.name}
-
-</h1>
-
-
-<div className="bg-zinc-900 rounded-2xl border border-zinc-800 overflow-hidden">
-
-  <div className="p-6">
-
-    <p className="text-zinc-400 text-sm">
-      支払総額（税込）
-    </p>
-
-    <div className="text-5xl font-extrabold text-yellow-400 mt-2">
-      {car.total_price
-        ? `${Math.floor(car.total_price / 10000)}万円`
-        : "-"}
-    </div>
-
-  </div>
-
-
-
-</div>
 <div className="mt-8 overflow-hidden rounded-2xl border border-zinc-700">
 
   {[
