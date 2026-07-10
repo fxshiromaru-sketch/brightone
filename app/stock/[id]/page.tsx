@@ -1,6 +1,6 @@
 import { supabase } from "@/lib/supabase";
 import Header from "@/components/Header";
-
+import Gallery from "./Gallery";
 export default async function StockDetailPage({
   params,
 }: {
@@ -36,30 +36,61 @@ return (
 
 <div className="max-w-5xl mx-auto">
 
+<div className="grid lg:grid-cols-[1.5fr_1fr] gap-10">
 
-<div className="relative">
+  {/* 左：画像 */}
+  <div>
 
-  {car.images?.[0] && (
-    <img
-      src={car.images[0]}
-      alt={car.name || "車両画像"}
-      className={`w-full h-64 object-cover ${
-        car.status === "sold" ? "opacity-50" : ""
-      }`}
-    />
-  )}
+  <Gallery
+  images={car.images || []}
+  sold={car.status === "sold"}
+/>
 
-  {car.status === "sold" && (
-    <div className="absolute inset-0 flex items-center justify-center">
-      <span className="bg-red-600 text-white text-3xl font-bold px-6 py-3 rounded-xl rotate-[-12deg] shadow-lg">
-        SOLD OUT
-      </span>
+  </div>
+
+  {/* 右：情報 */}
+
+  <div>
+
+    <p className="text-zinc-400 text-sm">
+      {car.maker}
+    </p>
+
+    <h1 className="text-4xl font-bold mb-6">
+      {car.name}
+    </h1>
+
+    {/* 車両価格 */}
+
+    <div className="bg-zinc-900 rounded-2xl border border-zinc-800 p-6">
+
+      <p className="text-zinc-400 text-sm">
+        車両本体価格（税込）
+      </p>
+
+      <div className="text-4xl font-bold text-yellow-400">
+
+        {car.price
+          ? `${Math.floor(car.price / 10000)}万円`
+          : "-"}
+
+      </div>
+
+      <div className="border-t border-zinc-700 my-5"></div>
+
+      <p className="text-zinc-400 text-sm">
+        支払総額（税込）
+      </p>
+
+      <div className="text-3xl font-bold">
+
+        {car.total_price
+          ? `${Math.floor(car.total_price / 10000)}万円`
+          : "-"}
+
+      </div>
+
     </div>
-  )}
-
-</div>
-
-<div className="mt-12">
 
 
 
@@ -86,8 +117,52 @@ return (
     ? `${Math.floor(car.total_price / 10000)}万円（税込）`
     : ""}
 </div>
+<div className="mt-8 overflow-hidden rounded-2xl border border-zinc-700">
 
-<div className="grid md:grid-cols-2 gap-5 mt-8">
+  {[
+    ["年式", car.year],
+    ["走行距離", car.mileage],
+    ["車検", car.inspection],
+    ["排気量", car.displacement],
+    ["燃料", car.fuel],
+    ["ミッション", car.transmission],
+    ["駆動方式", car.drive],
+    ["カラー", car.color],
+    ["乗車定員", car.capacity],
+    ["ドア数", car.doors],
+    ["修復歴", car.repair_history],
+    ["保証", car.warranty],
+    ["法定整備", car.maintenance],
+    ["リサイクル料", car.recycle_fee],
+    ["車台番号", car.chassis_number],
+  ].map(([label, value], index) => (
+    <div
+      key={label}
+      className="grid grid-cols-[140px_1fr]"
+    >
+      <div
+        className={`bg-zinc-800 p-4 font-semibold border-r border-zinc-700 ${
+          index !== 14 ? "border-b border-zinc-700" : ""
+        }`}
+      >
+        {label}
+      </div>
+
+      <div
+        className={`bg-zinc-900 p-4 ${
+          index !== 14 ? "border-b border-zinc-700" : ""
+        }`}
+      >
+        {value || "-"}
+      </div>
+    </div>
+  ))}
+
+</div>
+
+</div>
+
+</div>
 
 
 <p>
@@ -181,8 +256,7 @@ className="w-full h-48 object-cover rounded-xl"
 
 </div>
 
-</div>
-</div>
+
 </main>
 
 )
