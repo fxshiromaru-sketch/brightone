@@ -182,16 +182,35 @@ SOLD OUT
 
 
 
-<p className="text-yellow-400 text-xl font-bold mt-3">
+<div className="mt-4">
 
-{car.price
-?
-`${Math.floor(car.price / 10000)}万円`
-:
-"-"
-}
+  <p className="text-zinc-400 text-xs">
+    支払総額（税込）
+  </p>
 
-</p>
+
+  <p className="text-yellow-400 text-3xl font-black">
+    {car.total_price
+      ? `${Math.floor(car.total_price / 10000)}万円`
+      : "-"
+    }
+  </p>
+
+
+
+  <p className="text-zinc-500 text-sm mt-2">
+    車両本体価格
+  </p>
+
+
+  <p className="text-white text-lg font-bold">
+    {car.price
+      ? `${Math.floor(car.price / 10000)}万円`
+      : "-"
+    }
+  </p>
+
+</div>
 
 
 
