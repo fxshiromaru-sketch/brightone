@@ -16,10 +16,19 @@ const [images, setImages] = useState<File[]>([]);
     year: "",
     mileage: "",
     inspection: "",
+    displacement: "",
     transmission: "",
     drive: "",
     color: "",
-    description: "",
+    fuel: "",
+capacity: "",
+doors: "",
+repair_history: "",
+warranty: "",
+maintenance: "",
+recycle_fee: "",
+chassis_number: "",
+description: "",
     featured: false,
   });
 
@@ -101,9 +110,18 @@ const { error } = await supabase
       inspection: form.inspection,
       transmission: form.transmission,
       drive: form.drive,
-      color: form.color,
-      description: form.description,
-      featured: form.featured,
+  color: form.color,
+fuel: form.fuel,
+displacement: form.displacement,
+capacity: form.capacity,
+doors: form.doors,
+repair_history: form.repair_history,
+warranty: form.warranty,
+maintenance: form.maintenance,
+recycle_fee: form.recycle_fee,
+chassis_number: form.chassis_number,
+description: form.description,
+featured: form.featured,
       images: imageUrls,
     },
   ]);
@@ -136,9 +154,9 @@ return (
 
 <form
 onSubmit={handleSubmit}
-className="space-y-4"
+className="space-y-6"
 >
-
+<div className="grid md:grid-cols-2 gap-4">
 
 <input
 name="maker"
@@ -156,7 +174,9 @@ value={form.name}
 onChange={handleChange}
 className="border p-3 w-full"
 />
+</div>
 
+<div className="grid md:grid-cols-2 gap-4">
 
 <input
 name="price"
@@ -175,6 +195,10 @@ className="border p-3 w-full"
   className="border p-3 w-full"
 />
 
+</div>
+
+<div className="grid md:grid-cols-2 gap-4">
+
 <input
 name="year"
 placeholder="年式"
@@ -191,8 +215,8 @@ value={form.mileage}
 onChange={handleChange}
 className="border p-3 w-full"
 />
-
-
+</div>
+<div className="grid md:grid-cols-2 gap-4">
 <input
 name="inspection"
 placeholder="車検"
@@ -200,6 +224,16 @@ value={form.inspection}
 onChange={handleChange}
 className="border p-3 w-full"
 />
+<input
+name="displacement"
+placeholder="排気量"
+value={form.displacement}
+onChange={handleChange}
+className="border p-3 w-full"
+/>
+</div>
+
+<div className="grid md:grid-cols-2 gap-4">
 
 
 <input
@@ -219,6 +253,9 @@ onChange={handleChange}
 className="border p-3 w-full"
 />
 
+</div>
+
+<div className="grid md:grid-cols-2 gap-4">
 
 <input
 name="color"
@@ -227,8 +264,124 @@ value={form.color}
 onChange={handleChange}
 className="border p-3 w-full"
 />
+<select
+  name="fuel"
+  value={form.fuel}
+  onChange={(e)=>
+    setForm({
+      ...form,
+      fuel:e.target.value
+    })
+  }
+  className="w-full rounded-xl border border-zinc-700 bg-zinc-900 px-4 py-3 text-white"
+>
 
+  <option value="">燃料</option>
+  <option value="ガソリン">ガソリン</option>
+  <option value="ハイブリッド">ハイブリッド</option>
+  <option value="ディーゼル">ディーゼル</option>
+  <option value="EV">EV</option>
 
+</select>
+</div>
+
+<div className="grid md:grid-cols-2 gap-4">
+
+<input
+  name="capacity"
+  placeholder="乗車定員"
+  value={form.capacity}
+  onChange={handleChange}
+  className="border p-3 w-full"
+/>
+
+<input
+  name="doors"
+  placeholder="ドア数"
+  value={form.doors}
+  onChange={handleChange}
+  className="border p-3 w-full"
+/>
+
+</div>
+
+<div className="grid md:grid-cols-2 gap-4">
+
+<select
+  name="repair_history"
+  value={form.repair_history}
+  onChange={(e)=>
+    setForm({
+      ...form,
+      repair_history:e.target.value
+    })
+  }
+  className="w-full rounded-xl border border-zinc-700 bg-zinc-900 px-4 py-3 text-white"
+>
+
+<option value="">修復歴</option>
+<option value="なし">なし</option>
+<option value="あり">あり</option>
+
+</select>
+
+<select
+  name="warranty"
+  value={form.warranty}
+  onChange={(e)=>
+    setForm({
+      ...form,
+      warranty:e.target.value
+    })
+  }
+  className="w-full rounded-xl border border-zinc-700 bg-zinc-900 px-4 py-3 text-white"
+>
+
+<option value="">保証</option>
+<option value="あり">あり</option>
+<option value="なし">なし</option>
+
+</select>
+
+</div>
+
+<div className="grid md:grid-cols-2 gap-4">
+
+<select
+  name="maintenance"
+  value={form.maintenance}
+  onChange={(e)=>
+    setForm({
+      ...form,
+      maintenance:e.target.value
+    })
+  }
+  className="w-full rounded-xl border border-zinc-700 bg-zinc-900 px-4 py-3 text-white"
+>
+
+<option value="">法定整備</option>
+<option value="実施済">実施済</option>
+<option value="実施なし">実施なし</option>
+
+</select>
+
+<input
+  name="recycle_fee"
+  placeholder="リサイクル料"
+  value={form.recycle_fee}
+  onChange={handleChange}
+  className="border p-3 w-full"
+/>
+
+</div>
+
+<input
+  name="chassis_number"
+  placeholder="車台番号（下3桁）"
+  value={form.chassis_number}
+  onChange={handleChange}
+  className="border p-3 w-full"
+/>
 <textarea
 name="description"
 placeholder="コメント"
