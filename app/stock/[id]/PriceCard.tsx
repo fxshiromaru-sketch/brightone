@@ -1,75 +1,171 @@
 type Props = {
-  price: number;
-  totalPrice: number;
+  price?: number | null;
+  totalPrice?: number | null;
 };
+
 
 export default function PriceCard({
   price,
   totalPrice,
 }: Props) {
 
-  const expenses =
+
+  const expense =
     totalPrice && price
       ? totalPrice - price
-      : 0;
+      : null;
+
+
 
   return (
 
-    <div className="rounded-2xl overflow-hidden border border-zinc-800 bg-zinc-900 shadow-lg">
+    <div
+      className="
+      bg-zinc-900
+      border
+      border-yellow-500/40
+      rounded-2xl
+      overflow-hidden
+      shadow-xl
+      "
+    >
 
-      {/* 支払総額 */}
 
-      <div className="bg-yellow-500 text-black p-6">
+      {/* タイトル */}
 
-        <p className="text-sm font-semibold uppercase tracking-widest">
-          TOTAL PRICE
-        </p>
+      <div
+        className="
+        border-b
+        border-yellow-500/40
+        px-6
+        py-3
+        "
+      >
 
-        <div className="text-5xl font-extrabold mt-2">
-          {totalPrice
-            ? `${Math.floor(totalPrice / 10000)}万円`
-            : "-"}
-        </div>
+        <p
+          className="
+          text-sm
+          text-zinc-400
+          font-bold
+          tracking-widest
+          "
+        >
 
-        <p className="text-sm mt-2">
           支払総額（税込）
+
         </p>
 
       </div>
 
-      {/* 本体価格 */}
 
-      <div className="p-6 space-y-5">
 
-        <div className="flex justify-between items-center border-b border-zinc-800 pb-4">
+
+      {/* 総額 */}
+
+      <div
+        className="
+        px-6
+        py-6
+        "
+      >
+
+        <div
+          className="
+          text-5xl
+          font-bold
+          text-white
+          "
+        >
+
+          {totalPrice
+            ? `${Math.floor(totalPrice / 10000)}万円`
+            : "-"}
+
+        </div>
+
+
+        <p
+          className="
+          mt-2
+          text-yellow-400
+          text-sm
+          "
+        >
+
+          諸費用込み
+
+        </p>
+
+
+      </div>
+
+
+
+
+      {/* 内訳 */}
+
+      <div
+        className="
+        bg-black/30
+        px-6
+        py-4
+        space-y-2
+        "
+      >
+
+
+        <div
+          className="
+          flex
+          justify-between
+          text-sm
+          "
+        >
 
           <span className="text-zinc-400">
             車両本体価格
           </span>
 
-          <span className="text-2xl font-bold text-white">
+
+          <span className="font-bold">
             {price
               ? `${Math.floor(price / 10000)}万円`
-              : "-"}
+              : "-"
+            }
           </span>
+
 
         </div>
 
-        <div className="flex justify-between items-center">
+
+
+        <div
+          className="
+          flex
+          justify-between
+          text-sm
+          "
+        >
 
           <span className="text-zinc-400">
             諸費用
           </span>
 
-          <span className="text-xl font-bold text-yellow-400">
-            {expenses
-              ? `${Math.floor(expenses / 10000)}万円`
-              : "0万円"}
+
+          <span className="font-bold">
+            {expense
+              ? `${Math.floor(expense / 10000)}万円`
+              : "-"
+            }
           </span>
+
 
         </div>
 
+
       </div>
+
+
 
     </div>
 
