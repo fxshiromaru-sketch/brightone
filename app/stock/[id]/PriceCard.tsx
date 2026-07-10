@@ -21,35 +21,37 @@ export default function PriceCard({
 
     <div
       className="
+      bg-zinc-900
+      border
+      border-zinc-800
       rounded-2xl
       overflow-hidden
-      border
-      border-zinc-300
-      bg-white
-      text-black
       shadow-xl
       "
     >
 
 
-      {/* 黄色タイトル */}
+      {/* 支払総額タイトル */}
 
       <div
         className="
         bg-yellow-500
         px-6
-        py-4
+        py-3
         "
       >
 
         <p
           className="
-          font-bold
           text-black
-          text-lg
+          text-base
+          font-bold
+          tracking-widest
           "
         >
+
           支払総額（税込）
+
         </p>
 
       </div>
@@ -63,12 +65,19 @@ export default function PriceCard({
         className="
         px-6
         py-7
-        text-center
         "
       >
 
-        <p className="text-sm text-zinc-500">
+        <p
+          className="
+          text-zinc-400
+          text-sm
+          mb-2
+          "
+        >
+
           お支払い総額
+
         </p>
 
 
@@ -76,7 +85,7 @@ export default function PriceCard({
           className="
           text-5xl
           font-black
-          mt-2
+          text-white
           "
         >
 
@@ -98,7 +107,7 @@ export default function PriceCard({
       <div
         className="
         border-t
-        border-zinc-200
+        border-zinc-700
         px-6
         py-5
         space-y-5
@@ -106,38 +115,86 @@ export default function PriceCard({
       >
 
 
-        <div>
 
-          <p className="text-sm text-zinc-500">
+        {/* 車両価格 */}
+
+        <div
+          className="
+          flex
+          justify-between
+          items-center
+          "
+        >
+
+          <span
+            className="
+            text-zinc-400
+            text-base
+            "
+          >
             車両本体価格
-          </p>
+          </span>
 
 
-          <p className="text-2xl font-bold">
+          <span
+            className="
+            text-white
+            text-xl
+            font-bold
+            "
+          >
+
             {price
               ? `${Math.floor(price / 10000)}万円`
               : "-"
             }
-          </p>
+
+          </span>
+
 
         </div>
 
 
 
 
-        <div>
 
-          <p className="text-sm text-zinc-500">
+        {/* 諸費用 */}
+
+        <div
+          className="
+          flex
+          justify-between
+          items-center
+          "
+        >
+
+          <span
+            className="
+            text-zinc-400
+            text-base
+            "
+          >
+
             諸費用
-          </p>
+
+          </span>
 
 
-          <p className="text-2xl font-bold">
+          <span
+            className="
+            text-white
+            text-xl
+            font-bold
+            "
+          >
+
             {expense
               ? `${Math.floor(expense / 10000)}万円`
               : "-"
             }
-          </p>
+
+          </span>
+
 
         </div>
 
