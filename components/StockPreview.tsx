@@ -5,7 +5,7 @@ import { supabase } from "@/lib/supabase";
 export default async function StockPreview() {
 
 
-const { data: cars, error } = await supabase
+const { data: cars } = await supabase
   .from("cars")
   .select("*")
   .eq("featured", true)
@@ -14,9 +14,7 @@ const { data: cars, error } = await supabase
   })
   .limit(6);
 
-
-console.log("おすすめ車両", cars);
-console.log("エラー", error);
+  
   if (!cars || cars.length === 0) {
 
     return null;
