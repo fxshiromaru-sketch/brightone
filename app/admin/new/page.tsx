@@ -12,6 +12,7 @@ const [images, setImages] = useState<File[]>([]);
     maker: "",
     name: "",
     price: "",
+    total_price: "",
     year: "",
     mileage: "",
     inspection: "",
@@ -93,6 +94,7 @@ const { error } = await supabase
       maker: form.maker,
       name: form.name,
       price: Number(form.price),
+      total_price: Number(form.total_price),
       status: "published",
       year: form.year,
       mileage: form.mileage,
@@ -164,7 +166,14 @@ value={form.price}
 onChange={handleChange}
 className="border p-3 w-full"
 />
-
+<input
+  name="total_price"
+  type="number"
+  placeholder="支払総額（例：2698000）"
+  value={form.total_price}
+  onChange={handleChange}
+  className="border p-3 w-full"
+/>
 
 <input
 name="year"
