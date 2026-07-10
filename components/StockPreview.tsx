@@ -9,6 +9,7 @@ const { data: cars } = await supabase
   .from("cars")
   .select("*")
   .eq("featured", true)
+  .eq("status", "published")
   .order("created_at", {
     ascending: false
   })
