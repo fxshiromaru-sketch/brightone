@@ -14,20 +14,29 @@ export default function EditCarPage({
 const [id, setId] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const [form, setForm] = useState<any>({
-    maker: "",
-    name: "",
-    price: "",
-    total_price: "",
-    year: "",
-    mileage: "",
-    inspection: "",
-    transmission: "",
-    drive: "",
-    color: "",
-    description: "",
-    featured: false,
-  });
+ const [form, setForm] = useState<any>({
+  maker: "",
+  name: "",
+  price: "",
+  total_price: "",
+  year: "",
+  mileage: "",
+  inspection: "",
+  displacement: "",
+  transmission: "",
+  drive: "",
+  color: "",
+  fuel: "",
+  capacity: "",
+  doors: "",
+  repair_history: "",
+  warranty: "",
+  maintenance: "",
+  recycle_fee: "",
+  chassis_number: "",
+  description: "",
+  featured: false,
+});
 
 
   useEffect(() => {
@@ -102,8 +111,17 @@ async function getCar(id:string){
         inspection:form.inspection,
         transmission:form.transmission,
         drive:form.drive,
-        color:form.color,
-        description:form.description,
+       color: form.color,
+displacement: form.displacement,
+fuel: form.fuel,
+capacity: form.capacity,
+doors: form.doors,
+repair_history: form.repair_history,
+warranty: form.warranty,
+maintenance: form.maintenance,
+recycle_fee: form.recycle_fee,
+chassis_number: form.chassis_number,
+description: form.description,
         featured:form.featured,
 
       })
@@ -152,9 +170,14 @@ className="max-w-xl space-y-4"
 "year",
 "mileage",
 "inspection",
+"displacement",
 "transmission",
 "drive",
-"color"
+"color",
+"capacity",
+"doors",
+"recycle_fee",
+"chassis_number"
 
 ].map((item)=>(
 
@@ -169,6 +192,49 @@ className="w-full p-3 bg-zinc-900 rounded"
 
 ))}
 
+<select
+  name="fuel"
+  value={form.fuel || ""}
+  onChange={handleChange}
+  className="w-full p-3 bg-zinc-900 rounded"
+>
+  <option value="">燃料</option>
+  <option value="ガソリン">ガソリン</option>
+  <option value="ハイブリッド">ハイブリッド</option>
+  <option value="ディーゼル">ディーゼル</option>
+  <option value="EV">EV</option>
+</select>
+<select
+  name="repair_history"
+  value={form.repair_history || ""}
+  onChange={handleChange}
+  className="w-full p-3 bg-zinc-900 rounded"
+>
+  <option value="">修復歴</option>
+  <option value="なし">なし</option>
+  <option value="あり">あり</option>
+</select>
+<select
+  name="warranty"
+  value={form.warranty || ""}
+  onChange={handleChange}
+  className="w-full p-3 bg-zinc-900 rounded"
+>
+  <option value="">保証</option>
+  <option value="あり">あり</option>
+  <option value="なし">なし</option>
+</select>
+
+<select
+  name="maintenance"
+  value={form.maintenance || ""}
+  onChange={handleChange}
+  className="w-full p-3 bg-zinc-900 rounded"
+>
+  <option value="">法定整備</option>
+  <option value="実施済">実施済</option>
+  <option value="実施なし">実施なし</option>
+</select>
 
 <textarea
 name="description"
