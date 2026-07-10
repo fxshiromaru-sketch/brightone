@@ -24,60 +24,99 @@ export default async function StockPage() {
           在庫車両
         </h1>
 
-        <div className="grid gap-8 md:grid-cols-3">
+        <div className="grid gap-10 md:grid-cols-2 xl:grid-cols-3">
 
-          {cars?.map((car) => (
+         {cars?.map((car) => (
 
-            <div
-              key={car.id}
-              className="bg-zinc-900 rounded-2xl overflow-hidden"
-            >
+  <div
+    key={car.id}
+    className="bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-800 shadow-lg hover:shadow-yellow-500/20 hover:-translate-y-1 transition duration-300"
+  >
 
-              {car.images?.[0] && (
+    {/* 画像 */}
+    <div className="relative">
 
-                <img
-                  src={car.images[0]}
-                  alt={car.name || "車両画像"}
-                  className="w-full h-64 object-cover rounded-xl"
-                />
+      {car.images?.[0] && (
+        <img
+          src={car.images[0]}
+          alt={car.name || "車両画像"}
+          className={`w-full h-60 object-cover transition ${
+            car.status === "sold" ? "opacity-40" : ""
+          }`}
+        />
+      )}
 
-              )}
+      {/* SOLD OUT */}
+      {car.status === "sold" && (
+        <div className="absolute inset-0 flex items-center justify-center">
+          <span className="bg-red-600 text-white text-2xl font-bold px-6 py-3 rounded-xl rotate-[-12deg] shadow-xl">
+            SOLD OUT
+          </span>
+        </div>
+      )}
 
-              <div className="p-5">
+      {/* NEW */}
+      {car.featured && (
+        <div className="absolute top-3 left-3 bg-yellow-500 text-black text-xs font-bold px-3 py-1 rounded-full">
+          NEW
+        </div>
+      )}
 
-                <h2 className="text-xl font-bold">
-                  {car.maker} {car.name}
-                </h2>
+    </div>
 
-                <p className="mt-3 text-yellow-400 text-2xl font-bold">
-                  {car.price
-                    ? `${Number(car.price).toLocaleString()}円（税込）`
-                    : "価格相談"}
-                </p>
+    {/* 情報 */}
+    <div className="p-6">
 
-                <p>
-                  年式：{car.year}
-                </p>
+      <p className="text-sm text-gray-400">
+        {car.maker}
+      </p>
 
-                <p>
-                  走行距離：{car.mileage}
-                </p>
+      <h2 className="text-2xl font-bold mt-1">
+        {car.name}
+      </h2>
 
-              <Link
-  href={`/stock/${car.id}`}
-  className={`inline-block mt-5 px-5 py-2 rounded-xl font-bold ${
-    car.status === "sold"
-      ? "bg-gray-600 text-white"
-      : "bg-yellow-500 text-black"
-  }`}
->
-  {car.status === "sold" ? "売約済み" : "詳細を見る"}
-</Link>
-              </div>
+      <p className="text-3xl text-yellow-400 font-bold mt-5">
+        {car.price
+          ? `${Number(car.price).toLocaleString()}円`
+          : "価格相談"}
+      </p>
 
-            </div>
+      <div className="grid grid-cols-2 gap-y-3 mt-6 text-sm">
 
-          ))}
+        <div>
+          <span className="text-gray-500">年式</span>
+          <p>{car.year}</p>
+        </div>
+
+        <div>
+          <span className="text-gray-500">走行距離</span>
+          <p>{car.mileage}</p>
+        </div>
+
+        <div>
+          <span className="text-gray-500">車検</span>
+          <p>{car.inspection}</p>
+        </div>
+
+        <div>
+          <span className="text-gray-500">駆動</span>
+          <p>{car.drive}</p>
+        </div>
+
+      </div>
+
+      <Link
+        href={`/stock/${car.id}`}
+        className="mt-8 block text-center bg-yellow-500 hover:bg-yellow-400 text-black font-bold py-3 rounded-xl transition"
+      >
+        詳細を見る →
+      </Link>
+
+    </div>
+
+  </div>
+
+))}
 
         </div>
 
