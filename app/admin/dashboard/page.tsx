@@ -212,11 +212,17 @@ className="bg-zinc-900 rounded-xl p-5"
 </h3>
 
 
-価格：
+車両価格：
 {car.price
  ? `${Math.floor(car.price / 10000)}万円（税込）`
  : ""}
 
+<p>
+支払総額：
+{car.total_price
+ ? `${Math.floor(car.total_price / 10000)}万円（税込）`
+ : ""}
+</p>
 
 <p>
 年式：{car.year}
