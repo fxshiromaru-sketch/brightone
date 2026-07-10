@@ -7,16 +7,15 @@ export default function CommentBox({
 }: Props) {
   return (
     <section className="mt-12">
+<div className="rounded-2xl bg-white shadow-xl overflow-hidden">
 
-      <div className="rounded-2xl bg-white shadow-xl overflow-hidden">
+  <div className="bg-yellow-500 px-6 py-4">
 
-        <div className="bg-yellow-500 px-6 py-4">
+    <h2 className="text-black text-xl font-bold">
+      販売店コメント
+    </h2>
 
-          <h2 className="text-black text-xl font-bold">
-            販売店コメント
-          </h2>
-
-        </div>
+  </div>
 
         <div className="p-8">
 
