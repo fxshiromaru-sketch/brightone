@@ -5,15 +5,15 @@ import { supabase } from "@/lib/supabase";
 export default async function StockPreview() {
 
 
-  const { data: cars } = await supabase
-    .from("cars")
-    .select("*")
-    .eq("status", "published")
-    .order("created_at", {
-      ascending: false
-    })
-    .limit(6);
-
+const { data: cars } = await supabase
+  .from("cars")
+  .select("*")
+  .eq("status", "published")
+  .eq("featured", true)
+  .order("created_at", {
+    ascending: false
+  })
+  .limit(6);
 
 
   if (!cars || cars.length === 0) {
