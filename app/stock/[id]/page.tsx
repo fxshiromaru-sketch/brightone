@@ -109,22 +109,22 @@ return (
   <InfoCard title="ドア数" value={car.doors} />
 
 </div>
-
-</div>
-
-</div>
-
-</div>
-
-
-
-</div>
-
-
-
 <CommentBox
   comment={car.description}
 />
+
+</div>
+
+</div>
+
+</div>
+
+
+
+</div>
+
+
+
 
 <ContactButtons
   carName={`${car.maker} ${car.name}`}
