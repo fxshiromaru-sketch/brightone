@@ -29,9 +29,9 @@ export default async function StockPage() {
          {cars?.map((car) => (
 
   <div
-    key={car.id}
-    className="bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-800 shadow-lg hover:shadow-yellow-500/20 hover:-translate-y-1 transition duration-300"
-  >
+  key={car.id}
+  className="group bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-800 shadow-lg hover:shadow-yellow-500/20 hover:-translate-y-1 transition duration-300"
+>
 
     {/* 画像 */}
     <div className="relative">
@@ -40,7 +40,7 @@ export default async function StockPage() {
         <img
           src={car.images[0]}
           alt={car.name || "車両画像"}
-          className={`w-full h-60 object-cover transition ${
+          className={`w-full h-64 object-cover transition duration-500 group-hover:scale-105 ${
             car.status === "sold" ? "opacity-40" : ""
           }`}
         />
@@ -67,27 +67,37 @@ export default async function StockPage() {
     {/* 情報 */}
     <div className="p-6">
 
-      <p className="text-sm text-gray-400">
-        {car.maker}
-      </p>
+  <p className="text-sm text-zinc-400 tracking-widest">
+  {car.maker}
+</p>
 
-      <h2 className="text-2xl font-bold mt-1">
-        {car.name}
-      </h2>
+<h2 className="text-3xl font-bold mt-1">
+  {car.name}
+</h2>
 
-    <div className="text-yellow-400 text-2xl font-bold">
-  {car.price
-    ? `${Math.floor(car.price / 10000)}万円（税込）`
-    : ""}
+  <div className="mt-5 bg-black rounded-xl p-4 border border-zinc-700">
+
+<p className="text-xs text-gray-400">
+車両価格（税込）
+</p>
+
+<div className="text-yellow-400 text-3xl font-bold">
+{car.price
+ ? `${Math.floor(car.price / 10000)}万円`
+ : ""}
 </div>
 
-<div className="text-sm text-white mt-2">
-  支払総額：
-  {car.total_price
-    ? `${Math.floor(car.total_price / 10000)}万円（税込）`
-    : ""}
+<p className="text-sm mt-2">
+支払総額：
+<span className="font-bold">
+{car.total_price
+ ? `${Math.floor(car.total_price / 10000)}万円`
+ : ""}
+</span>
+</p>
+
 </div>
-      <div className="grid grid-cols-2 gap-y-3 mt-6 text-sm">
+<div className="grid grid-cols-2 gap-3 mt-6 text-sm">
 
         <div>
           <span className="text-gray-500">年式</span>
