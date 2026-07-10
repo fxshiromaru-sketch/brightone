@@ -8,9 +8,11 @@ export default async function StockPreview() {
 const { data: cars } = await supabase
   .from("cars")
   .select("*")
-  .eq("featured", true);
-
-
+  .eq("featured", true)
+  .order("created_at", {
+    ascending: false
+  })
+  .limit(6);
   if (!cars || cars.length === 0) {
 
     return null;
@@ -43,7 +45,7 @@ STOCK
 
 <h2 className="text-3xl md:text-4xl font-bold">
 
-在庫車両
+おすすめ車両
 
 </h2>
 
