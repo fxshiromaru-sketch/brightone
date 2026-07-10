@@ -21,9 +21,10 @@ export default function PriceCard({
 
     <div
       className="
-      bg-zinc-900
-      border
-      border-yellow-500/40
+     bg-zinc-100
+border
+border-yellow-500
+text-black
       rounded-2xl
       overflow-hidden
       shadow-xl
@@ -45,7 +46,7 @@ export default function PriceCard({
         <p
           className="
           text-sm
-          text-zinc-400
+          text-zinc-600
           font-bold
           tracking-widest
           "
@@ -73,7 +74,7 @@ export default function PriceCard({
           className="
           text-5xl
           font-bold
-          text-white
+          text-black
           "
         >
 
@@ -106,7 +107,9 @@ export default function PriceCard({
 
       <div
         className="
-        bg-black/30
+        bg-white
+border-t
+border-zinc-300
         px-6
         py-4
         space-y-2
