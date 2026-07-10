@@ -104,18 +104,24 @@ return (
 </h1>
 
 
+<div className="bg-zinc-900 rounded-2xl border border-zinc-800 overflow-hidden">
 
-<div className="text-yellow-400 text-2xl font-bold">
-  {car.price
-    ? `${Math.floor(car.price / 10000)}万円（税込）`
-    : ""}
-</div>
+  <div className="p-6">
 
-<div className="text-sm text-white mt-2">
-  支払総額：
-  {car.total_price
-    ? `${Math.floor(car.total_price / 10000)}万円（税込）`
-    : ""}
+    <p className="text-zinc-400 text-sm">
+      支払総額（税込）
+    </p>
+
+    <div className="text-5xl font-extrabold text-yellow-400 mt-2">
+      {car.total_price
+        ? `${Math.floor(car.total_price / 10000)}万円`
+        : "-"}
+    </div>
+
+  </div>
+
+
+
 </div>
 <div className="mt-8 overflow-hidden rounded-2xl border border-zinc-700">
 
@@ -164,35 +170,6 @@ return (
 
 </div>
 
-
-<p>
-年式：{car.year}
-</p>
-
-
-<p>
-走行距離：{car.mileage}
-</p>
-
-
-<p>
-車検：{car.inspection}
-</p>
-
-
-<p>
-ミッション：{car.transmission}
-</p>
-
-
-<p>
-駆動方式：{car.drive}
-</p>
-
-
-<p>
-カラー：{car.color}
-</p>
 
 
 </div>
