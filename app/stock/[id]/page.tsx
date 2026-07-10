@@ -183,25 +183,6 @@ LINEで問い合わせ
 
 </div>
 
-<div className="mt-12"></div>
-<h2 className="text-2xl font-bold mb-5">
-その他の写真
-</h2>
-
-<div className="grid md:grid-cols-3 gap-5">
-
-{car.images?.slice(1).map((image:string, index:number)=>(
-
-<img
-key={index}
-src={image}
-alt={`${car.name} ${index + 2}`}
-className="w-full h-48 object-cover rounded-xl"
-/>
-
-))}
-
-</div>
 
 
 </main>
