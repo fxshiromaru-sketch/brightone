@@ -211,7 +211,28 @@ SOLD OUT
   </p>
 
 </div>
+<div className="grid grid-cols-2 gap-3 mt-4">
 
+  <div className="bg-zinc-900 rounded-lg p-3">
+    <p className="text-xs text-zinc-400">
+      年式
+    </p>
+    <p className="font-bold">
+      {car.year || "-"}
+    </p>
+  </div>
+
+
+  <div className="bg-zinc-900 rounded-lg p-3">
+    <p className="text-xs text-zinc-400">
+      走行距離
+    </p>
+    <p className="font-bold">
+      {car.mileage || "-"}
+    </p>
+  </div>
+
+</div>
 
 
 </div>
