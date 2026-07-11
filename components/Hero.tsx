@@ -22,18 +22,32 @@ export default function Hero() {
       </p>
 
 
-      <p className="mt-8 text-gray-200 text-lg max-w-3xl leading-relaxed">
+<p className="mt-8 text-gray-200 max-w-5xl text-lg leading-loose">
 
-        千葉県銚子市の中古車販売店 Bright One。
-        <br />
+  千葉県銚子市の中古車販売店
+  <span className="font-bold text-white">
+    Bright One
+  </span>
+  です。
 
-        中古車販売・高価買取・カスタムまで
-        <br />
+  <br />
 
-        車を知り尽くしたスタッフが
-        あなたのカーライフをサポートします。
+  スポーツカーから軽自動車まで幅広く取り扱い、
+  <br />
 
-      </p>
+  中古車販売・高価買取・カスタム・整備・タイヤ交換まで
+  <br />
+
+  お客様の大切なカーライフをトータルサポートいたします。
+
+  <br /><br />
+
+  お車の購入相談、売却査定、カスタム相談など
+  <br />
+
+  LINE・電話・メールからお気軽にお問い合わせください。
+
+</p>
 
 
 
