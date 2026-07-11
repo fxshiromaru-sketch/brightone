@@ -55,15 +55,20 @@ export default function Hero() {
           rel="noopener noreferrer"
           className="bg-green-500 text-white px-8 py-4 rounded-full font-bold hover:bg-green-400 transition"
         >
-          💰 無料査定
+          💰 車買取LINE無料査定
         </a>
-
+  <a
+    href="#contact"
+    className="border border-white px-8 py-4 rounded-full"
+  >
+    ✉ メールでご相談
+  </a>
 
         <a
           href="tel:0479213038"
           className="bg-yellow-500 text-black px-8 py-4 rounded-full font-bold hover:bg-yellow-400 transition"
         >
-          📞 電話相談
+          📞 電話でご相談
         </a>
 
 
