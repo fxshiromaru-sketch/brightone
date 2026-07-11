@@ -1,3 +1,4 @@
+import Link from "next/link";
 export default function Purchase(){
 
 return (
@@ -109,7 +110,19 @@ className="bg-green-500 text-white font-bold px-8 py-4 rounded-xl"
 LINEでお車の無料査定
 
 </a>
-
+<Link
+href="/purchase"
+className="
+border
+border-white
+px-8
+py-4
+rounded-xl
+font-bold
+"
+>
+詳しい買取情報を見る
+</Link>
 
 </div>
 

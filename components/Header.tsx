@@ -23,7 +23,12 @@ export default function Header() {
   <Link href="/stock" className="hover:text-yellow-400 transition">
     在庫車一覧
   </Link>
-
+<Link
+  href="/purchase"
+  className="hover:text-yellow-400 transition"
+>
+  車買取
+</Link>
   <Link href="/#service" className="hover:text-yellow-400 transition">
     サービス
   </Link>

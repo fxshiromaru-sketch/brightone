@@ -63,14 +63,22 @@ export default function Hero() {
 
 
 
-        <a
-          href="https://line.me/ti/p/qd6RpQYTLe"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="bg-green-500 text-white px-8 py-4 rounded-full font-bold hover:bg-green-400 transition"
-        >
-          💰 車買取LINE無料査定
-        </a>
+      <Link
+href="/purchase"
+className="
+bg-yellow-500
+text-black
+px-8
+py-4
+rounded-full
+font-bold
+hover:bg-yellow-400
+transition
+"
+>
+💰 車を売る・無料査定
+</Link>
+
   <a
     href="#contact"
     className="border border-white px-8 py-4 rounded-full"
