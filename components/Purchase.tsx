@@ -93,16 +93,12 @@ Bright Oneへ
 
 <div className="flex justify-center gap-5 flex-wrap">
 
-
-<a
-href="tel:0479213038"
-className="bg-yellow-500 text-black font-bold px-8 py-4 rounded-xl"
->
-
-無料査定を相談する
-
-</a>
-
+  <a
+    href="#contact"
+    className="border border-white px-8 py-4 rounded-full"
+  >
+    ✉ メールでお車の無料査定
+  </a>
 
 <a
 href="https://line.me/ti/p/qd6RpQYTLe"
@@ -110,7 +106,7 @@ target="_blank"
 className="bg-green-500 text-white font-bold px-8 py-4 rounded-xl"
 >
 
-LINE査定
+LINEでお車の無料査定
 
 </a>
 
