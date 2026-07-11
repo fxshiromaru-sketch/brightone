@@ -7,6 +7,7 @@ import Contact from "../components/Contact";
 import MobileCTA from "../components/MobileCTA";
 import FixedContact from "../components/FixedContact";
 import StockPreview from "@/components/StockPreview";
+import Purchase from "@/components/Purchase";
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
   <Hero />
   <StockPreview />
   <div className="space-y-32">
+    <Purchase />
     <Services />
     <Access />
     <Footer />
