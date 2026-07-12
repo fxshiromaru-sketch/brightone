@@ -2,13 +2,19 @@ import Link from "next/link";
 import { supabase } from "@/lib/supabase";
 import PurchaseSearch from "./PurchaseSearch";
 
+
 type Props = {
 
   searchParams: Promise<{
+
     keyword?: string;
+
+    status?: string;
+
   }>;
 
 };
+
 
 
 
@@ -16,69 +22,102 @@ export default async function PurchaseDashboardPage({
 
   searchParams
 
-}:Props) {
-
- const params = await searchParams;
-
-
-const keyword =
-  params.keyword || "";
+}: Props) {
 
 
 
-let query =
-  supabase
-
-    .from("purchase_requests")
-
-    .select("*")
-
-    .order(
-      "created_at",
-      {
-        ascending:false
-      }
-    );
+  const params = await searchParams;
 
 
 
-if(keyword){
+  const keyword =
+    params.keyword || "";
 
 
-  query =
-    query.or(
-
-      `
-      name.ilike.%${keyword}%,
-      car_name.ilike.%${keyword}%,
-      phone.ilike.%${keyword}%
-      `
-
-    );
-
-
-}
+  const status =
+    params.status || "";
 
 
 
-const {
 
- data:requests,
+  let query =
+    supabase
 
- error
+      .from("purchase_requests")
 
-} = await query;
+      .select("*")
+
+      .order(
+        "created_at",
+        {
+          ascending:false
+        }
+      );
 
 
 
-  if (error) {
 
-    console.error(
-      "査定一覧取得エラー:",
-      error
-    );
+
+  if(keyword){
+
+
+    query =
+      query.or(
+
+        `
+        name.ilike.%${keyword}%,
+        car_name.ilike.%${keyword}%,
+        phone.ilike.%${keyword}%
+        `
+
+      );
 
   }
+
+
+
+
+
+  if(status){
+
+
+    query =
+      query.eq(
+        "status",
+        status
+      );
+
+
+  }
+
+
+
+
+
+  const {
+
+    data:requests,
+
+    error
+
+  } = await query;
+
+
+
+
+  if(error){
+
+    console.error(error);
+
+  }
+
+
+
+
+
+  const count =
+    requests?.length || 0;
+
 
 
 
@@ -103,14 +142,16 @@ const {
 
 
 
+
         <div
           className="
           flex
           justify-between
           items-center
-          mb-10
+          mb-8
           "
         >
+
 
 
           <h1
@@ -125,27 +166,64 @@ const {
 
           </h1>
 
-<PurchaseSearch />
+
 
           <Link
 
             href="/admin/dashboard"
 
             className="
-            text-sm
             text-zinc-400
             hover:text-yellow-500
-            transition
             "
 
           >
 
-            ← Dashboardへ戻る
+            ← 戻る
 
           </Link>
 
 
         </div>
+
+
+
+
+
+        <PurchaseSearch />
+
+
+
+
+
+        <div
+          className="
+          bg-zinc-900
+          rounded-xl
+          px-5
+          py-4
+          mb-8
+          "
+        >
+
+          現在の査定件数：
+
+          <span
+            className="
+            text-yellow-500
+            font-bold
+            ml-2
+            "
+          >
+
+            {count}件
+
+          </span>
+
+
+        </div>
+
+
 
 
 
@@ -159,42 +237,85 @@ const {
 
 
 
-          {
-            requests?.map((item)=>(
+
+        {
+          requests?.map((item)=>(
 
 
-              <Link
+            <Link
 
-                key={item.id}
+              key={item.id}
 
-                href={
-                  `/admin/dashboard/purchase/${item.id}`
-                }
+              href={
+                `/admin/dashboard/purchase/${item.id}`
+              }
 
+              className={`
+              block
+              rounded-2xl
+              p-6
+              transition
+              ${
+                item.status === "受付"
+                ?
+                "bg-zinc-800 border border-yellow-500"
+                :
+                "bg-zinc-900"
+              }
+              hover:border
+              hover:border-yellow-500
+              `}
+
+            >
+
+
+
+
+              <div
                 className="
-                block
-                bg-zinc-900
-                rounded-2xl
-                p-6
-                border
-                border-transparent
-                hover:border-yellow-500
-                transition
+                flex
+                flex-col
+                md:flex-row
+                gap-5
+                md:justify-between
                 "
-
               >
+
+
 
 
 
                 <div
                   className="
                   flex
-                  flex-col
-                  md:flex-row
-                  md:justify-between
                   gap-5
                   "
                 >
+
+
+
+                  {
+                    item.images?.[0] && (
+
+                      <img
+
+                        src={
+                          item.images[0]
+                        }
+
+                        alt="車両"
+
+                        className="
+                        w-24
+                        h-24
+                        rounded-xl
+                        object-cover
+                        "
+                      />
+
+                    )
+                  }
+
 
 
 
@@ -231,7 +352,6 @@ const {
                       className="
                       text-zinc-500
                       text-sm
-                      mt-1
                       "
                     >
 
@@ -244,59 +364,59 @@ const {
 
 
 
+                </div>
 
 
 
-                  <div
+
+
+
+
+                <div
+                  className="
+                  md:text-right
+                  "
+                >
+
+
+
+                  <span
                     className="
-                    md:text-right
+                    inline-block
+                    bg-yellow-500
+                    text-black
+                    rounded-full
+                    px-4
+                    py-1
+                    font-bold
+                    text-sm
                     "
                   >
 
+                    {item.status}
 
-
-                    <span
-                      className="
-                      inline-block
-                      bg-yellow-500
-                      text-black
-                      px-4
-                      py-1
-                      rounded-full
-                      font-bold
-                      text-sm
-                      "
-                    >
-
-                      {item.status}
-
-                    </span>
+                  </span>
 
 
 
-                    <p
-                      className="
-                      text-zinc-400
-                      text-sm
-                      mt-3
-                      "
-                    >
+                  <p
+                    className="
+                    text-zinc-400
+                    text-sm
+                    mt-3
+                    "
+                  >
 
-                      {
-                        new Date(
-                          item.created_at
-                        )
-                        .toLocaleString(
-                          "ja-JP"
-                        )
-                      }
+                    {
+                      new Date(
+                        item.created_at
+                      )
+                      .toLocaleString(
+                        "ja-JP"
+                      )
+                    }
 
-
-                    </p>
-
-
-
-                  </div>
+                  </p>
 
 
 
@@ -304,39 +424,42 @@ const {
 
 
 
-              </Link>
-
-
-            ))
-          }
-
-
-
-
-
-          {
-            (!requests || requests.length === 0) && (
-
-
-              <div
-                className="
-                bg-zinc-900
-                rounded-2xl
-                p-10
-                text-center
-                text-zinc-400
-                "
-              >
-
-                現在、査定依頼はありません。
-
 
               </div>
 
 
-            )
-          }
 
+
+            </Link>
+
+
+          ))
+
+        }
+
+
+
+
+
+        {
+          count === 0 && (
+
+            <div
+              className="
+              bg-zinc-900
+              rounded-xl
+              p-10
+              text-center
+              text-zinc-400
+              "
+            >
+
+              査定依頼はありません
+
+            </div>
+
+          )
+        }
 
 
 
