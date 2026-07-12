@@ -347,7 +347,7 @@ export default function PurchasePage() {
 
     <p className="text-zinc-300 mb-10 leading-8">
 
-      写真を送るだけのLINE査定、
+      必要情報と写真を送信するだけでLINE査定、
       <br />
 
       電話・メールでのご相談も受付しています。
@@ -365,7 +365,7 @@ export default function PurchasePage() {
 
 
       <a
-        href="https://line.me/ti/p/qd6RpQYTLe"
+        href="https://lin.ee/NHhNj1t"
         target="_blank"
         rel="noopener noreferrer"
         className="
