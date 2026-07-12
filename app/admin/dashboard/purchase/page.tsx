@@ -1,22 +1,73 @@
 import Link from "next/link";
 import { supabase } from "@/lib/supabase";
+import PurchaseSearch from "./PurchaseSearch";
+
+type Props = {
+
+  searchParams: Promise<{
+    keyword?: string;
+  }>;
+
+};
 
 
-export default async function PurchaseDashboardPage() {
+
+export default async function PurchaseDashboardPage({
+
+  searchParams
+
+}:Props) {
+
+ const params = await searchParams;
 
 
-  const {
-    data: requests,
-    error
-  } = await supabase
+const keyword =
+  params.keyword || "";
+
+
+
+let query =
+  supabase
+
     .from("purchase_requests")
+
     .select("*")
+
     .order(
       "created_at",
       {
-        ascending: false
+        ascending:false
       }
     );
+
+
+
+if(keyword){
+
+
+  query =
+    query.or(
+
+      `
+      name.ilike.%${keyword}%,
+      car_name.ilike.%${keyword}%,
+      phone.ilike.%${keyword}%
+      `
+
+    );
+
+
+}
+
+
+
+const {
+
+ data:requests,
+
+ error
+
+} = await query;
 
 
 
@@ -74,7 +125,7 @@ export default async function PurchaseDashboardPage() {
 
           </h1>
 
-
+<PurchaseSearch />
 
           <Link
 
