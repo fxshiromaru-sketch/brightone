@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { supabase } from "@/lib/supabase";
-
+import StatusUpdate from "./StatusUpdate";
 
 
 type Props = {
@@ -424,6 +424,14 @@ export default async function PurchaseDetailPage({
               {data.status}
 
             </span>
+
+            <StatusUpdate
+
+  id={data.id}
+
+  currentStatus={data.status}
+
+/>
 
           </div>
 
