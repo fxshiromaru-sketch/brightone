@@ -6,12 +6,39 @@ import { supabase } from "@/lib/supabase";
 
 export default function Dashboard() {
 
-  const [cars, setCars] = useState<any[]>([]);
+const [cars, setCars] = useState<any[]>([]);
+const [purchaseCount, setPurchaseCount] = useState(0);
 const [deleting, setDeleting] = useState(false);
-
 useEffect(() => {
 
   getCars();
+  async function getPurchaseCount(){
+
+  const {
+    count,
+    error
+  } = await supabase
+    .from("purchase_requests")
+    .select("*", {
+      count:"exact",
+      head:true
+    });
+
+
+  if(error){
+
+    console.log(error);
+    return;
+
+  }
+
+
+  setPurchaseCount(
+    count || 0
+  );
+
+}
+  getPurchaseCount();
 
 }, []);
 
@@ -120,7 +147,7 @@ Bright One 管理画面
 </h1>
 
 
-<div className="grid gap-6 md:grid-cols-3">
+<div className="grid gap-6 md:grid-cols-4">
 
 
 <div className="bg-zinc-900 rounded-2xl p-6">
@@ -162,7 +189,36 @@ Bright One 管理画面
 </p>
 
 </div>
+<div className="bg-zinc-900 rounded-2xl p-6">
 
+<h2 className="text-xl font-bold">
+💰 買取査定
+</h2>
+
+<p className="text-4xl mt-4">
+{purchaseCount}件
+</p>
+
+
+<Link
+
+href="/admin/dashboard/purchase"
+
+className="
+inline-block
+mt-4
+text-yellow-500
+hover:text-yellow-400
+"
+
+>
+
+査定管理へ →
+
+</Link>
+
+
+</div>
 
 </div>
 
@@ -180,7 +236,51 @@ className="inline-block bg-yellow-500 hover:bg-yellow-400 text-black font-bold p
 
 </div>
 
+<div className="mt-6 flex gap-4 flex-wrap">
 
+
+<Link
+
+href="/admin/dashboard/purchase"
+
+className="
+bg-zinc-800
+px-6
+py-3
+rounded-xl
+hover:border
+hover:border-yellow-500
+"
+
+>
+
+🚗 買取査定管理
+
+</Link>
+
+
+
+<Link
+
+href="/admin/new"
+
+className="
+bg-zinc-800
+px-6
+py-3
+rounded-xl
+hover:border
+hover:border-yellow-500
+"
+
+>
+
+＋ 車両登録
+
+</Link>
+
+
+</div>
 
 <div className="mt-10">
 
