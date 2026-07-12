@@ -14,7 +14,7 @@ export default function Contact() {
       </p>
 
   <a
-  href="https://line.me/ti/p/qd6RpQYTLe"
+  href="https://lin.ee/NHhNj1t"
   target="_blank"
   rel="noopener noreferrer"
   className="inline-block bg-green-500 text-white py-3 px-8 rounded-xl font-bold text-xl mb-6 hover:bg-green-600 transition"

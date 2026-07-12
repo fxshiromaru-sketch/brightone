@@ -12,7 +12,7 @@ export default function MobileCTA() {
 
       {/* LINE */}
       <a
-        href="https://line.me/ti/p/qd6RpQYTLe"
+        href="https://lin.ee/NHhNj1t"
         target="_blank"
         className="flex-1 bg-green-500 text-white font-bold py-4 text-center"
       >

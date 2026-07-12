@@ -53,12 +53,12 @@ export default function Header() {
           </a>
 
           <a
-            href="https://line.me/ti/p/qd6RpQYTLe"
+            href="https://lin.ee/NHhNj1t"
             target="_blank"
             rel="noopener noreferrer"
             className="bg-green-500 text-white px-5 py-3 rounded-full font-bold hover:bg-green-400 transition"
           >
-            💬 LINE登録
+            💬 LINE公式アカウント登録
           </a>
 
         </div>

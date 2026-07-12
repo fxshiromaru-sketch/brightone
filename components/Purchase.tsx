@@ -102,7 +102,7 @@ Bright Oneへ
   </a>
 
 <a
-href="https://line.me/ti/p/qd6RpQYTLe"
+href="https://lin.ee/NHhNj1t"
 target="_blank"
 className="bg-green-500 text-white font-bold px-8 py-4 rounded-xl"
 >

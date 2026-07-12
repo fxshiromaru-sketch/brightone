@@ -49,7 +49,7 @@ export default function ContactButtons({
       {/* LINE */}
 
       <a
-        href={`https://line.me/R/msg/text/?${lineMessage}`}
+        href={`https://lin.ee/NHhNj1t`}
         target="_blank"
         className="
         flex items-center justify-center gap-3

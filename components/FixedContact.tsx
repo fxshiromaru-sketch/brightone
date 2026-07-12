@@ -11,7 +11,7 @@ export default function FixedContact() {
 
 
       <a
-        href="https://line.me/ti/p/qd6RpQYTLe"
+        href="https://lin.ee/NHhNj1t"
         target="_blank"
         className="flex-1 bg-green-500 text-white text-center py-3 rounded-full font-bold"
       >
