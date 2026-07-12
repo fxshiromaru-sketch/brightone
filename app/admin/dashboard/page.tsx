@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { supabase } from "@/lib/supabase";
+import LogoutButton from "../components/LogoutButton";
 
 export default function Dashboard() {
 
@@ -191,9 +192,18 @@ return (
 <main className="min-h-screen bg-black text-white p-10">
 
 
-<h1 className="text-4xl font-bold mb-8">
+<div className="flex justify-between items-center mb-8">
+
+
+<h1 className="text-4xl font-bold">
 Bright One 管理画面
 </h1>
+
+
+<LogoutButton />
+
+
+</div>
 
 
 <div className="grid gap-6 md:grid-cols-4">
@@ -389,27 +399,6 @@ hover:border-yellow-500
 
 
 
-<Link
-
-href="/admin/new"
-
-className="
-bg-zinc-800
-px-6
-py-3
-rounded-xl
-hover:border
-hover:border-yellow-500
-"
-
->
-
-＋ 車両登録
-
-</Link>
-
-
-</div>
 
 <div className="mt-10">
 
@@ -499,7 +488,7 @@ className="bg-gray-700 text-white px-4 py-2 rounded"
 </div>
 
 </div>
-
+</div>
 
 </main>
 
