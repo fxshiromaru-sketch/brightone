@@ -14,6 +14,7 @@ const geistMono = Geist_Mono({
 
 
 export const metadata: Metadata = {
+
   metadataBase: new URL("https://brightone2026.com"),
 
   title: {
@@ -122,3 +123,16 @@ export const metadata: Metadata = {
     follow: true,
   },
 };
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html lang="ja">
+      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+        {children}
+      </body>
+    </html>
+  );
+}
