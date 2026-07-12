@@ -383,7 +383,7 @@ export default function PurchasePage() {
 
 
       <a
-        href="tel:0479213038"
+        href="tel:08055637930"
         className="
         bg-yellow-500
         text-black
@@ -397,23 +397,12 @@ export default function PurchasePage() {
       </a>
 
 
-
-      <a
-        href="#contact"
-        className="
-        border
-        border-white
-        px-8
-        py-4
-        rounded-xl
-        font-bold
-        hover:bg-white
-        hover:text-black
-        transition
-        "
-      >
-        メール相談
-      </a>
+<a
+  href="/#contact"
+  className="border border-white px-8 py-4 rounded-full hover:bg-white hover:text-black transition"
+>
+  ✉ メールで無料査定
+</a>
 
 
     </div>
