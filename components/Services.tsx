@@ -9,7 +9,7 @@ export default function Services() {
 
         <div className="bg-zinc-900 rounded-2xl p-8 min-h-[260px] shadow-lg hover:shadow-yellow-500/20 hover:-translate-y-1 transition-all duration-300">
           <h3 className="text-2xl font-bold mb-5">
-            🚗 中古車販売
+            中古車販売
           </h3>
 
           <p className="text-base leading-8 text-gray-300">
@@ -23,7 +23,7 @@ export default function Services() {
 
         <div className="bg-zinc-900 rounded-2xl p-8 min-h-[260px] shadow-lg hover:shadow-yellow-500/20 hover:-translate-y-1 transition-all duration-300">
           <h3 className="text-2xl font-bold mb-5">
-            💰 車買取
+            車買取
           </h3>
 
           <p className="text-base leading-8 text-gray-300">
@@ -37,7 +37,7 @@ export default function Services() {
 
         <div className="bg-zinc-900 rounded-2xl p-8 min-h-[260px] shadow-lg hover:shadow-yellow-500/20 hover:-translate-y-1 transition-all duration-300">
           <h3 className="text-2xl font-bold mb-5">
-            🛞 タイヤ交換
+            タイヤ交換
           </h3>
 
           <p className="text-base leading-8 text-gray-300">
@@ -50,7 +50,7 @@ export default function Services() {
 
         <div className="bg-zinc-900 rounded-2xl p-8 min-h-[260px] shadow-lg hover:shadow-yellow-500/20 hover:-translate-y-1 transition-all duration-300">
           <h3 className="text-2xl font-bold mb-5">
-            🚛 レッカー
+            レッカー
           </h3>
 
           <p className="text-base leading-8 text-gray-300">
