@@ -3,8 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { supabase } from "@/lib/supabase";
-import LogoutButton from "../components/LogoutButton";
-
+import LogoutButton from "@/components/LogoutButton";
 export default function Dashboard() {
 
 const [cars, setCars] = useState<any[]>([]);
