@@ -65,12 +65,27 @@ export default function PurchaseForm() {
 
 
     e.preventDefault();
+if(!form.email){
 
+  alert("メールアドレスを入力してください。");
+
+  return;
+
+}
+
+
+if(!form.phone){
+
+  alert("電話番号を入力してください。");
+
+  return;
+
+}
 
     if (!form.name || !form.phone || !form.car_name) {
 
       alert(
-        "お名前・電話番号・車種は必須です"
+        "お名前・メールアドレス・電話番号・車種は必須です"
       );
 
       return;
@@ -280,15 +295,14 @@ export default function PurchaseForm() {
         />
 
 
-
-        <input
-          name="email"
-          value={form.email}
-          onChange={handleChange}
-          placeholder="メールアドレス"
-          className="input"
-        />
-
+<input
+  name="email"
+  type="email"
+  value={form.email}
+  onChange={handleChange}
+  placeholder="メールアドレス"
+  required
+/>
 
 
         <input
