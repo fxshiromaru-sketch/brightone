@@ -76,11 +76,11 @@ export default function Purchase() {
         <div className="flex justify-center gap-5 flex-wrap mt-14">
 
           <a
-            href="#contact"
-            className="border border-white px-8 py-4 rounded-full hover:bg-white hover:text-black transition"
-          >
-            ✉ メールで無料査定
-          </a>
+  href="/purchase/request"
+  className="border border-white px-8 py-4 rounded-full hover:bg-white hover:text-black transition"
+>
+  ✉ メールで無料査定
+</a>
 
           <a
             href="https://lin.ee/NHhNj1t"

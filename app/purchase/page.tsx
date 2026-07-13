@@ -275,61 +275,9 @@ export default function PurchasePage() {
 
 
 
-{/* 査定時の入力内容 */}
-
-<section className="px-6 py-16 bg-zinc-900">
-
-
-  <div className="max-w-4xl mx-auto">
-
-
-    <h2 className="text-3xl font-bold text-center mb-8">
-
-      LINE・メール査定で送る内容
-
-    </h2>
 
 
 
-    <div className="bg-black rounded-2xl p-8">
-
-
-      <p className="text-zinc-300 leading-9 whitespace-pre-line">
-
-{`査定お願いします。
-
-お名前：
-
-お住まい
-都道府県：
-市区町村：
-
-車両情報
-メーカー：
-車種：
-年式：
-走行距離：
-グレード：
-車検満了日：
-
-車両状態
-修復歴：
-カスタム内容：
-傷・凹みなど：
-
-その他ご希望：`}
-
-
-      </p>
-
-
-    </div>
-
-
-  </div>
-
-
-</section>
 
      {/* 問い合わせ */}
 
@@ -398,7 +346,7 @@ export default function PurchasePage() {
 
 
 <a
-  href="/#contact"
+  href="/purchase/request"
   className="border border-white px-8 py-4 rounded-full hover:bg-white hover:text-black transition"
 >
   ✉ メールで無料査定
