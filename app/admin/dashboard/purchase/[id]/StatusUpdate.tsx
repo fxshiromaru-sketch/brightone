@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { supabase } from "@/lib/supabase";
 import { useRouter } from "next/navigation";
 
 
@@ -58,34 +57,39 @@ export default function StatusUpdate({
       setLoading(true);
 
 
+const response =
+  await fetch(
+    "/api/purchase/status",
+    {
+      method:"POST",
 
-      const {
-        error
-      } = await supabase
+      headers:{
+        "Content-Type":"application/json",
+      },
 
-        .from("purchase_requests")
+      body:JSON.stringify({
 
-        .update({
+        id,
 
-          status
+        status
 
-        })
-
-        .eq(
-
-          "id",
-
-          id
-
-        );
-
+      }),
+    }
+  );
 
 
-      if(error){
+const result =
+  await response.json();
 
-        throw error;
 
-      }
+if(!result.success){
+
+  throw new Error(
+    result.error
+  );
+
+}
+
 
 
 

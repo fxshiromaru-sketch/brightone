@@ -1,7 +1,10 @@
+
 import { NextResponse } from "next/server";
 import { supabaseAdmin } from "@/lib/supabaseAdmin";
 
-
+console.log("PURCHASE API START");
+console.log("PURCHASE API LOADED");
+console.log("🔥 PURCHASE ROUTE LOADED");
 
 export async function POST(
   request: Request
@@ -185,8 +188,7 @@ export async function POST(
           form.mileage,
 
 
-        inspection:
-          form.inspection,
+      
 
 
         repair_history:
@@ -207,18 +209,20 @@ export async function POST(
 
 
 
-        zipcode:
-          form.zipcode,
-
-
-        address:
-          form.address,
+   
 
 
 
-        comment:
-          form.comment,
+       message:
+  form.comment,
+zipcode:
+  form.zipcode,
 
+address:
+  form.address,
+
+inspection:
+  form.inspection,
 
 
         images:

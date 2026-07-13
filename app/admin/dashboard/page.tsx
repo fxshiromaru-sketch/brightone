@@ -374,119 +374,70 @@ font-bold
 
 
 </div>
-<div className="mt-6 flex gap-4 flex-wrap">
 
+<div className="mt-12">
 
-<Link
+  <h2 className="text-2xl font-bold mb-6">
 
-href="/admin/dashboard/purchase"
+    管理メニュー
 
-className="
-bg-zinc-800
-px-6
-py-3
-rounded-xl
-hover:border
-hover:border-yellow-500
-"
+  </h2>
 
->
+  <div className="grid md:grid-cols-3 gap-5">
 
-🚗 買取査定管理
+    <Link
+      href="/admin/dashboard/cars"
+      className="bg-zinc-900 rounded-2xl p-8 hover:border hover:border-yellow-500 transition"
+    >
+      <div className="text-5xl mb-4">
+        🚗
+      </div>
 
-</Link>
+      <h3 className="text-2xl font-bold">
+        車両管理
+      </h3>
 
+      <p className="text-zinc-400 mt-2">
+        車両の編集・削除
+      </p>
+    </Link>
 
+    <Link
+      href="/admin/dashboard/purchase"
+      className="bg-zinc-900 rounded-2xl p-8 hover:border hover:border-yellow-500 transition"
+    >
+      <div className="text-5xl mb-4">
+        💰
+      </div>
 
+      <h3 className="text-2xl font-bold">
+        買取査定
+      </h3>
 
-<div className="mt-10">
+      <p className="text-zinc-400 mt-2">
+        査定依頼を確認
+      </p>
+    </Link>
 
-<h2 className="text-2xl font-bold mb-5">
-登録車両一覧
-</h2>
+    <Link
+      href="/admin/new"
+      className="bg-zinc-900 rounded-2xl p-8 hover:border hover:border-yellow-500 transition"
+    >
+      <div className="text-5xl mb-4">
+        ➕
+      </div>
 
+      <h3 className="text-2xl font-bold">
+        車両登録
+      </h3>
 
-<div className="grid gap-5 md:grid-cols-3">
+      <p className="text-zinc-400 mt-2">
+        新しい車を追加
+      </p>
+    </Link>
 
+  </div>
 
-{cars.map((car)=>(
-
-
-<div
-key={car.id}
-className="bg-zinc-900 rounded-xl p-5"
->
-{car.images?.[0] && (
-  <img
-    src={car.images[0]}
-    alt={car.name}
-    className="w-full h-48 object-cover rounded-xl mb-4"
-  />
-)}
-
-<h3 className="text-xl font-bold">
-{car.maker} {car.name}
-</h3>
-
-
-車両価格：
-{car.price
- ? `${Math.floor(car.price / 10000)}万円（税込）`
- : ""}
-
-<p>
-支払総額：
-{car.total_price
- ? `${Math.floor(car.total_price / 10000)}万円（税込）`
- : ""}
-</p>
-
-<p>
-年式：{car.year}
-</p>
-
-
-<p>
-走行距離：{car.mileage}
-</p>
-<div className="flex gap-3 mt-5 flex-wrap">
-
-<Link
-href={`/admin/edit/${car.id}`}
-className="bg-yellow-500 text-black px-4 py-2 rounded"
->
-編集
-</Link>
-
-
-<button
-onClick={()=>deleteCar(car.id)}
-className="bg-red-600 text-white px-4 py-2 rounded"
->
-削除
-</button>
-
-
-<button
-onClick={()=>toggleSold(car)}
-className="bg-gray-700 text-white px-4 py-2 rounded"
->
-{car.status === "sold"
- ? "掲載中に戻す"
- : "SOLD OUT"}
-</button>
-
-
-</div>
-</div>
-
-
-))}
-
-
-</div>
-
-</div>
 </div>
 
 </main>

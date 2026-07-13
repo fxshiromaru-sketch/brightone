@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { supabase } from "@/lib/supabase";
+import { supabaseAdmin } from "@/lib/supabaseAdmin";
 import PurchaseSearch from "./PurchaseSearch";
 
 
@@ -41,7 +41,7 @@ export default async function PurchaseDashboardPage({
 
 
   let query =
-    supabase
+    supabaseAdmin
 
       .from("purchase_requests")
 

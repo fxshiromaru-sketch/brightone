@@ -1,7 +1,7 @@
 import Link from "next/link";
-import { supabase } from "@/lib/supabase";
+import { supabaseAdmin } from "@/lib/supabaseAdmin";
 import StatusUpdate from "./StatusUpdate";
-
+import DeleteButton from "./DeleteButton";
 
 type Props = {
 
@@ -30,7 +30,7 @@ export default async function PurchaseDetailPage({
   const {
     data,
     error
-  } = await supabase
+  } = await supabaseAdmin
 
     .from("purchase_requests")
 
@@ -206,6 +206,7 @@ export default async function PurchaseDetailPage({
 
             <p>
               車検：
+              登録なし
               {data.inspection}
             </p>
 
@@ -398,7 +399,7 @@ export default async function PurchaseDetailPage({
             "
           >
 
-            {data.comment || "なし"}
+           {data.message || "なし"}
 
           </p>
 
@@ -425,20 +426,18 @@ export default async function PurchaseDetailPage({
 
             </span>
 
-            <StatusUpdate
-
+           <StatusUpdate
   id={data.id}
-
   currentStatus={data.status}
+/>
 
+<DeleteButton
+  id={data.id}
 />
 
           </div>
 
-
-
         </section>
-
 
 
       </div>

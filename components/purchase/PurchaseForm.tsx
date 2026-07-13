@@ -3,7 +3,7 @@
 
 import { useState } from "react";
 import ImageUploader from "./ImageUploader";
-import { supabase } from "@/lib/supabase";
+
 
 
 export default function PurchaseForm() {
@@ -108,171 +108,106 @@ export default function PurchaseForm() {
 
     }
 
+try {
 
+  setLoading(true);
 
+  setMessage("");
 
-    try {
 
+  const formData = new FormData();
 
-      setLoading(true);
 
-      setMessage("");
+  formData.append(
+    "form",
+    JSON.stringify(form)
+  );
 
 
+  images.forEach((file)=>{
 
-      const imageUrls:string[] = [];
+    formData.append(
+      "images",
+      file
+    );
 
+  });
 
 
-      for(const file of images){
 
-
-      const fileName =
-  `${crypto.randomUUID()}-${file.name}`;
-
-        const {
-          error
-        } = await supabase.storage
-          .from("purchase-images")
-        .upload(
-  fileName,
-  file,
-  {
-    contentType: file.type,
-    upsert: false,
-  }
-);
-
-
-        if(error){
-
-          throw error;
-
-        }
-
-
-
-        const {
-          data
-        } = supabase.storage
-          .from("purchase-images")
-          .getPublicUrl(
-            fileName
-          );
-
-
-
-        imageUrls.push(
-          data.publicUrl
-        );
-
-
-      }
-
-
-
-
-
-      const response =
-        await fetch(
-          "/api/purchase",
-          {
-
-            method:"POST",
-
-            headers:{
-
-              "Content-Type":
-              "application/json",
-
-            },
-
-
-            body:JSON.stringify({
-
-              form,
-
-              imageUrls,
-
-            }),
-
-          }
-        );
-
-
-
-
-      const result =
-        await response.json();
-
-
-
-
-      if(!result.success){
-
-        throw new Error(
-          "登録失敗"
-        );
-
-      }
-
-
-
-
-
-      setMessage(
-        "査定依頼を送信しました。確認後ご連絡いたします。"
-      );
-
-
-
-      setForm({
-
-        maker:"",
-        car_name:"",
-        year:"",
-        mileage:"",
-        inspection:"",
-        repair_history:"",
-
-        name:"",
-        phone:"",
-        email:"",
-
-        zipcode:"",
-        address:"",
-
-        comment:"",
-
-      });
-
-
-
-      setImages([]);
-
-
-
-    } catch(error){
-
-
-      console.error(
-        error
-      );
-
-
-      alert(
-        "送信に失敗しました。時間をおいて再度お試しください。"
-      );
-
-
-
-    } finally {
-
-
-      setLoading(false);
-
-
+  const response = await fetch(
+    "/api/purchase",
+    {
+      method:"POST",
+      body:formData,
     }
+  );
+
+
+
+  const result = await response.json();
+
+
+
+  if(!result.success){
+
+    throw new Error(
+      result.error || "登録失敗"
+    );
+
+  }
+
+
+
+  setMessage(
+    "査定依頼を送信しました。確認後ご連絡いたします。"
+  );
+
+
+
+  setForm({
+
+    maker:"",
+    car_name:"",
+    year:"",
+    mileage:"",
+    inspection:"",
+    repair_history:"",
+
+    name:"",
+    phone:"",
+    email:"",
+
+    zipcode:"",
+    address:"",
+
+    comment:"",
+
+  });
+
+
+  setImages([]);
+
+
+
+} catch(error){
+
+
+  console.error(error);
+
+
+  alert(
+    "送信に失敗しました。時間をおいて再度お試しください。"
+  );
+
+
+} finally {
+
+
+  setLoading(false);
+
+
+}
 
 
   };
