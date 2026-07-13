@@ -281,18 +281,7 @@ hover:text-yellow-400
 </div>
 
 
-<div className="mt-10">
 
-<Link
-href="/admin/new"
-className="inline-block bg-yellow-500 hover:bg-yellow-400 text-black font-bold px-6 py-3 rounded-xl"
->
-
-＋ 新しい車を登録
-
-</Link>
-
-</div>
 <div className="mt-10">
 
 
