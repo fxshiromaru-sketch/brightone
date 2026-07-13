@@ -127,10 +127,8 @@ export default function PurchaseForm() {
       for(const file of images){
 
 
-        const fileName =
-          `purchase/${crypto.randomUUID()}-${file.name}`;
-
-
+      const fileName =
+  `${crypto.randomUUID()}-${file.name}`;
 
         const {
           error
