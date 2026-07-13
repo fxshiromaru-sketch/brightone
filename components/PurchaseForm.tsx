@@ -76,16 +76,41 @@ export default function PurchaseForm() {
         imageUrls.push(data.publicUrl);
       }
 
-      const { error } = await supabase
-        .from("purchase_requests")
-        .insert([
-          {
-            ...form,
-            images: imageUrls,
-          },
-        ]);
+  const response =
+  await fetch(
+    "/api/purchase",
+    {
+      method:"POST",
 
-      if (error) throw error;
+      headers:{
+        "Content-Type":"application/json",
+      },
+
+      body:JSON.stringify({
+
+        form,
+
+        imageUrls,
+
+      }),
+
+    }
+  );
+
+
+
+const result =
+  await response.json();
+
+
+
+if(!result.success){
+
+  throw new Error(
+    "登録失敗"
+  );
+
+}
 
       alert("査定依頼を送信しました！");
 
