@@ -302,7 +302,7 @@ if(!form.phone){
   onChange={handleChange}
   placeholder="メールアドレス"
   required
-  className="..."
+  className="input"
 />
 
 
