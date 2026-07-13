@@ -1,8 +1,9 @@
+
 "use client";
 
 import { useState } from "react";
 import ImageUploader from "./ImageUploader";
-import { submitPurchaseRequest } from "@/lib/purchase";
+import { supabase } from "@/lib/supabase";
 
 
 export default function PurchaseForm() {
@@ -38,9 +39,12 @@ export default function PurchaseForm() {
 
 
 
+
   const handleChange = (
     e: React.ChangeEvent<
-      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+      HTMLInputElement |
+      HTMLTextAreaElement |
+      HTMLSelectElement
     >
   ) => {
 
@@ -59,38 +63,51 @@ export default function PurchaseForm() {
 
 
 
+
   const handleSubmit = async (
     e: React.FormEvent
   ) => {
 
 
     e.preventDefault();
-if(!form.email){
-
-  alert("メールアドレスを入力してください。");
-
-  return;
-
-}
 
 
-if(!form.phone){
 
-  alert("電話番号を入力してください。");
+    if(!form.name){
 
-  return;
-
-}
-
-    if (!form.name || !form.phone || !form.car_name) {
-
-      alert(
-        "お名前・メールアドレス・電話番号・車種は必須です"
-      );
+      alert("お名前を入力してください");
 
       return;
 
     }
+
+
+    if(!form.phone){
+
+      alert("電話番号を入力してください");
+
+      return;
+
+    }
+
+
+    if(!form.email){
+
+      alert("メールアドレスを入力してください");
+
+      return;
+
+    }
+
+
+    if(!form.car_name){
+
+      alert("車種を入力してください");
+
+      return;
+
+    }
+
 
 
 
@@ -103,10 +120,102 @@ if(!form.phone){
 
 
 
-      await submitPurchaseRequest(
-        form,
-        images
-      );
+      const imageUrls:string[] = [];
+
+
+
+      for(const file of images){
+
+
+        const fileName =
+          `purchase/${crypto.randomUUID()}-${file.name}`;
+
+
+
+        const {
+          error
+        } = await supabase.storage
+          .from("purchase-images")
+          .upload(
+            fileName,
+            file
+          );
+
+
+
+        if(error){
+
+          throw error;
+
+        }
+
+
+
+        const {
+          data
+        } = supabase.storage
+          .from("purchase-images")
+          .getPublicUrl(
+            fileName
+          );
+
+
+
+        imageUrls.push(
+          data.publicUrl
+        );
+
+
+      }
+
+
+
+
+
+      const response =
+        await fetch(
+          "/api/purchase",
+          {
+
+            method:"POST",
+
+            headers:{
+
+              "Content-Type":
+              "application/json",
+
+            },
+
+
+            body:JSON.stringify({
+
+              form,
+
+              imageUrls,
+
+            }),
+
+          }
+        );
+
+
+
+
+      const result =
+        await response.json();
+
+
+
+
+      if(!result.success){
+
+        throw new Error(
+          "登録失敗"
+        );
+
+      }
+
+
 
 
 
@@ -137,6 +246,7 @@ if(!form.phone){
       });
 
 
+
       setImages([]);
 
 
@@ -144,7 +254,9 @@ if(!form.phone){
     } catch(error){
 
 
-      console.error(error);
+      console.error(
+        error
+      );
 
 
       alert(
@@ -176,7 +288,7 @@ if(!form.phone){
       rounded-2xl
       p-6
       md:p-10
-      space-y-8
+      space-8
       "
     >
 
@@ -203,6 +315,7 @@ if(!form.phone){
         />
 
 
+
         <input
           name="car_name"
           value={form.car_name}
@@ -210,6 +323,7 @@ if(!form.phone){
           placeholder="車種 ※必須"
           className="input"
         />
+
 
 
         <input
@@ -221,6 +335,7 @@ if(!form.phone){
         />
 
 
+
         <input
           name="mileage"
           value={form.mileage}
@@ -228,6 +343,7 @@ if(!form.phone){
           placeholder="走行距離"
           className="input"
         />
+
 
 
         <input
@@ -263,12 +379,10 @@ if(!form.phone){
             不明
           </option>
 
-
         </select>
 
 
       </div>
-
 
 
 
@@ -295,15 +409,17 @@ if(!form.phone){
         />
 
 
-<input
-  name="email"
-  type="email"
-  value={form.email}
-  onChange={handleChange}
-  placeholder="メールアドレス"
-  required
-  className="input"
-/>
+
+        <input
+          name="email"
+          type="email"
+          value={form.email}
+          onChange={handleChange}
+          placeholder="メールアドレス ※必須"
+          required
+          className="input"
+        />
+
 
 
         <input
@@ -314,11 +430,7 @@ if(!form.phone){
           className="input"
         />
 
-
-
       </div>
-
-
 
 
 
@@ -332,54 +444,28 @@ if(!form.phone){
 
 
 
-
       <textarea
-
         name="comment"
-
         value={form.comment}
-
         onChange={handleChange}
-
-        placeholder="
-車の状態やカスタム内容など
-ご自由に入力してください
-        "
-
+        placeholder="車の状態やカスタム内容など"
         className="
         input
         min-h-[150px]
         w-full
         "
-
       />
 
 
 
-
-      <div>
-
-
-        <h3 className="font-bold mb-4">
-          車両写真
-        </h3>
-
-
-        <ImageUploader
-          onChange={setImages}
-        />
-
-
-      </div>
-
-
+      <ImageUploader
+        onChange={setImages}
+      />
 
 
 
       <button
-
         disabled={loading}
-
         className="
         w-full
         bg-yellow-500
@@ -387,40 +473,25 @@ if(!form.phone){
         font-bold
         py-4
         rounded-xl
-        hover:bg-yellow-400
-        transition
         "
-
       >
 
         {
           loading
-          ?
-          "送信中..."
-          :
-          "無料査定を依頼する"
+          ? "送信中..."
+          : "無料査定を依頼する"
         }
-
 
       </button>
 
 
 
-
       {
-        message && (
-
-          <p className="
-          text-center
-          text-yellow-400
-          font-bold
-          ">
-            {message}
-          </p>
-
-        )
+        message &&
+        <p className="text-center text-yellow-400 font-bold">
+          {message}
+        </p>
       }
-
 
 
     </form>
@@ -428,3 +499,4 @@ if(!form.phone){
   );
 
 }
+```

@@ -15,39 +15,37 @@ export async function POST(
 
 
     const {
-
       form,
-
       imageUrls
-
     } = body;
 
 
 
 
+    if(!form){
+
+      return NextResponse.json(
+        {
+          success:false,
+          error:"フォームデータがありません"
+        },
+        {
+          status:400
+        }
+      );
+
+    }
+
+
+
+
     const {
-
       error
-
     } = await supabase
-
       .from("purchase_requests")
-
       .insert([
 
         {
-
-          name:
-            form.name,
-
-
-          phone:
-            form.phone,
-
-
-          email:
-            form.email,
-
 
           maker:
             form.maker,
@@ -65,24 +63,50 @@ export async function POST(
             form.mileage,
 
 
+          inspection:
+            form.inspection,
+
+
           repair_history:
             form.repair_history,
 
 
+
+          name:
+            form.name,
+
+
+          phone:
+            form.phone,
+
+
+          email:
+            form.email,
+
+
+
+          zipcode:
+            form.zipcode,
+
+
           address:
-            `${form.prefecture}${form.city}`,
+            form.address,
+
 
 
           comment:
-            form.message,
+            form.comment,
+
 
 
           images:
             imageUrls,
 
 
+
           status:
             "受付"
+
 
         }
 
@@ -91,11 +115,29 @@ export async function POST(
 
 
 
+
     if(error){
 
-      throw error;
+      console.error(
+        error
+      );
+
+
+      return NextResponse.json(
+
+        {
+          success:false,
+          error:error.message
+        },
+
+        {
+          status:500
+        }
+
+      );
 
     }
+
 
 
 
@@ -107,27 +149,37 @@ export async function POST(
 
 
 
+
   } catch(error){
 
 
-    console.error(error);
+
+    console.error(
+      "purchase api error:",
+      error
+    );
 
 
 
     return NextResponse.json(
 
       {
-        success:false
+
+        success:false,
+
+        error:"server error"
+
       },
 
       {
+
         status:500
+
       }
 
     );
 
 
   }
-
 
 }
