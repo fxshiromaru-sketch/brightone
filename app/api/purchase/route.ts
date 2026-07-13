@@ -1,28 +1,29 @@
 import { NextResponse } from "next/server";
-import { supabase } from "@/lib/supabase";
+import { supabaseAdmin } from "@/lib/supabaseAdmin";
+
 
 
 export async function POST(
   request: Request
 ) {
 
+
   try {
 
 
-    const body =
-      await request.json();
 
-
-
-    const {
-      form,
-      imageUrls
-    } = body;
+    const formData =
+      await request.formData();
 
 
 
 
-    if(!form){
+    const formRaw =
+      formData.get("form");
+
+
+
+    if(!formRaw){
 
       return NextResponse.json(
         {
@@ -38,79 +39,200 @@ export async function POST(
 
 
 
+    const form =
+      JSON.parse(
+        formRaw.toString()
+      );
+
+
+
+
+    const files =
+      formData.getAll("images") as File[];
+
+
+
+
+    const imageUrls:string[] = [];
+
+
+
+
+
+    /*
+      Storageへ画像保存
+    */
+
+    for(
+      const file of files
+    ){
+
+
+      if(!file || file.size === 0){
+
+        continue;
+
+      }
+
+
+
+      const ext =
+        file.name.split(".").pop();
+
+
+
+      const fileName =
+        `${crypto.randomUUID()}.${ext}`;
+
+
+
+      const filePath =
+        `purchase/${fileName}`;
+
+
+
+
+
+      const arrayBuffer =
+        await file.arrayBuffer();
+
+
+
+      const buffer =
+        Buffer.from(
+          arrayBuffer
+        );
+
+
+
+
+
+      const {
+        error:uploadError
+      } = await supabaseAdmin
+        .storage
+        .from("purchase-images")
+        .upload(
+          filePath,
+          buffer,
+          {
+            contentType:
+              file.type,
+          }
+        );
+
+
+
+      if(uploadError){
+
+        throw uploadError;
+
+      }
+
+
+
+
+      const {
+        data
+      } =
+      supabaseAdmin
+      .storage
+      .from("purchase-images")
+      .getPublicUrl(
+        filePath
+      );
+
+
+
+      imageUrls.push(
+        data.publicUrl
+      );
+
+
+    }
+
+
+
+
+
+    /*
+      査定依頼DB保存
+    */
+
 
     const {
       error
-    } = await supabase
-      .from("purchase_requests")
-      .insert([
+    } =
+    await supabaseAdmin
+    .from("purchase_requests")
+    .insert([
 
-        {
+      {
 
-          maker:
-            form.maker,
-
-
-          car_name:
-            form.car_name,
+        maker:
+          form.maker,
 
 
-          year:
-            form.year,
+        car_name:
+          form.car_name,
 
 
-          mileage:
-            form.mileage,
+        year:
+          form.year,
 
 
-          inspection:
-            form.inspection,
+        mileage:
+          form.mileage,
 
 
-          repair_history:
-            form.repair_history,
+        inspection:
+          form.inspection,
 
 
-
-          name:
-            form.name,
-
-
-          phone:
-            form.phone,
-
-
-          email:
-            form.email,
+        repair_history:
+          form.repair_history,
 
 
 
-          zipcode:
-            form.zipcode,
+        name:
+          form.name,
 
 
-          address:
-            form.address,
+        phone:
+          form.phone,
 
 
-
-          comment:
-            form.comment,
-
-
-
-          images:
-            imageUrls,
+        email:
+          form.email,
 
 
 
-          status:
-            "受付"
+        zipcode:
+          form.zipcode,
 
 
-        }
+        address:
+          form.address,
 
-      ]);
+
+
+        comment:
+          form.comment,
+
+
+
+        images:
+          imageUrls,
+
+
+
+        status:
+          "受付"
+
+
+      }
+
+    ]);
 
 
 
@@ -118,25 +240,10 @@ export async function POST(
 
     if(error){
 
-      console.error(
-        error
-      );
-
-
-      return NextResponse.json(
-
-        {
-          success:false,
-          error:error.message
-        },
-
-        {
-          status:500
-        }
-
-      );
+      throw error;
 
     }
+
 
 
 
@@ -150,8 +257,8 @@ export async function POST(
 
 
 
-  } catch(error){
 
+  }catch(error){
 
 
     console.error(
@@ -167,19 +274,23 @@ export async function POST(
 
         success:false,
 
-        error:"server error"
+        error:
+          error instanceof Error
+          ?
+          error.message
+          :
+          "server error"
 
       },
 
       {
-
         status:500
-
       }
 
     );
 
 
   }
+
 
 }
