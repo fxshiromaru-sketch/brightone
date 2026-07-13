@@ -134,11 +134,14 @@ export default function PurchaseForm() {
           error
         } = await supabase.storage
           .from("purchase-images")
-          .upload(
-            fileName,
-            file
-          );
-
+        .upload(
+  fileName,
+  file,
+  {
+    contentType: file.type,
+    upsert: false,
+  }
+);
 
 
         if(error){
