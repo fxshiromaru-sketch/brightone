@@ -82,7 +82,7 @@ transition
   </a>
 
         <a
-          href="tel:0479213038"
+          href="tel:08055637830"
           className="bg-yellow-500 text-black px-8 py-4 rounded-full font-bold hover:bg-yellow-400 transition"
         >
           📞 電話でご相談
