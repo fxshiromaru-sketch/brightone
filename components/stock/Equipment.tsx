@@ -4,22 +4,21 @@ type Props = {
 
 export default function Equipment({ car }: Props) {
 
-  const items = [
-
-    { name: "ABS", value: car.abs },
-    { name: "エアバッグ", value: car.airbag },
-    { name: "ナビ", value: car.navigation },
-    { name: "TV", value: car.tv },
-    { name: "Bluetooth", value: car.bluetooth },
-    { name: "ETC", value: car.etc },
-    { name: "バックカメラ", value: car.back_camera },
-    { name: "ドライブレコーダー", value: car.drive_recorder },
-    { name: "スマートキー", value: car.smart_key },
-    { name: "LEDヘッドライト", value: car.led },
-    { name: "アルミホイール", value: car.aluminum },
-    { name: "サンルーフ", value: car.sunroof },
-
+  const equipmentList = [
+    "ABS",
+    "エアバッグ",
+    "ナビ",
+    "TV",
+    "Bluetooth",
+    "ETC",
+    "バックカメラ",
+    "ドライブレコーダー",
+    "スマートキー",
+    "LEDヘッドライト",
+    "アルミホイール",
+    "サンルーフ",
   ];
+
 
   return (
 
@@ -29,32 +28,39 @@ export default function Equipment({ car }: Props) {
         装備・オプション
       </h2>
 
+
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
 
-        {items.map((item) => (
+        {equipmentList.map((item)=>(
 
           <div
-            key={item.name}
+            key={item}
             className={`
               rounded-xl
               border
               p-4
               text-center
               ${
-                item.value
-                  ? "border-yellow-500 bg-zinc-800"
-                  : "border-zinc-700 bg-zinc-900 text-zinc-500"
+                car.equipment?.includes(item)
+                ? "border-yellow-500 bg-zinc-800"
+                : "border-zinc-700 bg-zinc-900 text-zinc-500"
               }
             `}
           >
 
             <div className="text-2xl mb-2">
-              {item.value ? "✓" : "－"}
+              {
+                car.equipment?.includes(item)
+                ? "✓"
+                : "－"
+              }
             </div>
 
+
             <div className="font-medium">
-              {item.name}
+              {item}
             </div>
+
 
           </div>
 
