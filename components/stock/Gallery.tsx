@@ -26,7 +26,7 @@ export default function Gallery({ images }: Props) {
 
       <img
         src={images[current]}
-        className="w-full h-[520px] object-cover rounded-xl"
+        className="w-full h-[520px] object-contain- rounded-xl"
         alt=""
       />
 

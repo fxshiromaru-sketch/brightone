@@ -41,9 +41,9 @@ export default function StockCard({ car }: Props) {
           <img
             src={car.images?.[0] || "/noimage.jpg"}
             alt={car.name}
-            className={`w-full h-[260px] object-cover ${
-              car.status === "sold" ? "opacity-40" : ""
-            }`}
+      className={`w-full h-[260px] object-contain bg-black ${
+  car.status === "sold" ? "opacity-40" : ""
+}`}
           />
 
 

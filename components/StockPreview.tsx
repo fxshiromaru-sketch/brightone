@@ -120,7 +120,8 @@ alt={car.name}
 className="
 w-full
 h-48
-object-cover
+object-contain
+bg-black
 "
 />
 
