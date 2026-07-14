@@ -1,7 +1,7 @@
 import Header from "@/components/Header";
 import { supabase } from "@/lib/supabase";
 import StockCard from "@/components/stock/StockCard";
-
+import Footer from "@/components/Footer";
 export const revalidate = 0;
 
 export default async function StockPage() {
@@ -62,6 +62,7 @@ export default async function StockPage() {
 
       </section>
 
+<Footer />
     </main>
 
   );

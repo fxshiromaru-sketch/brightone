@@ -1,5 +1,5 @@
 import Header from "@/components/Header";
-
+import Footer from "@/components/Footer";
 export default function PurchasePage() {
 
   return (
@@ -362,6 +362,7 @@ export default function PurchasePage() {
 
 
 </section>
+<Footer />
     </main>
 
   );

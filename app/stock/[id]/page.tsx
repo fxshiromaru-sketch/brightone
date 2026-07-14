@@ -6,7 +6,7 @@ import SalePoint from "@/components/stock/SalePoint";
 import Equipment from "@/components/stock/Equipment";
 import SpecTable from "@/components/stock/SpecTable";
 import CoatingPlan from "@/components/stock/CoatingPlan";
-
+import Footer from "@/components/Footer";
 export default async function StockDetailPage({
   params,
 }: {
@@ -85,7 +85,7 @@ export default async function StockDetailPage({
         </div>
 
       </div>
-
+<Footer />
     </main>
   );
 }
