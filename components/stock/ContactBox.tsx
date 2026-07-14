@@ -127,7 +127,34 @@ export default function ContactBox({ car }: Props) {
 
           </div>
 
+{car.coating_name && car.coating_price && (
 
+<div className="mt-6 pt-6 border-t border-zinc-700">
+
+
+<p className="text-zinc-400 text-sm mb-3">
+おすすめ追加プラン
+</p>
+
+
+<div className="flex justify-between items-center">
+
+<span className="font-bold">
+{car.coating_name}
+</span>
+
+
+<span className="text-yellow-400 font-bold">
+＋{Number(car.coating_price).toLocaleString()}円
+</span>
+
+
+</div>
+
+
+</div>
+
+)}
 
 
 
