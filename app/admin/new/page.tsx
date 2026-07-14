@@ -340,7 +340,9 @@ className="border p-3 w-full"
 <option value="">修復歴</option>
 <option value="なし">なし</option>
 <option value="あり">あり</option>
-
+<option value="わからない">
+わからない
+</option>
 </select>
 
 <select
@@ -358,9 +360,7 @@ className="border p-3 w-full"
 <option value="">保証</option>
 <option value="あり">あり</option>
 <option value="なし">なし</option>
-<option value="わからない">
-わからない
-</option>
+
 </select>
 
 </div>
