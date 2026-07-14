@@ -74,9 +74,20 @@ export default function Services() {
       href: "/service/tow",
     },
 
-  ];
-
-
+  
+{
+  title: "バイク買取・販売",
+  description: (
+    <>
+      バイクの買取・販売にも対応。
+      <br /><br />
+      乗り換えや不要になった車両の
+      ご相談もお気軽にお問い合わせください。
+    </>
+  ),
+  href: "/service/bike",
+},
+];
   return (
 
     <section
