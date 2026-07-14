@@ -1,10 +1,4 @@
 import Link from "next/link";
-import PriceBox from "./PriceBox";
-import SpecGrid from "./SpecGrid";
-import BadgeList from "./BadgeList";
-
-
-
 
 type Props = {
   car: any;
@@ -12,47 +6,28 @@ type Props = {
 
 export default function StockCard({ car }: Props) {
   return (
-    <div
-      className="
-      bg-zinc-900
-      border
-      border-zinc-800
-      rounded-xl
-      overflow-hidden
-      hover:border-yellow-500
-      transition
-      duration-300
-      "
+    <Link
+      href={`/stock/${car.id}`}
+      className="block bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-800 hover:border-yellow-500 transition"
     >
-      <div className="flex flex-col lg:flex-row">
+      <div className="grid md:grid-cols-[340px_1fr]">
 
-        {/* ================= 画像 ================= */}
+        {/* 画像 */}
+        <div className="relative">
 
-        <div className="relative lg:w-[360px] shrink-0">
-
-          {car.images?.[0] && (
-            <img
-              src={car.images[0]}
-              alt={car.name}
-              className={`w-full h-[260px] object-cover ${
-                car.status === "sold"
-                  ? "opacity-40"
-                  : ""
-              }`}
-            />
-          )}
-
-          {car.featured && (
-            <div className="absolute top-3 left-3 bg-yellow-500 text-black text-xs font-bold px-3 py-1 rounded-full">
-              NEW
-            </div>
-          )}
+          <img
+            src={car.images?.[0] || "/noimage.jpg"}
+            alt={car.name}
+            className="w-full h-full min-h-[250px] object-cover"
+          />
 
           {car.status === "sold" && (
-            <div className="absolute inset-0 flex items-center justify-center">
+            <div className="absolute inset-0 bg-black/60 flex items-center justify-center">
 
-              <span className="bg-red-600 text-white font-bold text-2xl px-6 py-3 rounded-lg rotate-[-12deg]">
+              <span className="bg-red-600 text-white px-6 py-3 rounded-xl text-2xl font-bold">
+
                 SOLD OUT
+
               </span>
 
             </div>
@@ -60,11 +35,10 @@ export default function StockCard({ car }: Props) {
 
         </div>
 
-        {/* ================= 情報 ================= */}
+        {/* 情報 */}
+        <div className="p-7">
 
-        <div className="flex-1 p-7">
-
-          <p className="text-zinc-400 text-sm">
+          <p className="text-sm text-zinc-400">
             {car.maker}
           </p>
 
@@ -72,59 +46,50 @@ export default function StockCard({ car }: Props) {
             {car.name}
           </h2>
 
-<BadgeList car={car} />
+          <div className="mt-6">
 
-          {/* 金額 */}
+            <p className="text-zinc-400 text-sm">
 
-         <PriceBox
-  total_price={car.total_price}
-  price={car.price}
-/>
-<SpecGrid car={car} />
+              支払総額（税込）
 
-          <Link
-            href={`/stock/${car.id}`}
-            className="
-            mt-8
-            inline-flex
-            bg-yellow-500
-            hover:bg-yellow-400
-            text-black
-            font-bold
-            px-8
-            py-3
-            rounded-lg
-            transition
-            "
-          >
-            詳細を見る →
-          </Link>
+            </p>
+
+            <div className="text-yellow-400 text-4xl font-black">
+
+              {car.total_price
+                ? `${Math.floor(car.total_price / 10000)}万円`
+                : "-"}
+
+            </div>
+
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mt-8 text-sm">
+
+            <div>年式<br /><span className="font-bold">{car.year}</span></div>
+
+            <div>走行距離<br /><span className="font-bold">{car.mileage}</span></div>
+
+            <div>車検<br /><span className="font-bold">{car.inspection}</span></div>
+
+            <div>修復歴<br /><span className="font-bold">{car.repair_history}</span></div>
+
+          </div>
+
+          <div className="mt-8 flex justify-end">
+
+            <span className="bg-yellow-500 text-black px-6 py-3 rounded-xl font-bold">
+
+              詳細を見る →
+
+            </span>
+
+          </div>
 
         </div>
 
       </div>
-    </div>
-  );
-}
 
-function Spec({
-  title,
-  value,
-}: {
-  title: string;
-  value: string;
-}) {
-  return (
-    <div className="border border-zinc-700 rounded-lg overflow-hidden">
-
-      <div className="bg-zinc-800 text-zinc-400 text-sm px-3 py-2">
-        {title}
-      </div>
-
-      <div className="bg-zinc-900 px-3 py-3 font-semibold">
-        {value || "-"}
-      </div>
-
-    </div>
+    </Link>
   );
 }
