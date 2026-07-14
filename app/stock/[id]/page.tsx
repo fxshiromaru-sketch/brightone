@@ -5,6 +5,7 @@ import ContactBox from "@/components/stock/ContactBox";
 import SalePoint from "@/components/stock/SalePoint";
 import Equipment from "@/components/stock/Equipment";
 import SpecTable from "@/components/stock/SpecTable";
+import CoatingPlan from "@/components/stock/CoatingPlan";
 
 export default async function StockDetailPage({
   params,
@@ -65,7 +66,9 @@ export default async function StockDetailPage({
               <Equipment
                 car={car}
               />
-
+<CoatingPlan
+  car={car}
+/>
             </div>
 
             {/* 右側 */}
