@@ -1,14 +1,10 @@
-import Header from "@/components/Header";
 import { supabase } from "@/lib/supabase";
-
+import Header from "@/components/Header";
 import Gallery from "@/components/stock/Gallery";
 import ContactBox from "@/components/stock/ContactBox";
-import SpecTable from "@/components/stock/SpecTable";
 import SalePoint from "@/components/stock/SalePoint";
 import Equipment from "@/components/stock/Equipment";
-
-import PriceCard from "./PriceCard";
-import ContactButtons from "./ContactButtons";
+import SpecTable from "@/components/stock/SpecTable";
 
 export default async function StockDetailPage({
   params,
@@ -25,131 +21,68 @@ export default async function StockDetailPage({
     .single();
 
   if (!car) {
-
     return (
-
       <main className="min-h-screen bg-black text-white flex items-center justify-center">
-
         車両が見つかりません
-
       </main>
-
     );
-
   }
 
   return (
+    <main className="min-h-screen bg-black text-white">
 
-<main className="min-h-screen bg-black text-white">
+      <Header />
 
-<Header />
+      <div className="pt-28 px-5 md:px-10">
 
-<div className="pt-28 px-5 md:px-10">
+        <div className="max-w-7xl mx-auto">
 
-<div className="max-w-7xl mx-auto grid lg:grid-cols-[1fr_350px] gap-10">
+          <div className="grid lg:grid-cols-3 gap-10">
 
-<div>
+            {/* 左側 */}
+            <div className="lg:col-span-2">
 
-<Gallery images={car.images || []} />
+              <Gallery images={car.images || []} />
 
-<div className="mt-8">
+              <div className="mt-8">
 
-<p className="text-zinc-500 tracking-widest text-sm">
+                <p className="text-zinc-400 tracking-widest text-sm">
+                  {car.maker}
+                </p>
 
-{car.maker}
+                <h1 className="text-4xl font-bold mt-2">
+                  {car.name}
+                </h1>
 
-</p>
+              </div>
 
-<h1 className="text-4xl font-bold mt-2">
+              <SpecTable car={car} />
 
-{car.name}
+              <SalePoint
+                description={car.description}
+              />
 
-</h1>
+              <Equipment
+                car={car}
+              />
 
-</div>
+            </div>
 
-<div className="mt-8">
+            {/* 右側 */}
+            <div>
 
-<PriceCard
+              <ContactBox
+                car={car}
+              />
 
-price={car.price}
+            </div>
 
-totalPrice={car.total_price}
+          </div>
 
-/>
+        </div>
 
-</div>
-</div>
+      </div>
 
-
-{/* ======================
-    車両情報
-====================== */}
-
-<div className="mt-12">
-
-  <SpecTable car={car} />
-
-</div>
-
-{/* ======================
-    セールスポイント
-====================== */}
-
-<div className="mt-12">
-
-  <SalePoint
-    description={car.description}
-  />
-
-</div>
-
-{/* ======================
-    装備
-====================== */}
-
-<div className="mt-12">
-
-  <Equipment
-    car={car}
-  />
-
-</div>
-
-{/* ======================
-    問い合わせ
-====================== */}
-
-<div className="mt-12">
-
-  <ContactButtons
-    carName={`${car.maker} ${car.name}`}
-  />
-
-</div>
-
-</div>
-
-{/* ======================
-    右サイド
-====================== */}
-
-<div>
-
-  <div className="sticky top-24">
-
-    <ContactBox
-      car={car}
-    />
-
-  </div>
-
-</div>
-
-</div>
-
-</main>
-
-);
-
+    </main>
+  );
 }
