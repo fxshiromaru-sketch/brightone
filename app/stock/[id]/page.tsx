@@ -6,6 +6,8 @@ import CommentBox from "./CommentBox";
 import ContactButtons from "./ContactButtons";
 import Gallery from "@/components/stock/Gallery";
 import ContactBox from "@/components/stock/ContactBox";
+import SalePoint from "@/components/stock/SalePoint";
+import Equipment from "@/components/stock/Equipment";
 
 
 export default async function StockDetailPage({
@@ -207,16 +209,11 @@ value={car.doors}
     販売店コメント
 ===================== */}
 
-
-<CommentBox
-
-comment={car.description}
-
+<SalePoint
+  description={car.description}
 />
 
-
-
-
+<Equipment car={car} />
 
 {/* =====================
     問い合わせ
