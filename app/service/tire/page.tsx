@@ -112,9 +112,18 @@ export default function TirePage() {
 
 <section className="px-6 pb-24">
 
-  <div className="max-w-6xl mx-auto bg-yellow-500 text-black rounded-2xl p-10 text-center">
-
-    <h2 className="text-3xl font-bold">
+ <div className="
+max-w-6xl
+mx-auto
+bg-zinc-900
+text-white
+rounded-2xl
+p-10
+text-center
+border
+border-yellow-500
+">
+   <h2 className="text-3xl font-bold text-yellow-400">
       タイヤ交換のご相談はこちら
     </h2>
 
