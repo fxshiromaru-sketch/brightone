@@ -22,13 +22,15 @@ export default async function StockPreview() {
   }
 
 
-  const formatPrice = (value:number) => {
+  const formatPrice = (value:number | string) => {
 
-    if(!value) return null;
+    if (!value) return null;
+
+    const num = Number(value);
 
     return {
-      number:(value / 10000).toFixed(1),
-      unit:"万円"
+      number: (num / 10000).toFixed(1),
+      unit: "万円"
     };
 
   };
@@ -38,12 +40,10 @@ export default async function StockPreview() {
 
 <section className="py-20 px-5 md:px-10 bg-black text-white">
 
-
 <div className="max-w-6xl mx-auto">
 
 
 <div className="flex justify-between items-end mb-8">
-
 
 <div>
 
@@ -58,7 +58,6 @@ STOCK
 
 
 </div>
-
 
 
 <Link
@@ -77,7 +76,6 @@ transition
 
 
 </div>
-
 
 
 
@@ -113,7 +111,6 @@ transition
 
 
 <div className="relative">
-
 
 {car.images?.[0] && (
 
@@ -165,7 +162,6 @@ SOLD OUT
 
 )}
 
-
 </div>
 
 
@@ -192,14 +188,11 @@ SOLD OUT
 
 
 
-
 <div className="mt-4">
 
 
 <p className="text-zinc-400 text-xs">
-
 支払総額（税込）
-
 </p>
 
 
@@ -207,14 +200,14 @@ SOLD OUT
 <div className="flex items-end">
 
 
-<span className="text-yellow-400 text-4xl font-black">
+<span className="text-yellow-400 text-5xl font-black leading-none">
 
 {formatPrice(car.total_price)?.number ?? "-"}
 
 </span>
 
 
-<span className="text-yellow-400 text-lg font-bold ml-1 mb-1">
+<span className="text-yellow-400 text-sm font-normal ml-1 mb-1">
 
 {formatPrice(car.total_price)?.unit}
 
@@ -227,8 +220,7 @@ SOLD OUT
 
 
 
-
-<p className="text-zinc-500 text-sm mt-2">
+<p className="text-zinc-500 text-sm mt-3">
 
 車両本体価格（税込）
 
@@ -246,7 +238,7 @@ SOLD OUT
 </span>
 
 
-<span className="text-white text-sm ml-1 mb-1">
+<span className="text-white text-xs ml-1 mb-1">
 
 {formatPrice(car.price)?.unit}
 
@@ -256,9 +248,7 @@ SOLD OUT
 </div>
 
 
-
 </div>
-
 
 
 
@@ -270,46 +260,30 @@ SOLD OUT
 
 <div className="bg-zinc-900 rounded-lg p-3">
 
-
 <p className="text-xs text-zinc-400">
-
 年式
-
 </p>
-
 
 <p className="font-bold">
-
 {car.year || "-"}
-
 </p>
 
-
 </div>
-
 
 
 
 
 <div className="bg-zinc-900 rounded-lg p-3">
 
-
 <p className="text-xs text-zinc-400">
-
 走行距離
-
 </p>
-
 
 <p className="font-bold">
-
 {car.mileage || "-"}
-
 </p>
 
-
 </div>
-
 
 
 </div>
@@ -330,7 +304,6 @@ SOLD OUT
 
 
 </div>
-
 
 </section>
 
