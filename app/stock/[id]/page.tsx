@@ -1,11 +1,11 @@
 import { supabase } from "@/lib/supabase";
 import Header from "@/components/Header";
-
-import Gallery from "./Gallery";
 import PriceCard from "./PriceCard";
 import InfoCard from "./InfoCard";
 import CommentBox from "./CommentBox";
 import ContactButtons from "./ContactButtons";
+import Gallery from "@/components/stock/Gallery";
+import ContactBox from "@/components/stock/ContactBox";
 
 
 export default async function StockDetailPage({
@@ -53,23 +53,10 @@ export default async function StockDetailPage({
 <div className="pt-28 px-5 md:px-10">
 
 
-<div className="max-w-5xl mx-auto">
+<div className="max-w-7xl mx-auto">
 
-
-
-{/* =====================
-    メイン画像
-===================== */}
-
-
-<Gallery
-
-images={car.images || []}
-
-sold={car.status === "sold"}
-
-/>
-
+<div className="grid lg:grid-cols-3 gap-10">
+<Gallery images={car.images || []} />
 
 
 
@@ -109,19 +96,6 @@ sold={car.status === "sold"}
 
 
 
-<div className="mt-10">
-
-
-<PriceCard
-
-price={car.price}
-
-totalPrice={car.total_price}
-
-/>
-
-
-</div>
 
 
 
@@ -249,16 +223,19 @@ comment={car.description}
 ===================== */}
 
 
-
 <ContactButtons
-
-carName={`${car.maker} ${car.name}`}
-
+  carName={`${car.maker} ${car.name}`}
 />
 
+    </div>
 
+    <div>
 
-</div>
+      <ContactBox car={car} />
+
+    </div>
+
+  </div>
 
 </div>
 
