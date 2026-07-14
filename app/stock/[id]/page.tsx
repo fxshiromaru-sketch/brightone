@@ -8,7 +8,7 @@ import Gallery from "@/components/stock/Gallery";
 import ContactBox from "@/components/stock/ContactBox";
 import SalePoint from "@/components/stock/SalePoint";
 import Equipment from "@/components/stock/Equipment";
-
+import SpecTable from "@/components/stock/SpecTable";
 
 export default async function StockDetailPage({
   params,
@@ -109,100 +109,7 @@ export default async function StockDetailPage({
 ===================== */}
 
 
-
-<div className="mt-10">
-
-
-<h2 className="text-2xl font-bold mb-5">
-
-車両情報
-
-</h2>
-
-
-
-<div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-
-
-
-<InfoCard
-title="年式"
-value={car.year}
-/>
-
-
-<InfoCard
-title="走行距離"
-value={car.mileage}
-/>
-
-
-<InfoCard
-title="車検"
-value={car.inspection}
-/>
-
-
-<InfoCard
-title="ミッション"
-value={car.transmission}
-/>
-
-
-<InfoCard
-title="駆動方式"
-value={car.drive}
-/>
-
-
-<InfoCard
-title="燃料"
-value={car.fuel}
-/>
-
-
-<InfoCard
-title="排気量"
-value={car.displacement}
-/>
-
-
-<InfoCard
-title="修復歴"
-value={car.repair_history}
-/>
-
-
-<InfoCard
-title="保証"
-value={car.warranty}
-/>
-
-
-<InfoCard
-title="法定整備"
-value={car.maintenance}
-/>
-
-
-<InfoCard
-title="定員"
-value={car.capacity}
-/>
-
-
-<InfoCard
-title="ドア数"
-value={car.doors}
-/>
-
-
-
-</div>
-
-
-</div>
-
+<SpecTable car={car} />
 
 
 {/* =====================
