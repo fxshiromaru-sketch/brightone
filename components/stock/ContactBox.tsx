@@ -66,14 +66,14 @@ export default function ContactBox({ car }: Props) {
           </a>
 
           <Link
-            href="/contact"
+            href="/#contact"
             className="block mt-4 bg-zinc-800 text-center py-4 rounded-xl hover:bg-zinc-700 transition"
           >
             ✉ メール問い合わせ
           </Link>
 
           <a
-            href="https://line.me/"
+            href="https://lin.ee/NHhNj1t"
             target="_blank"
             className="block mt-4 bg-green-600 text-center py-4 rounded-xl font-bold hover:bg-green-500 transition"
           >
