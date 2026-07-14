@@ -1,88 +1,69 @@
-import { supabase } from "@/lib/supabase";
 import Header from "@/components/Header";
-import Gallery from "@/components/stock/Gallery";
-import ContactBox from "@/components/stock/ContactBox";
-import SalePoint from "@/components/stock/SalePoint";
-import Equipment from "@/components/stock/Equipment";
-import SpecTable from "@/components/stock/SpecTable";
+import { supabase } from "@/lib/supabase";
+import StockCard from "@/components/stock/StockCard";
 
-export default async function StockDetailPage({
-  params,
-}: {
-  params: Promise<{ id: string }>;
-}) {
+export const revalidate = 0;
 
-  const { id } = await params;
+export default async function StockPage() {
 
-  const { data: car } = await supabase
+  const { data: cars } = await supabase
     .from("cars")
     .select("*")
-    .eq("id", id)
-    .single();
-
-  if (!car) {
-    return (
-      <main className="min-h-screen bg-black text-white flex items-center justify-center">
-        車両が見つかりません
-      </main>
-    );
-  }
+    .order("created_at", {
+      ascending: false,
+    });
 
   return (
+
     <main className="min-h-screen bg-black text-white">
 
       <Header />
 
-      <div className="pt-28 px-5 md:px-10">
+      {/* タイトル */}
+      <section className="pt-32 pb-10 border-b border-zinc-800">
 
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-7xl mx-auto px-6">
 
-          <div className="grid lg:grid-cols-3 gap-10">
+          <h1 className="text-5xl font-bold">
+            在庫車一覧
+          </h1>
 
-            {/* 左側 */}
-            <div className="lg:col-span-2">
+          <p className="text-zinc-400 mt-4">
+            Bright One 厳選中古車
+          </p>
 
-              <Gallery images={car.images || []} />
+          <div className="mt-6 text-sm text-zinc-500">
+            全 {cars?.length ?? 0} 台掲載
+          </div>
 
-              <div className="mt-8">
+        </div>
 
-                <p className="text-zinc-400 tracking-widest text-sm">
-                  {car.maker}
-                </p>
+      </section>
 
-                <h1 className="text-4xl font-bold mt-2">
-                  {car.name}
-                </h1>
+      {/* 一覧 */}
+      <section className="py-10">
 
-              </div>
+        <div className="max-w-7xl mx-auto px-6">
 
-              <SpecTable car={car} />
+          <div className="space-y-8">
 
-              <SalePoint
-                description={car.description}
-              />
+            {cars?.map((car) => (
 
-              <Equipment
+              <StockCard
+                key={car.id}
                 car={car}
               />
 
-            </div>
-
-            {/* 右側 */}
-            <div>
-
-              <ContactBox
-                car={car}
-              />
-
-            </div>
+            ))}
 
           </div>
 
         </div>
 
-      </div>
+      </section>
 
     </main>
+
   );
+
 }
