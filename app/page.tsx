@@ -10,20 +10,41 @@ import StockPreview from "@/components/StockPreview";
 import Purchase from "@/components/Purchase";
 
 export default function Home() {
+
   return (
- <main className="min-h-screen bg-black text-white">
-  <Header />
-  <Hero />
-  <StockPreview />
-  <div className="space-y-32">
-    <Purchase />
-    <Services />
-    <Access />
-    <Footer />
-    <Contact />
-    <MobileCTA />
-    {/* <FixedContact /> */}
-  </div>
-</main>
+
+    <main className="min-h-screen bg-black text-white">
+
+      <Header />
+
+      <Hero />
+
+      <StockPreview />
+
+
+      <div className="space-y-32">
+
+        <Purchase />
+
+        <Services />
+
+        <Access />
+
+      </div>
+
+
+      <Contact />
+
+      <MobileCTA />
+
+      {/* <FixedContact /> */}
+
+
+      <Footer />
+
+
+    </main>
+
   );
+
 }
