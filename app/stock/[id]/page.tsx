@@ -1,69 +1,155 @@
 import Header from "@/components/Header";
 import { supabase } from "@/lib/supabase";
-import StockCard from "@/components/stock/StockCard";
 
-export const revalidate = 0;
+import Gallery from "@/components/stock/Gallery";
+import ContactBox from "@/components/stock/ContactBox";
+import SpecTable from "@/components/stock/SpecTable";
+import SalePoint from "@/components/stock/SalePoint";
+import Equipment from "@/components/stock/Equipment";
 
-export default async function StockPage() {
+import PriceCard from "./PriceCard";
+import ContactButtons from "./ContactButtons";
 
-  const { data: cars } = await supabase
+export default async function StockDetailPage({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
+
+  const { id } = await params;
+
+  const { data: car } = await supabase
     .from("cars")
     .select("*")
-    .order("created_at", {
-      ascending: false,
-    });
+    .eq("id", id)
+    .single();
+
+  if (!car) {
+
+    return (
+
+      <main className="min-h-screen bg-black text-white flex items-center justify-center">
+
+        車両が見つかりません
+
+      </main>
+
+    );
+
+  }
 
   return (
 
-    <main className="min-h-screen bg-black text-white">
+<main className="min-h-screen bg-black text-white">
 
-      <Header />
+<Header />
 
-      {/* タイトル */}
-      <section className="pt-32 pb-10 border-b border-zinc-800">
+<div className="pt-28 px-5 md:px-10">
 
-        <div className="max-w-7xl mx-auto px-6">
+<div className="max-w-7xl mx-auto grid lg:grid-cols-[1fr_350px] gap-10">
 
-          <h1 className="text-5xl font-bold">
-            在庫車一覧
-          </h1>
+<div>
 
-          <p className="text-zinc-400 mt-4">
-            Bright One 厳選中古車
-          </p>
+<Gallery images={car.images || []} />
 
-          <div className="mt-6 text-sm text-zinc-500">
-            全 {cars?.length ?? 0} 台掲載
-          </div>
+<div className="mt-8">
 
-        </div>
+<p className="text-zinc-500 tracking-widest text-sm">
 
-      </section>
+{car.maker}
 
-      {/* 一覧 */}
-      <section className="py-10">
+</p>
 
-        <div className="max-w-7xl mx-auto px-6">
+<h1 className="text-4xl font-bold mt-2">
 
-          <div className="space-y-8">
+{car.name}
 
-            {cars?.map((car) => (
+</h1>
 
-              <StockCard
-                key={car.id}
-                car={car}
-              />
+</div>
 
-            ))}
+<div className="mt-8">
 
-          </div>
+<PriceCard
 
-        </div>
+price={car.price}
 
-      </section>
+totalPrice={car.total_price}
 
-    </main>
+/>
 
-  );
+</div>
+</div>
+
+
+{/* ======================
+    車両情報
+====================== */}
+
+<div className="mt-12">
+
+  <SpecTable car={car} />
+
+</div>
+
+{/* ======================
+    セールスポイント
+====================== */}
+
+<div className="mt-12">
+
+  <SalePoint
+    description={car.description}
+  />
+
+</div>
+
+{/* ======================
+    装備
+====================== */}
+
+<div className="mt-12">
+
+  <Equipment
+    car={car}
+  />
+
+</div>
+
+{/* ======================
+    問い合わせ
+====================== */}
+
+<div className="mt-12">
+
+  <ContactButtons
+    carName={`${car.maker} ${car.name}`}
+  />
+
+</div>
+
+</div>
+
+{/* ======================
+    右サイド
+====================== */}
+
+<div>
+
+  <div className="sticky top-24">
+
+    <ContactBox
+      car={car}
+    />
+
+  </div>
+
+</div>
+
+</div>
+
+</main>
+
+);
 
 }
