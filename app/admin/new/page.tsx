@@ -29,8 +29,25 @@ maintenance: "",
 recycle_fee: "",
 chassis_number: "",
 description: "",
+equipment: [] as string[],
     featured: false,
   });
+
+const equipmentList = [
+  "ABS",
+  "エアバッグ",
+  "ナビ",
+  "TV",
+  "Bluetooth",
+  "ETC",
+  "バックカメラ",
+  "ドライブレコーダー",
+  "スマートキー",
+  "LEDヘッドライト",
+  "アルミホイール",
+  "サンルーフ",
+];
+
 
   const [loading, setLoading] = useState(false);
 
@@ -121,6 +138,7 @@ maintenance: form.maintenance,
 recycle_fee: form.recycle_fee,
 chassis_number: form.chassis_number,
 description: form.description,
+equipment: form.equipment,
 featured: form.featured,
       images: imageUrls,
     },
@@ -391,7 +409,60 @@ value={form.description}
 onChange={handleChange}
 className="border p-3 w-full h-32"
 />
+<div>
 
+<p className="font-bold mb-3">
+装備
+</p>
+
+<div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+
+{equipmentList.map((item)=>(
+
+<label
+key={item}
+className="flex items-center gap-2 border p-3 rounded"
+>
+
+<input
+type="checkbox"
+checked={form.equipment.includes(item)}
+onChange={(e)=>{
+
+if(e.target.checked){
+
+setForm({
+...form,
+equipment:[
+...form.equipment,
+item
+]
+});
+
+}else{
+
+setForm({
+...form,
+equipment:
+form.equipment.filter(
+(e)=>e!==item
+)
+});
+
+}
+
+}}
+/>
+
+{item}
+
+</label>
+
+))}
+
+</div>
+
+</div>
 
 <label className="flex gap-2">
 
