@@ -29,6 +29,9 @@ maintenance: "",
 recycle_fee: "",
 chassis_number: "",
 description: "",
+coating_name: "",
+coating_price: "",
+coating_description: "",
 equipment: [] as string[],
     featured: false,
   });
@@ -139,6 +142,9 @@ recycle_fee: form.recycle_fee,
 chassis_number: form.chassis_number,
 description: form.description,
 equipment: form.equipment,
+coating_name: form.coating_name,
+coating_price: Number(form.coating_price),
+coating_description: form.coating_description,
 featured: form.featured,
       images: imageUrls,
     },
@@ -410,6 +416,32 @@ onChange={handleChange}
 className="border p-3 w-full h-32"
 />
 <div>
+<input
+name="coating_name"
+placeholder="コーティングプラン名（例：ガラスコーティング）"
+value={form.coating_name}
+onChange={handleChange}
+className="border p-3 w-full"
+/>
+
+
+<input
+name="coating_price"
+type="number"
+placeholder="コーティング料金（例：55000）"
+value={form.coating_price}
+onChange={handleChange}
+className="border p-3 w-full"
+/>
+
+
+<textarea
+name="coating_description"
+placeholder="コーティング内容説明"
+value={form.coating_description}
+onChange={handleChange}
+className="border p-3 w-full h-24"
+/>
 
 <p className="font-bold mb-3">
 装備
