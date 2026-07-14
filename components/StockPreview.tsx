@@ -2,17 +2,17 @@ import Link from "next/link";
 import { supabase } from "@/lib/supabase";
 
 export const revalidate = 0;
+
 export default async function StockPreview() {
 
-
-const { data: cars } = await supabase
-  .from("cars")
-  .select("*")
-  .eq("featured", true)
-  .order("created_at", {
-    ascending: false
-  })
-  .limit(6);
+  const { data: cars } = await supabase
+    .from("cars")
+    .select("*")
+    .eq("featured", true)
+    .order("created_at", {
+      ascending: false
+    })
+    .limit(6);
 
 
   if (!cars || cars.length === 0) {
@@ -21,6 +21,17 @@ const { data: cars } = await supabase
 
   }
 
+
+  const formatPrice = (value:number) => {
+
+    if(!value) return null;
+
+    return {
+      number:(value / 10000).toFixed(1),
+      unit:"万円"
+    };
+
+  };
 
 
   return (
@@ -31,25 +42,20 @@ const { data: cars } = await supabase
 <div className="max-w-6xl mx-auto">
 
 
-{/* タイトル */}
-
 <div className="flex justify-between items-end mb-8">
 
 
 <div>
 
 <p className="text-yellow-400 text-sm font-bold tracking-widest">
-
 STOCK
-
 </p>
 
 
 <h2 className="text-3xl md:text-4xl font-bold">
-
 おすすめ車両
-
 </h2>
+
 
 </div>
 
@@ -76,8 +82,6 @@ transition
 
 
 
-{/* 横スクロール */}
-
 <div
 className="
 flex
@@ -87,7 +91,6 @@ pb-5
 scrollbar-hide
 "
 >
-
 
 
 {cars.map((car)=>(
@@ -111,6 +114,7 @@ transition
 
 <div className="relative">
 
+
 {car.images?.[0] && (
 
 <img
@@ -124,6 +128,7 @@ object-cover
 />
 
 )}
+
 
 
 {car.status === "sold" && (
@@ -160,7 +165,11 @@ SOLD OUT
 
 )}
 
+
 </div>
+
+
+
 
 
 <div className="p-5">
@@ -182,57 +191,129 @@ SOLD OUT
 
 
 
+
+
 <div className="mt-4">
 
-  <p className="text-zinc-400 text-xs">
-    支払総額（税込）
-  </p>
 
+<p className="text-zinc-400 text-xs">
 
-  <p className="text-yellow-400 text-3xl font-black">
-    {car.total_price
-      ? `${Math.floor(car.total_price / 10000)}万円`
-      : "-"
-    }
-  </p>
+支払総額（税込）
+
+</p>
 
 
 
-  <p className="text-zinc-500 text-sm mt-2">
-    車両本体価格
-  </p>
+<div className="flex items-end">
 
 
-  <p className="text-white text-lg font-bold">
-    {car.price
-      ? `${Math.floor(car.price / 10000)}万円`
-      : "-"
-    }
-  </p>
+<span className="text-yellow-400 text-4xl font-black">
+
+{formatPrice(car.total_price)?.number ?? "-"}
+
+</span>
+
+
+<span className="text-yellow-400 text-lg font-bold ml-1 mb-1">
+
+{formatPrice(car.total_price)?.unit}
+
+</span>
+
 
 </div>
+
+
+
+
+
+
+<p className="text-zinc-500 text-sm mt-2">
+
+車両本体価格（税込）
+
+</p>
+
+
+
+<div className="flex items-end">
+
+
+<span className="text-white text-xl font-bold">
+
+{formatPrice(car.price)?.number ?? "-"}
+
+</span>
+
+
+<span className="text-white text-sm ml-1 mb-1">
+
+{formatPrice(car.price)?.unit}
+
+</span>
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
 <div className="grid grid-cols-2 gap-3 mt-4">
 
-  <div className="bg-zinc-900 rounded-lg p-3">
-    <p className="text-xs text-zinc-400">
-      年式
-    </p>
-    <p className="font-bold">
-      {car.year || "-"}
-    </p>
-  </div>
 
 
-  <div className="bg-zinc-900 rounded-lg p-3">
-    <p className="text-xs text-zinc-400">
-      走行距離
-    </p>
-    <p className="font-bold">
-      {car.mileage || "-"}
-    </p>
-  </div>
+<div className="bg-zinc-900 rounded-lg p-3">
+
+
+<p className="text-xs text-zinc-400">
+
+年式
+
+</p>
+
+
+<p className="font-bold">
+
+{car.year || "-"}
+
+</p>
+
 
 </div>
+
+
+
+
+
+<div className="bg-zinc-900 rounded-lg p-3">
+
+
+<p className="text-xs text-zinc-400">
+
+走行距離
+
+</p>
+
+
+<p className="font-bold">
+
+{car.mileage || "-"}
+
+</p>
+
+
+</div>
+
+
+
+</div>
+
 
 
 </div>
