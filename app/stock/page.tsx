@@ -1,68 +1,244 @@
+"use client";
+
 import Header from "@/components/Header";
 import { supabase } from "@/lib/supabase";
 import StockCard from "@/components/stock/StockCard";
 import Footer from "@/components/Footer";
-export const revalidate = 0;
+import { useEffect, useState } from "react";
+import StockFilter from "@/components/stock/StockFilter";
 
-export default async function StockPage() {
 
-  const { data: cars } = await supabase
-    .from("cars")
-    .select("*")
-    .order("created_at", {
-      ascending: false,
-    });
+export default function StockPage() {
+
+
+  const [cars,setCars] = useState<any[]>([]);
+
+  const [keyword,setKeyword] = useState("");
+
+  const [sort,setSort] = useState("new");
+
+  const [loading,setLoading] = useState(true);
+
+
+
+  useEffect(()=>{
+
+
+    const getCars = async()=>{
+
+
+      const { data,error } = await supabase
+        .from("cars")
+        .select("*");
+
+
+      if(error){
+
+        console.log(error);
+
+      }else{
+
+        setCars(data || []);
+
+      }
+
+
+      setLoading(false);
+
+    };
+
+
+    getCars();
+
+
+  },[]);
+
+
+
+
+
+  let filteredCars = [...cars];
+
+
+
+  // 検索
+
+  if(keyword){
+
+
+    filteredCars = filteredCars.filter((car)=>
+
+
+      car.maker?.includes(keyword) ||
+
+      car.name?.includes(keyword)
+
+
+    );
+
+
+  }
+
+
+
+
+
+  // 並び替え
+
+  filteredCars.sort((a,b)=>{
+
+
+    if(sort==="price_low"){
+
+      return Number(a.price) - Number(b.price);
+
+    }
+
+
+
+    if(sort==="price_high"){
+
+      return Number(b.price) - Number(a.price);
+
+    }
+
+
+
+    if(sort==="mileage"){
+
+      return Number(a.mileage) - Number(b.mileage);
+
+    }
+
+
+
+    return new Date(b.created_at).getTime()
+    -
+    new Date(a.created_at).getTime();
+
+
+  });
+
+
+
+
 
   return (
 
     <main className="min-h-screen bg-black text-white">
 
+
       <Header />
 
-      {/* タイトル */}
+
+
       <section className="pt-32 pb-10 border-b border-zinc-800">
 
+
         <div className="max-w-7xl mx-auto px-6">
+
 
           <h1 className="text-5xl font-bold">
             在庫車一覧
           </h1>
 
+
+
           <p className="text-zinc-400 mt-4">
             Bright One 厳選中古車
           </p>
 
+
+
           <div className="mt-6 text-sm text-zinc-500">
-            全 {cars?.length ?? 0} 台掲載
+
+            全 {filteredCars.length} 台掲載
+
           </div>
+
+
+
+
+          <div className="mt-8">
+
+            <StockFilter
+
+              keyword={keyword}
+
+              sort={sort}
+
+              setKeyword={setKeyword}
+
+              setSort={setSort}
+
+            />
+
+          </div>
+
 
         </div>
 
+
       </section>
 
-      {/* 在庫一覧 */}
+
+
+
+
       <section className="py-10">
+
 
         <div className="max-w-7xl mx-auto px-6">
 
-          <div className="space-y-8">
 
-            {cars?.map((car) => (
+          {loading ? (
 
-              <StockCard
-                key={car.id}
-                car={car}
-              />
+            <p className="text-center text-zinc-400">
+              読み込み中...
+            </p>
 
-            ))}
 
-          </div>
+          ) : (
+
+
+            <div className="space-y-8">
+
+
+              {filteredCars.map((car)=>(
+
+
+                <StockCard
+
+                  key={car.id}
+
+                  car={car}
+
+                />
+
+
+              ))}
+
+
+
+            </div>
+
+
+          )}
+
+
 
         </div>
 
+
       </section>
 
-<Footer />
+
+
+
+
+      <Footer />
+
+
     </main>
 
   );
