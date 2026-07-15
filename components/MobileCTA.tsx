@@ -16,7 +16,7 @@ export default function MobileCTA() {
         target="_blank"
         className="flex-1 bg-green-500 text-white font-bold py-4 text-center"
       >
-        💬 LINE
+        💬 LINE公式アカウント登録
       </a>
 
     </div>
