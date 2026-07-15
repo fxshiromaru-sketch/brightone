@@ -12,127 +12,248 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-
 export const metadata: Metadata = {
 
   metadataBase: new URL("https://brightone2026.com"),
 
   title: {
     default:
-      "Bright One｜銚子市の中古車販売・車買取・スポーツカー買取",
+      "Bright One｜千葉県銚子市の中古車販売・車買取・スポーツカー買取",
     template: "%s | Bright One",
   },
 
   description:
-    "千葉県銚子市のBright Oneでは、中古車販売・車買取・スポーツカー買取・カスタム・タイヤ交換・レッカーサービスまで対応。旭市・香取市・多古町・神栖市・鹿嶋市からの査定も歓迎しております。",
+    "千葉県銚子市の中古車販売店 Bright One。中古車販売・車買取・スポーツカー買取・カスタムカー販売・タイヤ交換・レッカーサービスまで対応。銚子市・旭市・香取市・神栖市・鹿嶋市周辺のお客様をサポートします。",
 
   keywords: [
     "銚子市 中古車",
     "銚子市 車買取",
-    "匝瑳市 車買取",
-    "匝瑳市 中古車",
-    "八日市場 車買取",
-    "八日市場 中古車",
-    "横芝光町 車買取",
-    "横芝光町 中古車",
-    "東金市 車買取",
-    "東金市 中古車",
-    "成田市 車買取",
-    "成田市 中古車",
-    "佐倉市 車買取",
-    "佐倉市 中古車",
-    "富里市 車買取",
-    "富里市 中古車",
-    "印西市 車買取",
-    "印西市 中古車",
-    "白井市 車買取",
-    "白井市 中古車",
-    "我孫子市 車買取",
-    "我孫子市 中古車",
-    "柏市 車買取",
-    "柏市 中古車",
-    "松戸市 車買取",
-    "松戸市 中古車",
-    "流山市 車買取",
-    "流山市 中古車",
-    "野田市 車買取",
-    "野田市 中古車",
-    "鎌ケ谷市 車買取",
-    "鎌ケ谷市 中古車",
-    "船橋市 車買取",
-    "船橋市 中古車",
-    "習志野市 車買取",
-    "習志野市 中古車",
-    "八千代市 車買取",
-    "八千代市 中古車",
-    "市川市 車買取",
-    "市川市 中古車",
-    "浦安市 車買取",
-    "浦安市 中古車",
-    "旭市 車買取",
+    "銚子 中古車販売",
     "旭市 中古車",
+    "旭市 車買取",
     "香取市 車買取",
-    "小見川 車買取",
     "神栖市 車買取",
     "鹿嶋市 車買取",
-    "多古町 車買取",
     "スポーツカー 買取",
-    "中古車販売",
-    "車買取",
-    "車査定",
+    "スポーツカー販売",
     "カスタムカー 買取",
+    "カスタムカー販売",
+    "車査定",
+    "中古車販売",
     "Bright One",
-    "千葉県銚子市の中古車販売店",
-    "千葉県銚子市の車買取店",
-    "千葉県銚子市のスポーツカー買取店",
-    "千葉県銚子市のカスタムカー買取店",
-    "千葉県銚子市のBright One",
-    "千葉県銚子市の中古車販売 Bright One",
-    "千葉県銚子市の車買取 Bright One",
-    "千葉県銚子市のスポーツカー買取 Bright One",
-    "千葉県銚子市のカスタムカー買取 Bright One",
-    "タイヤ交換",
-    "レッカーサービス",
-    "中古車販売 Bright One",
-    "車買取 Bright One",
-    "スポーツカー買取 Bright One",
-    "カスタムカー買取 Bright One",
-    "タイヤ交換 Bright One",
-    "レッカーサービス Bright One",
-    "中古車販売 千葉県銚子市 Bright One",
-    "車買取 千葉県銚子市 Bright One",
-    "スポーツカー買取 千葉県銚子市 Bright One",
-    "カスタムカー買取 千葉県銚子市 Bright One",
-    "タイヤ交換 千葉県銚子市 Bright One",
-    "レッカーサービス 千葉県銚子市 Bright One",
-    "Bright One"
   ],
 
-  openGraph: {
-    title: "Bright One",
-    description:
-      "中古車販売・車買取・スポーツカー買取ならBright One",
-    url: "https://brightone2026.com",
-    siteName: "Bright One",
-    locale: "ja_JP",
-    type: "website",
+
+  alternates: {
+    canonical: "https://brightone2026.com",
   },
 
-  robots: {
-    index: true,
-    follow: true,
+
+  openGraph: {
+
+    title:
+      "Bright One｜千葉県銚子市の中古車販売・車買取",
+
+    description:
+      "中古車販売・車買取・スポーツカー買取ならBright One。銚子市を中心に旭市・香取市・神栖市周辺まで対応。",
+
+    url:
+      "https://brightone2026.com",
+
+    siteName:
+      "Bright One",
+
+    locale:
+      "ja_JP",
+
+    type:
+      "website",
+
   },
+
+
+  robots: {
+
+    index: true,
+
+    follow: true,
+
+  },
+
 };
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "AutomotiveBusiness",
+
+    name: "Bright One",
+
+    description:
+      "千葉県銚子市の中古車販売店。中古車販売・車買取・スポーツカー買取・カスタム・タイヤ交換・レッカーサービスに対応。",
+
+    url:
+      "https://brightone2026.com",
+
+    telephone:
+      "080-5563-7830",
+
+    address: {
+
+      "@type": "PostalAddress",
+
+      streetAddress:
+        "猿田町622-1",
+
+      addressLocality:
+        "銚子市",
+
+      addressRegion:
+        "千葉県",
+
+      postalCode:
+        "288-0855",
+
+      addressCountry:
+        "JP",
+
+    },
+
+
+    openingHoursSpecification: {
+
+      "@type":
+        "OpeningHoursSpecification",
+
+      dayOfWeek: [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday",
+      ],
+
+      opens:
+        "09:00",
+
+      closes:
+        "18:00",
+
+    },
+
+
+    priceRange:
+      "¥¥",
+
+
+    areaServed: [
+
+      "銚子市",
+
+      "旭市",
+
+      "香取市",
+
+      "神栖市",
+
+      "鹿嶋市",
+
+      "多古町",
+
+    ],
+
+
+    makesOffer: [
+
+      {
+        "@type":
+          "Offer",
+
+        itemOffered: {
+
+          "@type":
+            "Service",
+
+          name:
+            "中古車販売",
+
+        },
+
+      },
+
+
+      {
+        "@type":
+          "Service",
+
+        name:
+          "車買取・無料査定",
+
+      },
+
+
+      {
+        "@type":
+          "Service",
+
+        name:
+          "スポーツカー買取",
+
+      },
+
+
+      {
+        "@type":
+          "Service",
+
+        name:
+          "タイヤ交換",
+
+      },
+
+
+      {
+        "@type":
+          "Service",
+
+        name:
+          "レッカーサービス",
+
+      },
+
+    ],
+
+  };
+
+
   return (
     <html lang="ja">
+
+      <head>
+
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html:
+              JSON.stringify(jsonLd),
+          }}
+        />
+
+      </head>
+
+
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
+
         {children}
+
       </body>
+
     </html>
   );
 }
