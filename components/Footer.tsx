@@ -3,7 +3,7 @@ export default function Footer() {
     <footer className="bg-black border-t border-zinc-800 py-10 text-center text-gray-500">
 
       <p className="text-sm font-semibold text-white">
-        Bright One
+        Bright One（ブライトワン）
       </p>
 
       <p className="text-sm mt-2">

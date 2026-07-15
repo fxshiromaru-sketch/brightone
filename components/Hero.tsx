@@ -24,7 +24,7 @@ export default function Hero() {
 
 <p className="mt-8 text-gray-200 max-w-5xl text-lg leading-loose">
 
-千葉県銚子市の中古車販売店　Bright One　です。<br></br>
+千葉県銚子市の中古車販売店　Bright One　（ブライトワン）です。<br></br>
 
 中古車販売・スポーツカー販売・車買取・カスタム・タイヤ交換・レッカーサービスまで対応。<br></br>
 
