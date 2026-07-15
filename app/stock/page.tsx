@@ -18,7 +18,9 @@ export default function StockPage() {
   const [sort,setSort] = useState("new");
 
   const [loading,setLoading] = useState(true);
+const [maker,setMaker] = useState("");
 
+const [priceRange,setPriceRange] = useState("");
 
 
   useEffect(()=>{
@@ -79,7 +81,41 @@ export default function StockPage() {
 
   }
 
+// メーカー絞り込み
 
+if(maker){
+
+
+filteredCars = filteredCars.filter((car)=>
+
+
+car.maker === maker
+
+
+);
+
+
+}
+
+
+
+
+
+// 価格帯絞り込み
+
+if(priceRange){
+
+
+filteredCars = filteredCars.filter((car)=>
+
+
+Number(car.price) <= Number(priceRange)
+
+
+);
+
+
+}
 
 
 
@@ -150,28 +186,46 @@ export default function StockPage() {
 
 
 
-          <div className="mt-6 text-sm text-zinc-500">
+  <div className="mt-6 text-sm text-zinc-500">
 
-            全 {filteredCars.length} 台掲載
+  全 {filteredCars.length} 台掲載
 
-          </div>
+</div>
 
 
+{keyword && (
+
+  <p className="mt-3 text-yellow-400 font-bold">
+
+    「{keyword}」の検索結果　
+    {filteredCars.length}台
+
+  </p>
+
+)}
 
 
           <div className="mt-8">
 
-            <StockFilter
+           <StockFilter
 
-              keyword={keyword}
+keyword={keyword}
 
-              sort={sort}
+sort={sort}
 
-              setKeyword={setKeyword}
+maker={maker}
 
-              setSort={setSort}
+priceRange={priceRange}
 
-            />
+setKeyword={setKeyword}
+
+setSort={setSort}
+
+setMaker={setMaker}
+
+setPriceRange={setPriceRange}
+
+/>
 
           </div>
 
