@@ -102,27 +102,59 @@ transition
 
       </div>
 
+<div className="mt-12">
 
-      <div className="flex gap-4 mt-10">
-
-        <a
-          href="https://www.instagram.com/brightone2026k/"
-          target="_blank"
-          className="bg-pink-600 text-white px-6 py-3 rounded-full font-bold"
-        >
-          Instagram
-        </a>
+  <p className="text-zinc-300 text-sm mb-5">
+    入庫車両・カスタム作業・店舗情報を発信しています
+  </p>
 
 
-        <a
-          href="https://x.com/yuya_kf"
-          target="_blank"
-          className="bg-white text-black px-6 py-3 rounded-full font-bold"
-        >
-          𝕏
-        </a>
+  <div className="flex gap-4 justify-center">
 
-      </div>
+
+    <a
+      href="https://www.instagram.com/brightone2026k/"
+      target="_blank"
+      className="
+      bg-gradient-to-r
+      from-purple-500
+      via-pink-500
+      to-orange-400
+      text-white
+      px-7
+      py-3
+      rounded-full
+      font-bold
+      hover:opacity-90
+      transition
+      "
+    >
+      📷 Instagram
+    </a>
+
+
+
+    <a
+      href="https://x.com/yuya_kf"
+      target="_blank"
+      className="
+      bg-white
+      text-black
+      px-7
+      py-3
+      rounded-full
+      font-bold
+      hover:bg-zinc-200
+      transition
+      "
+    >
+      𝕏 X
+    </a>
+
+
+  </div>
+
+</div>
 
 
     </section>
