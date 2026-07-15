@@ -178,7 +178,13 @@ text-white
 300万円以下
 </option>
 
+<option value="4000000">
+400万円以下
+</option>
 
+<option value="5000000">
+500万円以下
+</option>
 </select>
 
 
