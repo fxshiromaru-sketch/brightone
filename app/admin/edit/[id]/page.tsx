@@ -213,6 +213,7 @@ className="w-full p-3 bg-zinc-900 rounded"
   <option value="">修復歴</option>
   <option value="なし">なし</option>
   <option value="あり">あり</option>
+  <option value="わからない">わからない</option>
 </select>
 <select
   name="warranty"
@@ -223,7 +224,7 @@ className="w-full p-3 bg-zinc-900 rounded"
   <option value="">保証</option>
   <option value="あり">あり</option>
   <option value="なし">なし</option>
-  <option value="わからない">わからない</option>
+  
 </select>
 
 <select
