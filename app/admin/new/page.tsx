@@ -300,7 +300,61 @@ export default function NewCarPage() {
           />
 
         </div>
+<div className="grid md:grid-cols-2 gap-4">
 
+  <select
+    name="repair_history"
+    value={form.repair_history}
+    onChange={(e) =>
+      setForm({
+        ...form,
+        repair_history: e.target.value,
+      })
+    }
+    className="w-full rounded-xl border border-zinc-700 bg-zinc-900 px-4 py-3 text-white"
+  >
+    <option value="">修復歴</option>
+    <option value="なし">なし</option>
+    <option value="あり">あり</option>
+    <option value="わからない">わからない</option>
+  </select>
+
+</div>
+<div className="grid md:grid-cols-2 gap-4">
+
+  <select
+    name="warranty"
+    value={form.warranty}
+    onChange={(e) =>
+      setForm({
+        ...form,
+        warranty: e.target.value,
+      })
+    }
+    className="w-full rounded-xl border border-zinc-700 bg-zinc-900 px-4 py-3 text-white"
+  >
+    <option value="">保証</option>
+    <option value="あり">あり</option>
+    <option value="なし">なし</option>
+  </select>
+
+  <select
+    name="maintenance"
+    value={form.maintenance}
+    onChange={(e) =>
+      setForm({
+        ...form,
+        maintenance: e.target.value,
+      })
+    }
+    className="w-full rounded-xl border border-zinc-700 bg-zinc-900 px-4 py-3 text-white"
+  >
+    <option value="">法定整備</option>
+    <option value="点検整備付">点検整備付</option>
+    <option value="整備なし">整備なし</option>
+  </select>
+
+</div>
         <textarea
           name="description"
           placeholder="コメント"
