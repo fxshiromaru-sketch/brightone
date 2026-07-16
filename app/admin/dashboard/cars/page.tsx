@@ -26,26 +26,70 @@ export default function CarsPage() {
 
     setCars(data || []);
   }
+async function deleteCar(id: string) {
 
-  async function deleteCar(id: string) {
-    const result = confirm("この車両を削除しますか？");
+  const result = confirm("この車両を削除しますか？");
 
-    if (!result) return;
+  if (!result) return;
 
-    const { error } = await supabase
-      .from("cars")
-      .delete()
-      .eq("id", id);
+  // 車両情報取得（画像URL）
+  const { data: car, error: fetchError } = await supabase
+    .from("cars")
+    .select("images")
+    .eq("id", id)
+    .single();
 
-    if (error) {
-      alert(error.message);
+  if (fetchError) {
+
+    alert(fetchError.message);
+    return;
+
+  }
+
+  // Storageの画像削除
+  if (car?.images?.length) {
+
+    const fileNames = car.images.map((url: string) => {
+
+      const urlObj = new URL(url);
+
+      return decodeURIComponent(
+        urlObj.pathname.split("/car-images/")[1]
+      );
+
+    });
+
+    const { error: storageError } = await supabase.storage
+      .from("car-images")
+      .remove(fileNames);
+
+    if (storageError) {
+
+      alert("画像削除エラー：" + storageError.message);
       return;
+
     }
 
-    alert("削除しました");
-
-    getCars();
   }
+
+  // carsテーブル削除
+  const { error } = await supabase
+    .from("cars")
+    .delete()
+    .eq("id", id);
+
+  if (error) {
+
+    alert(error.message);
+    return;
+
+  }
+
+  alert("車両を削除しました");
+
+  getCars();
+
+}
 
   async function toggleSold(car: any) {
     const newStatus =

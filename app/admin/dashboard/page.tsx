@@ -113,36 +113,78 @@ useEffect(() => {
     setCars(data || []);
 
   }
-async function deleteCar(id:string){
 
-  const result = confirm(
-    "この車両を削除しますか？"
-  );
+  async function deleteCar(id: string) {
 
-  if(!result){
+  const result = confirm("この車両を削除しますか？");
+
+  if (!result) return;
+
+  setDeleting(true);
+
+  // 車両情報取得
+  const { data: car, error: carError } = await supabase
+    .from("cars")
+    .select("images")
+    .eq("id", id)
+    .single();
+
+  if (carError) {
+
+    alert(carError.message);
+    setDeleting(false);
     return;
+
   }
 
+  // Storage画像削除
+  if (car.images && car.images.length > 0) {
 
+    const fileNames = car.images.map((url: string) => {
+
+      const parts = url.split("/");
+
+      return parts[parts.length - 1];
+
+    });
+
+    const { error: storageError } = await supabase.storage
+      .from("car-images")
+      .remove(fileNames);
+
+    if (storageError) {
+
+      alert(storageError.message);
+      setDeleting(false);
+      return;
+
+    }
+
+  }
+
+  // DB削除
   const { error } = await supabase
     .from("cars")
     .delete()
     .eq("id", id);
 
-
-  if(error){
+  if (error) {
 
     alert(error.message);
+    setDeleting(false);
     return;
 
   }
 
+  alert("車両を削除しました");
 
-  alert("削除しました");
+  setDeleting(false);
 
   getCars();
 
 }
+
+
 async function toggleSold(car:any){
 
  const newStatus =
