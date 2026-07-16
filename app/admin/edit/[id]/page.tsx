@@ -223,6 +223,7 @@ className="w-full p-3 bg-zinc-900 rounded"
   <option value="">保証</option>
   <option value="あり">あり</option>
   <option value="なし">なし</option>
+  <option value="わからない">わからない</option>
 </select>
 
 <select
@@ -231,9 +232,9 @@ className="w-full p-3 bg-zinc-900 rounded"
   onChange={handleChange}
   className="w-full p-3 bg-zinc-900 rounded"
 >
-  <option value="">法定整備</option>
-  <option value="実施済">実施済</option>
-  <option value="実施なし">実施なし</option>
+ <option value="">法定整備</option>
+<option value="点検整備付">点検整備付</option>
+<option value="整備なし">整備なし</option>
 </select>
 
 <textarea
