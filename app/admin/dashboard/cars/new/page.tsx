@@ -3,9 +3,11 @@
 import { useState } from "react";
 import { supabase } from "@/lib/supabase";
 import { useRouter } from "next/navigation";
+import ImageManager from "@/components/admin/ImageManager";
+
 
 export default function NewCarPage() {
-
+const [carImages,setCarImages] = useState<string[]>([]);
   const router = useRouter();
 const [images, setImages] = useState<File[]>([]);
   const [form, setForm] = useState({
@@ -57,42 +59,7 @@ description: "",
 
     setLoading(true);
 
-
-  // 画像URL保存用
-const imageUrls: string[] = [];
-
-
-// 画像アップロード
-for (const image of images) {
-
-  const fileName = `${Date.now()}-${image.name}`;
-
-
-  const { error: uploadError } = await supabase.storage
-    .from("car-images")
-    .upload(fileName, image);
-
-
-  if(uploadError){
-
-    alert(uploadError.message);
-    setLoading(false);
-    return;
-
-  }
-
-
-  const { data } = supabase.storage
-    .from("car-images")
-    .getPublicUrl(fileName);
-
-
-  imageUrls.push(
-    data.publicUrl
-  );
-
-}
-
+const imageUrls = carImages;
 
 
 
@@ -411,6 +378,17 @@ featured:e.target.checked
 </label>
 
 
+
+<div className="mt-10">
+
+<ImageManager
+  images={carImages}
+  onChange={(images)=>{
+    setCarImages(images);
+  }}
+/>
+
+</div>
 <button
 disabled={loading}
 className="bg-black text-white px-6 py-3 rounded"
@@ -419,38 +397,6 @@ className="bg-black text-white px-6 py-3 rounded"
 {loading ? "保存中..." : "保存"}
 
 </button>
-<div>
-
-<p className="mb-2">
-写真
-</p>
-
-<input
-type="file"
-multiple
-accept="image/*"
-onChange={(e)=>{
-
- if(e.target.files){
-
-  setImages(
-   Array.from(e.target.files)
-  );
-
- }
-
-}}
-className="w-full text-white bg-zinc-800 border border-zinc-600 rounded-xl p-3"
-/>
-{images.length > 0 && (
-
-<p className="text-yellow-400 mt-2">
-{images.length}枚選択中
-</p>
-
-)}
-</div>
-
 </form>
 
 </div>
