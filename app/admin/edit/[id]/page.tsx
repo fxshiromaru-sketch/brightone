@@ -13,7 +13,24 @@ export default function EditCarPage({
   const router = useRouter();
 const [id, setId] = useState("");
   const [loading, setLoading] = useState(false);
+  const [images, setImages] = useState<string[]>([]);
+const [uploading, setUploading] = useState(false);
+  useEffect(() => {
 
+  async function load(){
+
+
+    const { id } = await params;
+
+    setId(id);
+
+    getCar(id);
+
+  }
+
+  load();
+
+}, []);
  const [form, setForm] = useState<any>({
   maker: "",
   name: "",
@@ -39,22 +56,168 @@ const [id, setId] = useState("");
 });
 
 
-  useEffect(() => {
 
-  async function load(){
+const uploadImages = async (
+  e: React.ChangeEvent<HTMLInputElement>
+) => {
+  const files = e.target.files;
 
-    const { id } = await params;
+  if (!files || files.length === 0) return;
 
-    setId(id);
+  setUploading(true);
 
-    getCar(id);
+  try {
+    const uploadedUrls: string[] = [];
+
+    for (const file of Array.from(files)) {
+
+      const fileExt = file.name.split(".").pop();
+
+      const fileName = `${Date.now()}-${Math.random()
+        .toString(36)
+        .substring(2)}.${fileExt}`;
+
+      const filePath = fileName;
+
+
+      // Storageへアップロード
+      const { error: uploadError } = await supabase.storage
+        .from("car-images")
+        .upload(filePath, file);
+
+
+      if (uploadError) {
+        throw uploadError;
+      }
+
+
+      // 公開URL取得
+      const {
+        data: {
+          publicUrl,
+        },
+      } = supabase.storage
+        .from("car-images")
+        .getPublicUrl(filePath);
+
+
+      uploadedUrls.push(publicUrl);
+    }
+
+
+    // 既存画像 + 新規画像
+    const newImages = [
+      ...images,
+      ...uploadedUrls,
+    ];
+
+
+    setImages(newImages);
+
+
+  } catch (error) {
+
+    console.error(
+      "画像アップロードエラー:",
+      error
+    );
+
+    alert(
+      "画像アップロードに失敗しました"
+    );
+
+  } finally {
+
+    setUploading(false);
+
+  }
+};
+const deleteImage = async (url: string) => {
+
+  try {
+
+    // Storage内のファイル名を取得
+    const fileName = url.split("/car-images/")[1];
+
+
+    if (!fileName) {
+      alert("画像情報が取得できません");
+      return;
+    }
+
+
+    // Storageから削除
+    const { error } = await supabase.storage
+      .from("car-images")
+      .remove([
+        fileName
+      ]);
+
+
+    if (error) {
+      throw error;
+    }
+
+
+    // 画面から削除
+    const newImages = images.filter(
+      (img) => img !== url
+    );
+
+
+    setImages(newImages);
+
+
+  } catch (error) {
+
+    console.error(
+      "画像削除エラー:",
+      error
+    );
+
+    alert(
+      "画像削除に失敗しました"
+    );
 
   }
 
-  load();
+};
 
-}, []);
+const moveImage = (
+  index: number,
+  direction: "left" | "right"
+) => {
 
+  const newImages = [...images];
+
+  const targetIndex =
+    direction === "left"
+      ? index - 1
+      : index + 1;
+
+
+  // 範囲外なら何もしない
+  if (
+    targetIndex < 0 ||
+    targetIndex >= newImages.length
+  ) {
+    return;
+  }
+
+
+  // 入れ替え
+  [
+    newImages[index],
+    newImages[targetIndex],
+  ] = [
+    newImages[targetIndex],
+    newImages[index],
+  ];
+
+
+  setImages(newImages);
+
+};
 async function getCar(id:string){
 
  const { data, error } = await supabase
@@ -73,7 +236,7 @@ async function getCar(id:string){
 
 
     setForm(data);
-
+setImages(data.images || []);
   }
 
 
@@ -101,7 +264,7 @@ async function getCar(id:string){
     const {error}=await supabase
       .from("cars")
       .update({
-
+images: images,
         maker:form.maker,
         name:form.name,
         price:Number(form.price),
@@ -154,7 +317,9 @@ return (
 <h1 className="text-3xl font-bold mb-8">
 車両編集
 </h1>
-
+<h1>
+編集画面テスト
+</h1>
 
 <form
 onSubmit={updateCar}
@@ -261,10 +426,92 @@ featured:e.target.checked
 }
 />
 
-おすすめ車両
-
 </label>
 
+
+<div className="mt-6">
+
+  <h2 className="text-lg font-bold mb-3">
+    車両画像
+  </h2>
+
+
+  <label className="inline-block cursor-pointer bg-white text-black px-4 py-2 rounded">
+    {uploading ? "アップロード中..." : "画像を追加"}
+
+    <input
+      type="file"
+      accept="image/*"
+      multiple
+      onChange={uploadImages}
+      className="hidden"
+      disabled={uploading}
+    />
+
+  </label>
+
+
+  <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-5">
+
+    {images.map((img,index)=>(
+
+      <div
+        key={img}
+        className="relative border rounded overflow-hidden"
+      >
+
+        <img
+          src={img}
+          alt={`car-${index}`}
+          className="w-full h-32 object-cover"
+        />
+
+
+        {index === 0 && (
+          <span className="absolute top-1 left-1 bg-yellow-400 text-black text-xs px-2 py-1 rounded">
+            メイン
+          </span>
+        )}
+
+
+        <button
+          type="button"
+          onClick={() => deleteImage(img)}
+          className="absolute bottom-1 right-1 bg-red-600 text-white text-xs px-2 py-1 rounded"
+        >
+          削除
+        </button>
+
+
+        <div className="absolute bottom-1 left-1 flex gap-1">
+
+          <button
+            type="button"
+            onClick={() => moveImage(index,"left")}
+            className="bg-gray-800 text-white text-xs px-2 py-1 rounded"
+          >
+            ←
+          </button>
+
+
+          <button
+            type="button"
+            onClick={() => moveImage(index,"right")}
+            className="bg-gray-800 text-white text-xs px-2 py-1 rounded"
+          >
+            →
+          </button>
+
+        </div>
+
+
+      </div>
+
+    ))}
+
+  </div>
+
+</div>
 
 
 <button
