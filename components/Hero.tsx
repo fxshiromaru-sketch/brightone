@@ -44,88 +44,118 @@ export default function Hero() {
 
 </p>
 
-<div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-5 mt-12 w-full max-w-6xl">
+<div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6 mt-14 w-full max-w-7xl">
 
+  {/* 在庫車 */}
   <Link
     href="/stock"
-    className="group border border-yellow-500/40 bg-black/60 backdrop-blur-sm rounded-xl p-6 transition-all duration-300 hover:-translate-y-1 hover:border-yellow-400 hover:shadow-[0_10px_30px_rgba(234,179,8,0.15)]"
+    className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl p-7 transition-all duration-500 hover:-translate-y-2 hover:border-yellow-400/60 hover:bg-white/10 hover:shadow-[0_15px_40px_rgba(234,179,8,0.18)]"
   >
-    <div className="flex justify-between items-center mb-4">
-      <span className="text-xs tracking-[0.35em] text-zinc-400">
-        STOCK CARS
-      </span>
+    <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-yellow-400/10 opacity-0 transition duration-500 group-hover:opacity-100" />
 
-      <span className="text-yellow-400 text-xl transition-transform duration-300 group-hover:translate-x-2">
-        →
-      </span>
+    <div className="relative z-10">
+      <div className="flex items-center justify-between">
+        <span className="text-xs tracking-[0.35em] uppercase text-zinc-400">
+          STOCK CARS
+        </span>
+
+        <span className="text-yellow-400 text-xl transition duration-300 group-hover:translate-x-2">
+          →
+        </span>
+      </div>
+
+      <h3 className="mt-5 text-2xl font-bold text-white">
+        在庫車を見る
+      </h3>
+
+      <p className="mt-3 text-sm leading-relaxed text-zinc-400">
+        スポーツカーから軽自動車まで掲載中
+      </p>
     </div>
-
-    <h3 className="text-2xl font-bold text-white">
-      在庫車を見る
-    </h3>
   </Link>
 
-
-
+  {/* 買取 */}
   <Link
     href="/purchase"
-    className="group border border-yellow-500/40 bg-black/60 backdrop-blur-sm rounded-xl p-6 transition-all duration-300 hover:-translate-y-1 hover:border-yellow-400 hover:shadow-[0_10px_30px_rgba(234,179,8,0.15)]"
+    className="group relative overflow-hidden rounded-2xl border border-yellow-500/30 bg-white/5 backdrop-blur-xl p-7 transition-all duration-500 hover:-translate-y-2 hover:border-yellow-400 hover:bg-white/10 hover:shadow-[0_15px_40px_rgba(234,179,8,0.25)]"
   >
-    <div className="flex justify-between items-center mb-4">
-      <span className="text-xs tracking-[0.35em] text-zinc-400">
-        PURCHASE
-      </span>
+    <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/10 via-transparent to-transparent opacity-0 transition duration-500 group-hover:opacity-100" />
 
-      <span className="text-yellow-400 text-xl transition-transform duration-300 group-hover:translate-x-2">
-        →
-      </span>
+    <div className="relative z-10">
+      <div className="flex items-center justify-between">
+        <span className="text-xs tracking-[0.35em] uppercase text-zinc-400">
+          PURCHASE
+        </span>
+
+        <span className="text-yellow-400 text-xl transition duration-300 group-hover:translate-x-2">
+          →
+        </span>
+      </div>
+
+      <h3 className="mt-5 text-2xl font-bold text-white">
+        車を売る・無料査定
+      </h3>
+
+      <p className="mt-3 text-sm leading-relaxed text-zinc-400">
+        出張査定・オンライン査定にも対応
+      </p>
     </div>
-
-    <h3 className="text-2xl font-bold text-white">
-      車を売る・無料査定
-    </h3>
   </Link>
 
-
-
+  {/* メール */}
   <a
     href="#contact"
-    className="group border border-yellow-500/40 bg-black/60 backdrop-blur-sm rounded-xl p-6 transition-all duration-300 hover:-translate-y-1 hover:border-yellow-400 hover:shadow-[0_10px_30px_rgba(234,179,8,0.15)]"
+    className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl p-7 transition-all duration-500 hover:-translate-y-2 hover:border-yellow-400/60 hover:bg-white/10 hover:shadow-[0_15px_40px_rgba(234,179,8,0.18)]"
   >
-    <div className="flex justify-between items-center mb-4">
-      <span className="text-xs tracking-[0.35em] text-zinc-400">
-        CONTACT
-      </span>
+    <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-yellow-400/10 opacity-0 transition duration-500 group-hover:opacity-100" />
 
-      <span className="text-yellow-400 text-xl transition-transform duration-300 group-hover:translate-x-2">
-        →
-      </span>
+    <div className="relative z-10">
+      <div className="flex items-center justify-between">
+        <span className="text-xs tracking-[0.35em] uppercase text-zinc-400">
+          CONTACT
+        </span>
+
+        <span className="text-yellow-400 text-xl transition duration-300 group-hover:translate-x-2">
+          →
+        </span>
+      </div>
+
+      <h3 className="mt-5 text-2xl font-bold text-white">
+        メールで相談
+      </h3>
+
+      <p className="mt-3 text-sm leading-relaxed text-zinc-400">
+        購入・売却・カスタムのご相談はこちら
+      </p>
     </div>
-
-    <h3 className="text-2xl font-bold text-white">
-      メールで相談
-    </h3>
   </a>
 
-
-
+  {/* 電話 */}
   <a
     href="tel:08055637830"
-    className="group border border-yellow-500/40 bg-black/60 backdrop-blur-sm rounded-xl p-6 transition-all duration-300 hover:-translate-y-1 hover:border-yellow-400 hover:shadow-[0_10px_30px_rgba(234,179,8,0.15)]"
+    className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl p-7 transition-all duration-500 hover:-translate-y-2 hover:border-yellow-400/60 hover:bg-white/10 hover:shadow-[0_15px_40px_rgba(234,179,8,0.18)]"
   >
-    <div className="flex justify-between items-center mb-4">
-      <span className="text-xs tracking-[0.35em] text-zinc-400">
-        PHONE
-      </span>
+    <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-yellow-400/10 opacity-0 transition duration-500 group-hover:opacity-100" />
 
-      <span className="text-yellow-400 text-xl transition-transform duration-300 group-hover:translate-x-2">
-        →
-      </span>
+    <div className="relative z-10">
+      <div className="flex items-center justify-between">
+        <span className="text-xs tracking-[0.35em] uppercase text-zinc-400">
+          PHONE
+        </span>
+
+        <span className="text-yellow-400 text-xl transition duration-300 group-hover:translate-x-2">
+          →
+        </span>
+      </div>
+
+      <h3 className="mt-5 text-2xl font-bold text-white">
+        電話で相談
+      </h3>
+
+      <p className="mt-3 text-sm leading-relaxed text-zinc-400">
+        お急ぎの方はこちらからどうぞ
+      </p>
     </div>
-
-    <h3 className="text-2xl font-bold text-white">
-      電話で相談
-    </h3>
   </a>
 
 </div>
