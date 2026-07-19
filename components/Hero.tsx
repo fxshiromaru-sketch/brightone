@@ -168,8 +168,6 @@ export default function Hero() {
         事故車・不動車もお気軽にご相談ください
 
       </div>
-
-
 <div className="mt-20 w-full max-w-3xl">
 
   <div className="border-t border-white/10 pt-10">
@@ -188,48 +186,108 @@ export default function Hero() {
       Instagram・Xで発信しています。
     </p>
 
-    <div className="grid grid-cols-2 gap-5 mt-10">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10">
 
+      {/* Instagram */}
       <a
         href="https://www.instagram.com/brightone2026k/"
         target="_blank"
         rel="noopener noreferrer"
-        className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl p-6 transition-all duration-500 hover:-translate-y-1 hover:border-pink-400/70 hover:bg-white/10"
+        className="
+          group
+          relative
+          overflow-hidden
+          rounded-2xl
+          border
+          border-white/10
+          bg-white/5
+          backdrop-blur-xl
+          p-6
+          transition-all
+          duration-500
+          hover:-translate-y-2
+          hover:border-pink-400/70
+          hover:bg-white/10
+          hover:shadow-[0_15px_40px_rgba(236,72,153,0.20)]
+        "
       >
 
-        <div className="absolute inset-0 bg-gradient-to-br from-pink-500/10 via-purple-500/10 to-orange-400/10 opacity-0 group-hover:opacity-100 transition" />
+        <div className="absolute inset-0 bg-gradient-to-br from-pink-500/10 via-purple-500/10 to-orange-400/10 opacity-0 transition duration-500 group-hover:opacity-100" />
 
         <div className="relative z-10">
 
-<h4 className="mt-3 text-xl font-bold text-white">
-  Instagram
-</h4>
+          <div className="flex justify-between items-center">
 
-          <p className="mt-3 text-zinc-400 text-sm">
-            入庫車両・カスタム・店舗情報
+            <span className="text-xs tracking-[0.35em] uppercase text-zinc-500">
+              INSTAGRAM
+            </span>
+
+            <span className="text-pink-400 transition duration-300 group-hover:translate-x-2">
+              →
+            </span>
+
+          </div>
+
+          <h4 className="mt-5 text-2xl font-bold text-white">
+            Instagram
+          </h4>
+
+          <p className="mt-3 text-sm leading-relaxed text-zinc-400">
+            入庫車両・カスタム事例・納車風景などを掲載しています。
           </p>
 
         </div>
 
       </a>
 
+
+
+      {/* X */}
       <a
         href="https://x.com/yuya_kf"
         target="_blank"
         rel="noopener noreferrer"
-        className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl p-6 transition-all duration-500 hover:-translate-y-1 hover:border-white/50 hover:bg-white/10"
+        className="
+          group
+          relative
+          overflow-hidden
+          rounded-2xl
+          border
+          border-white/10
+          bg-white/5
+          backdrop-blur-xl
+          p-6
+          transition-all
+          duration-500
+          hover:-translate-y-2
+          hover:border-sky-400/70
+          hover:bg-sky-400/10
+          hover:shadow-[0_15px_40px_rgba(56,189,248,0.25)]
+        "
       >
+
+        <div className="absolute inset-0 bg-gradient-to-br from-sky-400/10 via-cyan-400/10 to-transparent opacity-0 transition duration-500 group-hover:opacity-100" />
 
         <div className="relative z-10">
 
+          <div className="flex justify-between items-center">
 
+            <span className="text-xs tracking-[0.35em] uppercase text-zinc-500">
+              X
+            </span>
 
-<h4 className="mt-3 text-xl font-bold text-white">
-  X
-</h4>
+            <span className="text-sky-400 transition duration-300 group-hover:translate-x-2">
+              →
+            </span>
 
-          <p className="mt-3 text-zinc-400 text-sm">
-            最新のお知らせを投稿
+          </div>
+
+          <h4 className="mt-5 text-2xl font-bold text-white">
+            X
+          </h4>
+
+          <p className="mt-3 text-sm leading-relaxed text-zinc-400">
+            最新のお知らせ・店舗情報・日々の出来事を更新しています。
           </p>
 
         </div>
