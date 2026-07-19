@@ -72,36 +72,154 @@ export default function Purchase() {
           </div>
 
         </div>
+<div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16 max-w-5xl mx-auto">
 
-        <div className="flex justify-center gap-5 flex-wrap mt-14">
+  {/* メール査定 */}
+  <a
+    href="/purchase/request"
+    className="
+      group
+      relative
+      overflow-hidden
+      rounded-2xl
+      border
+      border-white/10
+      bg-white/5
+      backdrop-blur-xl
+      p-6
+      transition-all
+      duration-500
+      hover:-translate-y-2
+      hover:border-white/40
+      hover:bg-white/10
+    "
+  >
+    <div className="flex justify-between items-center">
 
-          <a
-  href="/purchase/request"
-  className="border border-white px-8 py-4 rounded-full hover:bg-white hover:text-black transition"
->
-  ✉ メールで無料査定
-</a>
+      <span className="text-xs tracking-[0.35em] uppercase text-zinc-500">
+        CONTACT
+      </span>
 
-          <a
-            href="https://lin.ee/NHhNj1t"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-green-500 hover:bg-green-400 text-white font-bold px-8 py-4 rounded-xl transition"
-          >
-            LINEで無料査定
-          </a>
+      <span className="text-white transition group-hover:translate-x-2">
+        →
+      </span>
 
-          <Link
-            href="/purchase"
-            className="border border-white px-8 py-4 rounded-xl font-bold hover:bg-white hover:text-black transition"
-          >
-            買取依頼の前にこちらをご覧ください
-          </Link>
+    </div>
 
-        </div>
+    <h3 className="mt-5 text-2xl font-bold">
+      メール査定
+    </h3>
+
+    <p className="mt-3 text-zinc-400 text-sm">
+      フォームから24時間受付しています。
+    </p>
+
+  </a>
+
+
+
+  {/* LINE査定 */}
+  <a
+    href="https://lin.ee/NHhNj1t"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="
+      group
+      relative
+      overflow-hidden
+      rounded-2xl
+      border
+      border-white/10
+      bg-white/5
+      backdrop-blur-xl
+      p-6
+      transition-all
+      duration-500
+      hover:-translate-y-2
+      hover:border-green-400
+      hover:bg-green-400/10
+      hover:shadow-[0_15px_40px_rgba(34,197,94,0.25)]
+    "
+  >
+
+    <div className="absolute inset-0 bg-gradient-to-br from-green-400/10 via-emerald-400/10 to-transparent opacity-0 transition group-hover:opacity-100" />
+
+    <div className="relative">
+
+      <div className="flex justify-between items-center">
+
+        <span className="text-xs tracking-[0.35em] uppercase text-zinc-500">
+          LINE
+        </span>
+
+        <span className="text-green-400 transition group-hover:translate-x-2">
+          →
+        </span>
 
       </div>
 
+      <h3 className="mt-5 text-2xl font-bold">
+        LINE査定
+      </h3>
+
+      <p className="mt-3 text-zinc-400 text-sm">
+        写真を送るだけで簡単査定。
+      </p>
+
+    </div>
+
+  </a>
+
+
+
+  {/* 詳細ページ */}
+  <Link
+    href="/purchase"
+    className="
+      group
+      relative
+      overflow-hidden
+      rounded-2xl
+      border
+      border-yellow-500/30
+      bg-white/5
+      backdrop-blur-xl
+      p-6
+      transition-all
+      duration-500
+      hover:-translate-y-2
+      hover:border-yellow-400
+      hover:bg-yellow-400/10
+      hover:shadow-[0_15px_40px_rgba(234,179,8,0.25)]
+    "
+  >
+
+    <div className="flex justify-between items-center">
+
+      <span className="text-xs tracking-[0.35em] uppercase text-zinc-500">
+        PURCHASE
+      </span>
+
+      <span className="text-yellow-400 transition group-hover:translate-x-2">
+        →
+      </span>
+
+    </div>
+
+    <h3 className="mt-5 text-2xl font-bold">
+      買取のご案内
+    </h3>
+
+    <p className="mt-3 text-zinc-400 text-sm">
+      買取の流れや特徴をご紹介しています。
+    </p>
+
+  </Link>
+
+</div>
+   </div>
+
     </section>
-  );
+);
+
 }
