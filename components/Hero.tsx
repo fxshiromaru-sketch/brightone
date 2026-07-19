@@ -219,7 +219,7 @@ export default function Hero() {
           <div className="flex justify-between items-center">
 
             <span className="text-xs tracking-[0.35em] uppercase text-zinc-500">
-              INSTAGRAM
+              インスタグラム
             </span>
 
             <span className="text-pink-400 transition duration-300 group-hover:translate-x-2">
@@ -273,7 +273,7 @@ export default function Hero() {
           <div className="flex justify-between items-center">
 
             <span className="text-xs tracking-[0.35em] uppercase text-zinc-500">
-              X
+              旧Twitter
             </span>
 
             <span className="text-sky-400 transition duration-300 group-hover:translate-x-2">
