@@ -2,224 +2,319 @@ import Link from "next/link";
 
 export default function Purchase() {
   return (
-    <section className="py-24 bg-zinc-900 text-white">
+    <section className="py-24 bg-gradient-to-b from-zinc-950 via-black to-zinc-900 text-white">
 
       <div className="max-w-[1700px] mx-auto px-6">
 
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-6">
-          車を売るなら Bright Oneへ
-        </h2>
+        <div className="text-center">
 
-        <p className="text-zinc-300 text-center text-lg leading-8 max-w-4xl mx-auto mb-14">
-          スポーツカー・カスタム車から普段使いのお車まで幅広く対応。
-          <br />
-          車を知り尽くしたスタッフが一台一台丁寧に査定し、
-          お客様の大切なお車を適正価格で買取いたします。
-        </p>
+          <p className="text-yellow-400 tracking-[0.35em] uppercase text-sm">
+            PURCHASE
+          </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <h2 className="mt-4 text-4xl md:text-5xl font-bold">
+            車を売るなら Bright Oneへ
+          </h2>
 
-          {/* 高価買取 */}
-          <div className="bg-black rounded-2xl p-8 min-h-[270px] shadow-lg hover:shadow-yellow-500/20 hover:-translate-y-1 transition-all duration-300">
+          <p className="mt-8 text-zinc-400 text-lg leading-8 max-w-4xl mx-auto">
+            スポーツカー・カスタム車から普段使いのお車まで幅広く対応。
+            <br />
+            車を知り尽くしたスタッフが一台一台丁寧に査定し、
+            お客様の大切なお車を適正価格で買取いたします。
+          </p>
 
-            <h3 className="text-2xl font-bold mb-5">
-              💰 高価買取
-            </h3>
+        </div>
 
-            <p className="text-base leading-8 text-zinc-300">
-              車の価値をしっかり確認し、
-              適正価格をご提示いたします。
-              <br /><br />
-              走行距離が多いお車や
-              年式の古いお車も
-              他店より高く買取できる場合があります。
-            </p>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
+
+          {/* HIGH VALUE */}
+          <div
+            className="
+              group
+              relative
+              overflow-hidden
+              rounded-3xl
+              border
+              border-white/10
+              bg-white/5
+              backdrop-blur-xl
+              p-8
+              transition-all
+              duration-500
+              hover:-translate-y-2
+              hover:border-yellow-400/60
+              hover:bg-yellow-400/5
+              hover:shadow-[0_20px_50px_rgba(234,179,8,0.18)]
+            "
+          >
+
+            <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/10 to-transparent opacity-0 group-hover:opacity-100 transition duration-500" />
+
+            <div className="relative">
+
+              <span className="text-xs tracking-[0.35em] uppercase text-zinc-500">
+                HIGH VALUE
+              </span>
+
+              <h3 className="mt-5 text-3xl font-bold">
+                高価買取
+              </h3>
+
+              <p className="mt-6 leading-8 text-zinc-300">
+                車の価値を細かく見極め、
+                カスタムや整備状態まで含めて
+                適正価格をご提示いたします。
+              </p>
+
+              <div className="mt-10 flex justify-end text-yellow-400 group-hover:translate-x-2 transition">
+                →
+              </div>
+
+            </div>
 
           </div>
 
-          {/* カスタム車歓迎 */}
-          <div className="bg-black rounded-2xl p-8 min-h-[270px] shadow-lg hover:shadow-yellow-500/20 hover:-translate-y-1 transition-all duration-300">
+          {/* SPORTS CAR */}
+          <div
+            className="
+              group
+              relative
+              overflow-hidden
+              rounded-3xl
+              border
+              border-white/10
+              bg-white/5
+              backdrop-blur-xl
+              p-8
+              transition-all
+              duration-500
+              hover:-translate-y-2
+              hover:border-yellow-400/60
+              hover:bg-yellow-400/5
+              hover:shadow-[0_20px_50px_rgba(234,179,8,0.18)]
+            "
+          >
 
-            <h3 className="text-2xl font-bold mb-5">
-              🏁 カスタム車歓迎
-            </h3>
+            <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/10 to-transparent opacity-0 group-hover:opacity-100 transition duration-500" />
 
-            <p className="text-base leading-8 text-zinc-300">
-              スポーツカー・ドリ車・
-              カスタムカーも大歓迎。
-              <br /><br />
-              LINE査定で遠方のお客様にも
-              概算価格をご案内いたします。
-            </p>
+            <div className="relative">
+
+              <span className="text-xs tracking-[0.35em] uppercase text-zinc-500">
+                SPORTS CAR
+              </span>
+
+              <h3 className="mt-5 text-3xl font-bold">
+                カスタム車歓迎
+              </h3>
+
+              <p className="mt-6 leading-8 text-zinc-300">
+                スポーツカー・ドリ車・
+                カスタムカーも大歓迎。
+                専門店だからこその査定を行います。
+              </p>
+
+              <div className="mt-10 flex justify-end text-yellow-400 group-hover:translate-x-2 transition">
+                →
+              </div>
+
+            </div>
 
           </div>
 
-          {/* 不動車 */}
-          <div className="bg-black rounded-2xl p-8 min-h-[270px] shadow-lg hover:shadow-yellow-500/20 hover:-translate-y-1 transition-all duration-300">
+          {/* NON RUNNER */}
+          <div
+            className="
+              group
+              relative
+              overflow-hidden
+              rounded-3xl
+              border
+              border-white/10
+              bg-white/5
+              backdrop-blur-xl
+              p-8
+              transition-all
+              duration-500
+              hover:-translate-y-2
+              hover:border-yellow-400/60
+              hover:bg-yellow-400/5
+              hover:shadow-[0_20px_50px_rgba(234,179,8,0.18)]
+            "
+          >
 
-            <h3 className="text-2xl font-bold mb-5">
-              🚛 不動車も相談OK
-            </h3>
+            <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/10 to-transparent opacity-0 group-hover:opacity-100 transition duration-500" />
 
-            <p className="text-base leading-8 text-zinc-300">
-              事故車・故障車・
-              動かないお車でもご相談ください。
-              <br /><br />
-              廃車予定のお車も
-              買取できる場合があります。
-            </p>
+            <div className="relative">
+
+              <span className="text-xs tracking-[0.35em] uppercase text-zinc-500">
+                NON RUNNER
+              </span>
+
+              <h3 className="mt-5 text-3xl font-bold">
+                不動車も相談OK
+              </h3>
+
+              <p className="mt-6 leading-8 text-zinc-300">
+                事故車・故障車・
+                廃車予定のお車もお気軽にご相談ください。
+                買取可能な場合があります。
+              </p>
+
+              <div className="mt-10 flex justify-end text-yellow-400 group-hover:translate-x-2 transition">
+                →
+              </div>
+
+            </div>
 
           </div>
 
         </div>
-<div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16 max-w-5xl mx-auto">
+           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16 max-w-5xl mx-auto">
 
-  {/* メール査定 */}
-  <a
-    href="/purchase/request"
-    className="
-      group
-      relative
-      overflow-hidden
-      rounded-2xl
-      border
-      border-white/10
-      bg-white/5
-      backdrop-blur-xl
-      p-6
-      transition-all
-      duration-500
-      hover:-translate-y-2
-      hover:border-white/40
-      hover:bg-white/10
-    "
-  >
-    <div className="flex justify-between items-center">
+          {/* メール査定 */}
+          <a
+            href="/purchase/request"
+            className="
+              group
+              relative
+              overflow-hidden
+              rounded-3xl
+              border
+              border-white/10
+              bg-white/5
+              backdrop-blur-xl
+              p-6
+              transition-all
+              duration-500
+              hover:-translate-y-2
+              hover:border-white/40
+              hover:bg-white/10
+              hover:shadow-[0_20px_50px_rgba(255,255,255,0.10)]
+            "
+          >
+            <div className="flex justify-between items-center">
+              <span className="text-xs tracking-[0.35em] uppercase text-zinc-500">
+                CONTACT
+              </span>
 
-      <span className="text-xs tracking-[0.35em] uppercase text-zinc-500">
-        CONTACT
-      </span>
+              <span className="text-white group-hover:translate-x-2 transition">
+                →
+              </span>
+            </div>
 
-      <span className="text-white transition group-hover:translate-x-2">
-        →
-      </span>
+            <h3 className="mt-5 text-2xl font-bold">
+              メール査定
+            </h3>
 
-    </div>
+            <p className="mt-3 text-zinc-400 text-sm leading-7">
+              24時間受付。
+              お好きなタイミングで査定依頼できます。
+            </p>
 
-    <h3 className="mt-5 text-2xl font-bold">
-      メール査定
-    </h3>
+          </a>
 
-    <p className="mt-3 text-zinc-400 text-sm">
-      フォームから24時間受付しています。
-    </p>
+          {/* LINE査定 */}
+          <a
+            href="https://lin.ee/NHhNj1t"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="
+              group
+              relative
+              overflow-hidden
+              rounded-3xl
+              border
+              border-white/10
+              bg-white/5
+              backdrop-blur-xl
+              p-6
+              transition-all
+              duration-500
+              hover:-translate-y-2
+              hover:border-green-400
+              hover:bg-green-400/10
+              hover:shadow-[0_20px_50px_rgba(34,197,94,0.25)]
+            "
+          >
 
-  </a>
+            <div className="absolute inset-0 bg-gradient-to-br from-green-400/10 via-emerald-400/10 to-transparent opacity-0 transition duration-500 group-hover:opacity-100" />
 
+            <div className="relative">
 
+              <div className="flex justify-between items-center">
 
-  {/* LINE査定 */}
-  <a
-    href="https://lin.ee/NHhNj1t"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="
-      group
-      relative
-      overflow-hidden
-      rounded-2xl
-      border
-      border-white/10
-      bg-white/5
-      backdrop-blur-xl
-      p-6
-      transition-all
-      duration-500
-      hover:-translate-y-2
-      hover:border-green-400
-      hover:bg-green-400/10
-      hover:shadow-[0_15px_40px_rgba(34,197,94,0.25)]
-    "
-  >
+                <span className="text-xs tracking-[0.35em] uppercase text-zinc-500">
+                  LINE
+                </span>
 
-    <div className="absolute inset-0 bg-gradient-to-br from-green-400/10 via-emerald-400/10 to-transparent opacity-0 transition group-hover:opacity-100" />
+                <span className="text-green-400 group-hover:translate-x-2 transition">
+                  →
+                </span>
 
-    <div className="relative">
+              </div>
 
-      <div className="flex justify-between items-center">
+              <h3 className="mt-5 text-2xl font-bold">
+                LINE査定
+              </h3>
 
-        <span className="text-xs tracking-[0.35em] uppercase text-zinc-500">
-          LINE
-        </span>
+              <p className="mt-3 text-zinc-400 text-sm leading-7">
+                写真を送るだけ。
+                最短で概算査定をご案内します。
+              </p>
 
-        <span className="text-green-400 transition group-hover:translate-x-2">
-          →
-        </span>
+            </div>
+
+          </a>
+
+          {/* 買取ページ */}
+          <Link
+            href="/purchase"
+            className="
+              group
+              relative
+              overflow-hidden
+              rounded-3xl
+              border
+              border-yellow-500/30
+              bg-white/5
+              backdrop-blur-xl
+              p-6
+              transition-all
+              duration-500
+              hover:-translate-y-2
+              hover:border-yellow-400
+              hover:bg-yellow-400/10
+              hover:shadow-[0_20px_50px_rgba(234,179,8,0.25)]
+            "
+          >
+
+            <div className="flex justify-between items-center">
+
+              <span className="text-xs tracking-[0.35em] uppercase text-zinc-500">
+                PURCHASE
+              </span>
+
+              <span className="text-yellow-400 group-hover:translate-x-2 transition">
+                →
+              </span>
+
+            </div>
+
+            <h3 className="mt-5 text-2xl font-bold">
+              買取のご案内
+            </h3>
+
+            <p className="mt-3 text-zinc-400 text-sm leading-7">
+              買取の流れや必要書類など、
+              初めての方はこちらをご覧ください。
+            </p>
+
+          </Link>
+
+        </div>
 
       </div>
 
-      <h3 className="mt-5 text-2xl font-bold">
-        LINE査定
-      </h3>
-
-      <p className="mt-3 text-zinc-400 text-sm">
-        写真と必要な情報を送るだけで簡単査定。
-      </p>
-
-    </div>
-
-  </a>
-
-
-
-  {/* 詳細ページ */}
-  <Link
-    href="/purchase"
-    className="
-      group
-      relative
-      overflow-hidden
-      rounded-2xl
-      border
-      border-yellow-500/30
-      bg-white/5
-      backdrop-blur-xl
-      p-6
-      transition-all
-      duration-500
-      hover:-translate-y-2
-      hover:border-yellow-400
-      hover:bg-yellow-400/10
-      hover:shadow-[0_15px_40px_rgba(234,179,8,0.25)]
-    "
-  >
-
-    <div className="flex justify-between items-center">
-
-      <span className="text-xs tracking-[0.35em] uppercase text-zinc-500">
-        PURCHASE
-      </span>
-
-      <span className="text-yellow-400 transition group-hover:translate-x-2">
-        →
-      </span>
-
-    </div>
-
-    <h3 className="mt-5 text-2xl font-bold">
-      買取のご案内
-    </h3>
-
-    <p className="mt-3 text-zinc-400 text-sm">
-      買取の流れや特徴をご紹介しています。
-    </p>
-
-  </Link>
-
-</div>
-   </div>
-
     </section>
-);
-
+  );
 }
