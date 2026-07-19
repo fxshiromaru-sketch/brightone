@@ -28,25 +28,26 @@ export default function Purchase() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
 
           {/* HIGH VALUE */}
-          <div
-            className="
-              group
-              relative
-              overflow-hidden
-              rounded-3xl
-              border
-              border-white/10
-              bg-white/5
-              backdrop-blur-xl
-              p-8
-              transition-all
-              duration-500
-              hover:-translate-y-2
-              hover:border-yellow-400/60
-              hover:bg-yellow-400/5
-              hover:shadow-[0_20px_50px_rgba(234,179,8,0.18)]
-            "
-          >
+         <Link
+  href="/purchase"
+  className="
+    group
+    relative
+    overflow-hidden
+    rounded-3xl
+    border
+    border-white/10
+    bg-white/5
+    backdrop-blur-xl
+    p-8
+    transition-all
+    duration-500
+    hover:-translate-y-2
+    hover:border-yellow-400/60
+    hover:bg-yellow-400/5
+    hover:shadow-[0_20px_50px_rgba(234,179,8,0.18)]
+  "
+></Link>
 
             <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/10 to-transparent opacity-0 group-hover:opacity-100 transition duration-500" />
 
@@ -75,25 +76,26 @@ export default function Purchase() {
           </div>
 
           {/* SPORTS CAR */}
-          <div
-            className="
-              group
-              relative
-              overflow-hidden
-              rounded-3xl
-              border
-              border-white/10
-              bg-white/5
-              backdrop-blur-xl
-              p-8
-              transition-all
-              duration-500
-              hover:-translate-y-2
-              hover:border-yellow-400/60
-              hover:bg-yellow-400/5
-              hover:shadow-[0_20px_50px_rgba(234,179,8,0.18)]
-            "
-          >
+             <Link
+  href="/purchase"
+  className="
+    group
+    relative
+    overflow-hidden
+    rounded-3xl
+    border
+    border-white/10
+    bg-white/5
+    backdrop-blur-xl
+    p-8
+    transition-all
+    duration-500
+    hover:-translate-y-2
+    hover:border-yellow-400/60
+    hover:bg-yellow-400/5
+    hover:shadow-[0_20px_50px_rgba(234,179,8,0.18)]
+  "
+></Link>
 
             <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/10 to-transparent opacity-0 group-hover:opacity-100 transition duration-500" />
 
@@ -122,25 +124,26 @@ export default function Purchase() {
           </div>
 
           {/* NON RUNNER */}
-          <div
-            className="
-              group
-              relative
-              overflow-hidden
-              rounded-3xl
-              border
-              border-white/10
-              bg-white/5
-              backdrop-blur-xl
-              p-8
-              transition-all
-              duration-500
-              hover:-translate-y-2
-              hover:border-yellow-400/60
-              hover:bg-yellow-400/5
-              hover:shadow-[0_20px_50px_rgba(234,179,8,0.18)]
-            "
-          >
+             <Link
+  href="/purchase"
+  className="
+    group
+    relative
+    overflow-hidden
+    rounded-3xl
+    border
+    border-white/10
+    bg-white/5
+    backdrop-blur-xl
+    p-8
+    transition-all
+    duration-500
+    hover:-translate-y-2
+    hover:border-yellow-400/60
+    hover:bg-yellow-400/5
+    hover:shadow-[0_20px_50px_rgba(234,179,8,0.18)]
+  "
+></Link>
 
             <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/10 to-transparent opacity-0 group-hover:opacity-100 transition duration-500" />
 
@@ -166,9 +169,6 @@ export default function Purchase() {
 
             </div>
 
-          </div>
-
-        </div>
            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16 max-w-5xl mx-auto">
 
           {/* メール査定 */}
@@ -313,7 +313,7 @@ export default function Purchase() {
 
         </div>
 
-      </div>
+      
 
     </section>
   );
