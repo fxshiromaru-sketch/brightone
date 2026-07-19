@@ -163,7 +163,7 @@ export default function Purchase() {
       </h3>
 
       <p className="mt-3 text-zinc-400 text-sm">
-        写真を送るだけで簡単査定。
+        写真と必要な情報を送るだけで簡単査定。
       </p>
 
     </div>
