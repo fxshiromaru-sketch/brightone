@@ -169,60 +169,84 @@ export default function Hero() {
 
       </div>
 
-<div className="mt-12">
 
-  <p className="text-zinc-300 text-sm mb-5">
-    入庫車両・カスタム作業・店舗情報を発信しています
-  </p>
+<div className="mt-20 w-full max-w-3xl">
 
+  <div className="border-t border-white/10 pt-10">
 
-  <div className="flex gap-4 justify-center">
+    <p className="text-xs tracking-[0.4em] uppercase text-zinc-500 text-center">
+      FOLLOW US
+    </p>
 
+    <h3 className="mt-4 text-2xl font-semibold text-white text-center">
+      最新情報をチェック
+    </h3>
 
-    <a
-      href="https://www.instagram.com/brightone2026k/"
-      target="_blank"
-      className="
-      bg-gradient-to-r
-      from-purple-500
-      via-pink-500
-      to-orange-400
-      text-white
-      px-7
-      py-3
-      rounded-full
-      font-bold
-      hover:opacity-90
-      transition
-      "
-    >
-      📷 Instagram
-    </a>
+    <p className="mt-3 text-zinc-400 text-center leading-relaxed">
+      入庫車両・買取実績・カスタム事例などを
+      <br />
+      Instagram・Xで発信しています。
+    </p>
 
+    <div className="grid grid-cols-2 gap-5 mt-10">
 
+      <a
+        href="https://www.instagram.com/brightone2026k/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl p-6 transition-all duration-500 hover:-translate-y-1 hover:border-pink-400/70 hover:bg-white/10"
+      >
 
-    <a
-      href="https://x.com/yuya_kf"
-      target="_blank"
-      className="
-      bg-white
-      text-black
-      px-7
-      py-3
-      rounded-full
-      font-bold
-      hover:bg-zinc-200
-      transition
-      "
-    >
-      𝕏 X
-    </a>
+        <div className="absolute inset-0 bg-gradient-to-br from-pink-500/10 via-purple-500/10 to-orange-400/10 opacity-0 group-hover:opacity-100 transition" />
 
+        <div className="relative z-10">
+
+          <p className="text-xs tracking-[0.35em] uppercase text-zinc-500">
+            Instagram
+          </p>
+
+          <h4 className="mt-3 text-xl font-bold text-white">
+            @brightone2026k
+          </h4>
+
+          <p className="mt-3 text-zinc-400 text-sm">
+            入庫車両・カスタム・店舗情報
+          </p>
+
+        </div>
+
+      </a>
+
+      <a
+        href="https://x.com/yuya_kf"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl p-6 transition-all duration-500 hover:-translate-y-1 hover:border-white/50 hover:bg-white/10"
+      >
+
+        <div className="relative z-10">
+
+          <p className="text-xs tracking-[0.35em] uppercase text-zinc-500">
+            X
+          </p>
+
+          <h4 className="mt-3 text-xl font-bold text-white">
+            @yuya_kf
+          </h4>
+
+          <p className="mt-3 text-zinc-400 text-sm">
+            最新のお知らせを投稿
+          </p>
+
+        </div>
+
+      </a>
+
+    </div>
 
   </div>
 
 </div>
-
 
     </section>
   );
