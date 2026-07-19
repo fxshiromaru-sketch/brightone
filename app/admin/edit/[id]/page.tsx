@@ -313,13 +313,13 @@ return (
 
 <main className="min-h-screen bg-black text-white p-10">
 
-
+<h1>
+Brigaht One
+</h1>
 <h1 className="text-3xl font-bold mb-8">
 車両編集
 </h1>
-<h1>
-編集画面テスト
-</h1>
+
 
 <form
 onSubmit={updateCar}

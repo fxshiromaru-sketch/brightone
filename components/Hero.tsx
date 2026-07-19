@@ -44,54 +44,91 @@ export default function Hero() {
 
 </p>
 
+<div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-5 mt-12 w-full max-w-6xl">
+
+  <Link
+    href="/stock"
+    className="group border border-yellow-500/40 bg-black/60 backdrop-blur-sm rounded-xl p-6 transition-all duration-300 hover:-translate-y-1 hover:border-yellow-400 hover:shadow-[0_10px_30px_rgba(234,179,8,0.15)]"
+  >
+    <div className="flex justify-between items-center mb-4">
+      <span className="text-xs tracking-[0.35em] text-zinc-400">
+        STOCK CARS
+      </span>
+
+      <span className="text-yellow-400 text-xl transition-transform duration-300 group-hover:translate-x-2">
+        →
+      </span>
+    </div>
+
+    <h3 className="text-2xl font-bold text-white">
+      在庫車を見る
+    </h3>
+  </Link>
 
 
-      <div className="flex gap-5 mt-10 flex-wrap justify-center">
+
+  <Link
+    href="/purchase"
+    className="group border border-yellow-500/40 bg-black/60 backdrop-blur-sm rounded-xl p-6 transition-all duration-300 hover:-translate-y-1 hover:border-yellow-400 hover:shadow-[0_10px_30px_rgba(234,179,8,0.15)]"
+  >
+    <div className="flex justify-between items-center mb-4">
+      <span className="text-xs tracking-[0.35em] text-zinc-400">
+        PURCHASE
+      </span>
+
+      <span className="text-yellow-400 text-xl transition-transform duration-300 group-hover:translate-x-2">
+        →
+      </span>
+    </div>
+
+    <h3 className="text-2xl font-bold text-white">
+      車を売る・無料査定
+    </h3>
+  </Link>
 
 
-        <Link
-          href="/stock"
-          className="bg-white text-black px-8 py-4 rounded-full font-bold hover:bg-gray-200 transition"
-        >
-          🚗 在庫車を見る
-        </Link>
-
-
-
-      <Link
-href="/purchase"
-className="
-bg-yellow-500
-text-black
-px-8
-py-4
-rounded-full
-font-bold
-hover:bg-yellow-400
-transition
-"
->
-💰 車を売る・無料査定
-</Link>
 
   <a
     href="#contact"
-    className="border border-white px-8 py-4 rounded-full"
+    className="group border border-yellow-500/40 bg-black/60 backdrop-blur-sm rounded-xl p-6 transition-all duration-300 hover:-translate-y-1 hover:border-yellow-400 hover:shadow-[0_10px_30px_rgba(234,179,8,0.15)]"
   >
-    ✉ メールでご相談
+    <div className="flex justify-between items-center mb-4">
+      <span className="text-xs tracking-[0.35em] text-zinc-400">
+        CONTACT
+      </span>
+
+      <span className="text-yellow-400 text-xl transition-transform duration-300 group-hover:translate-x-2">
+        →
+      </span>
+    </div>
+
+    <h3 className="text-2xl font-bold text-white">
+      メールで相談
+    </h3>
   </a>
 
-        <a
-          href="tel:08055637830"
-          className="bg-yellow-500 text-black px-8 py-4 rounded-full font-bold hover:bg-yellow-400 transition"
-        >
-          📞 電話でご相談
-        </a>
 
 
-      </div>
+  <a
+    href="tel:08055637830"
+    className="group border border-yellow-500/40 bg-black/60 backdrop-blur-sm rounded-xl p-6 transition-all duration-300 hover:-translate-y-1 hover:border-yellow-400 hover:shadow-[0_10px_30px_rgba(234,179,8,0.15)]"
+  >
+    <div className="flex justify-between items-center mb-4">
+      <span className="text-xs tracking-[0.35em] text-zinc-400">
+        PHONE
+      </span>
 
+      <span className="text-yellow-400 text-xl transition-transform duration-300 group-hover:translate-x-2">
+        →
+      </span>
+    </div>
 
+    <h3 className="text-2xl font-bold text-white">
+      電話で相談
+    </h3>
+  </a>
+
+</div>
 
       <div className="mt-16 text-gray-300 text-sm leading-relaxed">
 
