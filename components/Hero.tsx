@@ -201,13 +201,9 @@ export default function Hero() {
 
         <div className="relative z-10">
 
-          <p className="text-xs tracking-[0.35em] uppercase text-zinc-500">
-            Instagram
-          </p>
-
-          <h4 className="mt-3 text-xl font-bold text-white">
-            @brightone2026k
-          </h4>
+<h4 className="mt-3 text-xl font-bold text-white">
+  Instagram
+</h4>
 
           <p className="mt-3 text-zinc-400 text-sm">
             入庫車両・カスタム・店舗情報
@@ -226,13 +222,11 @@ export default function Hero() {
 
         <div className="relative z-10">
 
-          <p className="text-xs tracking-[0.35em] uppercase text-zinc-500">
-            X
-          </p>
 
-          <h4 className="mt-3 text-xl font-bold text-white">
-            @yuya_kf
-          </h4>
+
+<h4 className="mt-3 text-xl font-bold text-white">
+  X
+</h4>
 
           <p className="mt-3 text-zinc-400 text-sm">
             最新のお知らせを投稿
