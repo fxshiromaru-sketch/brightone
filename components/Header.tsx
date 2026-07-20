@@ -67,7 +67,7 @@ export default function Header() {
     transition
   "
 >
-  TEL 080-5563-7830
+  TELお問い合わせ
 </a>
 
      <a
