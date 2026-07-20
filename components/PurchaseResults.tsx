@@ -71,14 +71,14 @@ export default async function PurchaseResults() {
 
 
 
-
-        <div className="
-          grid
-          grid-cols-1
-          md:grid-cols-3
-          gap-8
-          mt-14
-        ">
+<div className="
+  flex
+  gap-6
+  overflow-x-auto
+  pb-5
+  scrollbar-hide
+  mt-14
+">
 
 
 
@@ -90,19 +90,17 @@ export default async function PurchaseResults() {
               key={item.id}
 
               href={`/purchase-results/${item.id}`}
-
-              className="
-                group
-                rounded-3xl
-                overflow-hidden
-                border
-                border-white/10
-                bg-white/5
-                transition-all
-                duration-500
-                hover:-translate-y-2
-                hover:border-yellow-400/50
-              "
+className="
+  group
+  min-w-[280px]
+  rounded-2xl
+  overflow-hidden
+  border
+  border-white/10
+  bg-zinc-900
+  transition
+  hover:border-yellow-500
+"
 
             >
 
