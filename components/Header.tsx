@@ -53,7 +53,7 @@ export default function Header() {
         {/* 右側ボタン */}
         <div className="hidden lg:flex items-center gap-3">
 <a
-  href="tel:08055637930"
+  href="tel:08055637830"
   className="
     border
     border-yellow-500/50
@@ -67,7 +67,7 @@ export default function Header() {
     transition
   "
 >
-  TEL 080-5563-7930
+  TEL 080-5563-7830
 </a>
 
      <a
