@@ -115,25 +115,23 @@ export default async function PurchaseResults() {
               ">
 
 
+<img
 
-         <img
+src={
+  item.images?.[0] ??
+  "https://placehold.co/800x600?text=No+Image"
+}
 
-  src={
-    item.images?.[0] ??
-    "https://placehold.co/800x600?text=No+Image"
-  }
+alt={item.car_name ?? ""}
 
-  alt={item.car_name ?? ""}
-
-  className="
-    w-full
-    h-56
-    object-contain
-    bg-black
-  "
+className="
+  w-full
+  h-48
+  object-contain
+  bg-black
+"
 
 />
-
 
 
 
