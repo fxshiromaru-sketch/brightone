@@ -29,6 +29,14 @@ export default function Header() {
 >
   車買取
 </Link>
+
+
+<Link
+  href="/purchase-results"
+  className="hover:text-yellow-400 transition"
+>
+  買取実績
+</Link>
   <Link href="/#service" className="hover:text-yellow-400 transition">
     サービス
   </Link>
@@ -44,22 +52,43 @@ export default function Header() {
 
         {/* 右側ボタン */}
         <div className="hidden lg:flex items-center gap-3">
+<a
+  href="tel:08055637930"
+  className="
+    border
+    border-yellow-500/50
+    text-yellow-400
+    px-5
+    py-3
+    rounded-full
+    font-bold
+    hover:bg-yellow-500
+    hover:text-black
+    transition
+  "
+>
+  TEL 080-5563-7930
+</a>
 
-          <a
-            href="tel:08055637930"
-            className="bg-yellow-500 text-black px-5 py-3 rounded-full font-bold hover:bg-yellow-400 transition"
-          >
-            📞 電話
-          </a>
-
-          <a
-            href="https://lin.ee/NHhNj1t"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-green-500 text-white px-5 py-3 rounded-full font-bold hover:bg-green-400 transition"
-          >
-            💬 LINE公式アカウント登録
-          </a>
+     <a
+  href="https://lin.ee/NHhNj1t"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="
+    border
+    border-green-500/50
+    text-green-400
+    px-5
+    py-3
+    rounded-full
+    font-bold
+    hover:bg-green-500
+    hover:text-black
+    transition
+  "
+>
+  LINE査定
+</a>
 
         </div>
 
