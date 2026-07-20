@@ -167,28 +167,29 @@ export default async function PurchaseResultDetailPage({
           {/* メイン画像 */}
 
           {result.images?.length > 0 && (
+<div className="
+  mt-10
+  rounded-3xl
+  overflow-hidden
+  border
+  border-white/10
+  bg-black
+">
 
-            <div className="
-              mt-10
-              rounded-3xl
-              overflow-hidden
-              border
-              border-white/10
-            ">
+         <img
 
-              <img
+  src={result.images[0]}
 
-                src={result.images[0]}
+  alt={result.car_name ?? ""}
 
-                alt={result.car_name ?? ""}
+  className="
+    w-full
+    max-h-[600px]
+    object-contain
+    bg-black
+  "
 
-                className="
-                  w-full
-                  max-h-[600px]
-                  object-cover
-                "
-
-              />
+/>
 
 
             </div>
