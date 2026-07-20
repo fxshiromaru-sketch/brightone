@@ -247,7 +247,7 @@ Bright One 管理画面
 </div>
 
 
-<div className="grid gap-6 md:grid-cols-4">
+<div className="grid gap-6 md:grid-cols-5">
 
 
 <div className="bg-zinc-900 rounded-2xl p-6">
@@ -414,8 +414,23 @@ font-bold
 
   </h2>
 
-  <div className="grid md:grid-cols-3 gap-5">
+  <div className="grid md:grid-cols-5 gap-5">
+<Link
+  href="/admin/purchase-results"
+  className="bg-zinc-900 rounded-2xl p-8 hover:border hover:border-yellow-500 transition"
+>
+  <div className="text-5xl mb-4">
+    🏆
+  </div>
 
+  <h3 className="text-2xl font-bold">
+    買取実績
+  </h3>
+
+  <p className="text-zinc-400 mt-2">
+    買取実績の追加・編集
+  </p>
+</Link>
     <Link
       href="/admin/dashboard/cars"
       className="bg-zinc-900 rounded-2xl p-8 hover:border hover:border-yellow-500 transition"
@@ -466,7 +481,22 @@ font-bold
         新しい車を追加
       </p>
     </Link>
+<Link
+  href="/admin/purchase-results/new"
+  className="bg-zinc-900 rounded-2xl p-8 hover:border hover:border-yellow-500 transition"
+>
+  <div className="text-5xl mb-4">
+    🏆
+  </div>
 
+  <h3 className="text-2xl font-bold">
+    買取実績登録
+  </h3>
+
+  <p className="text-zinc-400 mt-2">
+    新しい買取実績を追加
+  </p>
+</Link>
   </div>
 
 </div>

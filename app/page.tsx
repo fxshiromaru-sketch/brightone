@@ -1,37 +1,32 @@
 import Header from "../components/Header";
+import Hero from "../components/Hero";
+import Purchase from "@/components/Purchase";
+import PurchaseResults from "@/components/PurchaseResults";
+import StockPreview from "@/components/StockPreview";
 import Services from "../components/Services";
 import Access from "../components/Access";
-import Footer from "../components/Footer";
-import Hero from "../components/Hero";
 import Contact from "../components/Contact";
 import MobileCTA from "../components/MobileCTA";
-import FixedContact from "../components/FixedContact";
-import StockPreview from "@/components/StockPreview";
-import Purchase from "@/components/Purchase";
+import Footer from "../components/Footer";
+// import FixedContact from "../components/FixedContact";
 
 export default function Home() {
-
   return (
-
     <main className="min-h-screen bg-black text-white">
-
       <Header />
 
       <Hero />
 
+      <Purchase />
+
+      <PurchaseResults />
+
       <StockPreview />
 
-
       <div className="space-y-32">
-
-        <Purchase />
-
         <Services />
-
         <Access />
-
       </div>
-
 
       <Contact />
 
@@ -39,12 +34,7 @@ export default function Home() {
 
       {/* <FixedContact /> */}
 
-
       <Footer />
-
-
     </main>
-
   );
-
 }
