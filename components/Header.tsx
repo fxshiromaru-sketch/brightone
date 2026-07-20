@@ -87,7 +87,7 @@ export default function Header() {
     transition
   "
 >
-  LINE査定
+  LINE公式アカウント登録
 </a>
 
         </div>
