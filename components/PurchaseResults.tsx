@@ -165,11 +165,11 @@ className="
               <div className="p-6">
 
 
-
-                <p className="
-                  text-sm
-                  text-yellow-400
-                ">
+<p className="
+  text-xs
+  text-yellow-400
+  tracking-wider
+">
 
                   {item.prefecture}
                   {item.city && `・${item.city}`}
@@ -182,8 +182,9 @@ className="
 
                 <h3 className="
                   mt-3
-                  text-2xl
+                  text-x1
                   font-bold
+                    line-clamp-1
                 ">
 
                   {item.maker}
