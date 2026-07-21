@@ -86,12 +86,24 @@ export async function updateSession(
     );
 
 
+const {
+  data: { user },
+} = await supabase.auth.getUser();
 
-  await supabase.auth.getUser();
+const pathname = request.nextUrl.pathname;
 
-
-
+// ログインページは誰でも見られる
+if (pathname === "/admin/login") {
   return response;
+}
 
+// 未ログインならログイン画面へ
+if (!user) {
+  const url = request.nextUrl.clone();
+  url.pathname = "/admin/login";
+  return NextResponse.redirect(url);
+}
+
+return response;
 
 }
