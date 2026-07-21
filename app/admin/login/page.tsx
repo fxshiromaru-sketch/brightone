@@ -20,40 +20,25 @@ const [password,setPassword] = useState("");
 const [loading,setLoading] = useState(false);
 
 
+async function login() {
+  setLoading(true);
 
+  const { error } = await supabase.auth.signInWithPassword({
+    email,
+    password,
+  });
 
-async function login(){
+  console.log("login error:", error);
 
+  if (error) {
+    alert(error.message);
+    setLoading(false);
+    return;
+  }
 
-setLoading(true);
+  console.log("login success");
 
-
-
-const {
-
-error
-
-} = await supabase.auth.signInWithPassword({
-
-email,
-
-password
-
-});
-
-
-
-if(error){
-
-alert(
-"ログインできません"
-);
-
-setLoading(false);
-
-return;
-
-}
+  router.push("/admin/dashboard");
 
 
 
