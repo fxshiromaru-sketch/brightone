@@ -85,14 +85,15 @@ export async function updateSession(
 
     );
 
-
 const {
   data: { user },
 } = await supabase.auth.getUser();
 
+console.log("Middleware user:", user?.email);
+
 const pathname = request.nextUrl.pathname;
 
-// ログインページは誰でも見られる
+// ログインページは認証不要
 if (pathname === "/admin/login") {
   return response;
 }
@@ -105,5 +106,4 @@ if (!user) {
 }
 
 return response;
-
 }

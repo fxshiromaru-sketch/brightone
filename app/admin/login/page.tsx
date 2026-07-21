@@ -37,15 +37,7 @@ async function login() {
   }
 
   console.log("login success");
-
-  router.push("/admin/dashboard");
-
-
-
-router.push(
-"/admin/dashboard"
-);
-
+router.push("/admin/dashboard");
 
 
 }

@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { supabase } from "@/lib/supabase";
 import LogoutButton from "@/components/LogoutButton";
+
 export default function Dashboard() {
 
 const [cars, setCars] = useState<any[]>([]);
@@ -229,9 +230,7 @@ const soldCars = cars.filter(
 
 
 return (
-
-<main className="min-h-screen bg-black text-white p-10">
-
+  <main className="min-h-screen bg-black text-white p-10">
 
 <div className="flex justify-between items-center mb-8">
 
@@ -501,7 +500,7 @@ font-bold
 
 </div>
 
-</main>
+    </main>
+);
 
-)
  }
