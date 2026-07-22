@@ -54,7 +54,7 @@ console.log("data:", data);
         });
 
         const { error: storageError } = await supabase.storage
-          .from("purchase-results")
+          .from("car-images")
           .remove(fileNames);
 
         if (storageError) {
