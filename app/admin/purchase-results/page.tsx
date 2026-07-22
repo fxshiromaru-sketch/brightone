@@ -21,7 +21,8 @@ export default function PurchaseResultsAdminPage() {
       .order("created_at", {
         ascending: false,
       });
-
+console.log("error:", error);
+console.log("data:", data);
     if (error) {
 
       alert(error.message);
