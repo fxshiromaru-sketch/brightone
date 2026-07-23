@@ -10,7 +10,7 @@ export default async function PurchaseResults() {
     .order("created_at", {
       ascending: false,
     })
-    .limit(3);
+    .limit(6);
 
 
   if (!results || results.length === 0) {
