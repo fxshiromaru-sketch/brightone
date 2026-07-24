@@ -18,7 +18,8 @@ export default async function PurchaseResultsPage() {
       ascending: false,
     });
 
-
+console.log("results", results);
+console.log("length", results?.length);
 
   if (error) {
     console.error(error);
