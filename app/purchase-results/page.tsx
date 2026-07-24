@@ -68,7 +68,9 @@ console.log("length", results?.length);
     買取実績
   </h1>
 
-
+<p className="text-red-500 text-xl mb-6">
+  取得件数：{results?.length}
+</p>
 
   <p className="
     mt-6
