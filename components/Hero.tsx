@@ -2,313 +2,192 @@ import Link from "next/link";
 
 export default function Hero() {
   return (
-   <section
-className="
-min-h-screen
-flex
-flex-col
-items-start
-justify-center
-text-left
-px-6
-md:px-16
-pt-32
-"
-    style={{
-  backgroundImage:
-    "linear-gradient(90deg, rgba(0,0,0,.85) 0%, rgba(0,0,0,.65) 35%, rgba(0,0,0,.25) 70%, rgba(0,0,0,.15) 100%), url('/images/shop.jpg')",
-  backgroundSize: "cover",
-  backgroundPosition: "center",
-}}
+    <section
+      className="
+        relative
+        min-h-[720px]
+        flex
+        items-center
+        overflow-hidden
+      "
     >
-
-     <h1 className="text-7xl md:text-9xl font-black leading-none">
-        Bright One
-      </h1>
-
-
-      <p className="text-yellow-400 text-2xl md:text-3xl mt-6 italic">
-        TOTAL CAR SUPPORT
-      </p>
-
-
-<p className="mt-8 text-gray-200 max-w-5xl text-lg leading-loose">
-
-千葉県銚子市の中古車販売店　Bright One　（ブライトワン）です。<br></br>
-
-中古車販売・スポーツカー販売・車買取・カスタム・タイヤ交換・レッカーサービスまで対応。<br></br>
-
-銚子市・旭市・香取市・多古町・神栖市・鹿嶋市から多数ご来店いただいております。<br></br>
-
-  中古車販売・高価買取・カスタム・整備・タイヤ交換まで<br></br>
-  <br />
-
-  お客様の大切なカーライフをトータルサポートいたします。
-
-  <br /><br />
-
-  お車の購入相談、売却査定、カスタム相談など
-  <br />
-
-  LINE・電話・メールからお気軽にお問い合わせください。
-
-</p>
-
-<div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6 mt-14 w-full max-w-7xl">
-
-  {/* 在庫車 */}
-  <Link
-    href="/stock"
-    className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl p-7 transition-all duration-500 hover:-translate-y-2 hover:border-yellow-400/60 hover:bg-white/10 hover:shadow-[0_15px_40px_rgba(234,179,8,0.18)]"
-  >
-    <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-yellow-400/10 opacity-0 transition duration-500 group-hover:opacity-100" />
-
-    <div className="relative z-10">
-      <div className="flex items-center justify-between">
-        <span className="text-xs tracking-[0.35em] uppercase text-zinc-400">
-          STOCK CARS
-        </span>
-
-        <span className="text-yellow-400 text-xl transition duration-300 group-hover:translate-x-2">
-          →
-        </span>
-      </div>
-
-      <h3 className="mt-5 text-2xl font-bold text-white">
-        在庫車を見る
-      </h3>
-
-      <p className="mt-3 text-sm leading-relaxed text-zinc-400">
-        スポーツカーから軽自動車まで掲載中
-      </p>
-    </div>
-  </Link>
-
-  {/* 買取 */}
-  <Link
-    href="/purchase"
-    className="group relative overflow-hidden rounded-2xl border border-yellow-500/30 bg-white/5 backdrop-blur-xl p-7 transition-all duration-500 hover:-translate-y-2 hover:border-yellow-400 hover:bg-white/10 hover:shadow-[0_15px_40px_rgba(234,179,8,0.25)]"
-  >
-    <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/10 via-transparent to-transparent opacity-0 transition duration-500 group-hover:opacity-100" />
-
-    <div className="relative z-10">
-      <div className="flex items-center justify-between">
-        <span className="text-xs tracking-[0.35em] uppercase text-zinc-400">
-          PURCHASE
-        </span>
-
-        <span className="text-yellow-400 text-xl transition duration-300 group-hover:translate-x-2">
-          →
-        </span>
-      </div>
-
-      <h3 className="mt-5 text-2xl font-bold text-white">
-        車を売る・無料査定
-      </h3>
-
-      <p className="mt-3 text-sm leading-relaxed text-zinc-400">
-        出張査定・オンライン査定にも対応
-      </p>
-    </div>
-  </Link>
-
-  {/* メール */}
-  <a
-    href="#contact"
-    className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl p-7 transition-all duration-500 hover:-translate-y-2 hover:border-yellow-400/60 hover:bg-white/10 hover:shadow-[0_15px_40px_rgba(234,179,8,0.18)]"
-  >
-    <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-yellow-400/10 opacity-0 transition duration-500 group-hover:opacity-100" />
-
-    <div className="relative z-10">
-      <div className="flex items-center justify-between">
-        <span className="text-xs tracking-[0.35em] uppercase text-zinc-400">
-          CONTACT
-        </span>
-
-        <span className="text-yellow-400 text-xl transition duration-300 group-hover:translate-x-2">
-          →
-        </span>
-      </div>
-
-      <h3 className="mt-5 text-2xl font-bold text-white">
-        メールで相談
-      </h3>
-
-      <p className="mt-3 text-sm leading-relaxed text-zinc-400">
-        購入・売却・カスタムのご相談はこちら
-      </p>
-    </div>
-  </a>
-
-  {/* 電話 */}
-  <a
-    href="tel:08055637830"
-    className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl p-7 transition-all duration-500 hover:-translate-y-2 hover:border-yellow-400/60 hover:bg-white/10 hover:shadow-[0_15px_40px_rgba(234,179,8,0.18)]"
-  >
-    <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-yellow-400/10 opacity-0 transition duration-500 group-hover:opacity-100" />
-
-    <div className="relative z-10">
-      <div className="flex items-center justify-between">
-        <span className="text-xs tracking-[0.35em] uppercase text-zinc-400">
-          PHONE
-        </span>
-
-        <span className="text-yellow-400 text-xl transition duration-300 group-hover:translate-x-2">
-          →
-        </span>
-      </div>
-
-      <h3 className="mt-5 text-2xl font-bold text-white">
-        電話で相談
-      </h3>
-
-      <p className="mt-3 text-sm leading-relaxed text-zinc-400">
-        お急ぎの方はこちらからどうぞ
-      </p>
-    </div>
-  </a>
-
-</div>
-
-      <div className="mt-16 text-gray-300 text-sm leading-relaxed">
-
-        スポーツカー・カスタム車歓迎
-        <br />
-
-        事故車・不動車もお気軽にご相談ください
-
-      </div>
-<div className="mt-20 w-full max-w-3xl">
-
-  <div className="border-t border-white/10 pt-10">
-
-    <p className="text-xs tracking-[0.4em] uppercase text-zinc-500 text-center">
-      FOLLOW US
-    </p>
-
-    <h3 className="mt-4 text-2xl font-semibold text-white text-center">
-      最新情報をチェック
-    </h3>
-
-    <p className="mt-3 text-zinc-400 text-center leading-relaxed">
-      入庫車両・買取実績・カスタム事例などを
-      <br />
-      Instagram・Xで発信しています。
-    </p>
-
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10">
-
-      {/* Instagram */}
-      <a
-        href="https://www.instagram.com/brightone2026k/"
-        target="_blank"
-        rel="noopener noreferrer"
+      {/* 背景画像 */}
+      <div
         className="
-          group
+          absolute
+          inset-0
+          bg-cover
+          bg-center
+        "
+        style={{
+          backgroundImage:
+            "url('/shop.jpg')",
+        }}
+      />
+
+      {/* 左側暗めグラデーション */}
+      <div
+        className="
+          absolute
+          inset-0
+          bg-gradient-to-r
+          from-black
+          via-black/80
+          to-black/20
+        "
+      />
+
+      {/* コンテンツ */}
+      <div
+        className="
           relative
-          overflow-hidden
-          rounded-2xl
-          border
-          border-white/10
-          bg-white/5
-          backdrop-blur-xl
-          p-6
-          transition-all
-          duration-500
-          hover:-translate-y-2
-          hover:border-pink-400/70
-          hover:bg-white/10
-          hover:shadow-[0_15px_40px_rgba(236,72,153,0.20)]
+          z-10
+          max-w-7xl
+          mx-auto
+          w-full
+          px-6
+          pt-20
         "
       >
+        <div className="max-w-xl">
 
-        <div className="absolute inset-0 bg-gradient-to-br from-pink-500/10 via-purple-500/10 to-orange-400/10 opacity-0 transition duration-500 group-hover:opacity-100" />
 
-        <div className="relative z-10">
+          <p
+            className="
+              text-yellow-500
+              tracking-[0.35em]
+              text-sm
+              font-semibold
+              mb-5
+            "
+          >
+            TOTAL CAR SUPPORT
+          </p>
 
-          <div className="flex justify-between items-center">
 
-            <span className="text-xs tracking-[0.35em] uppercase text-zinc-500">
-              インスタグラム
+          <h1
+            className="
+              text-white
+              font-serif
+              text-7xl
+              md:text-8xl
+              leading-none
+              tracking-wide
+              font-bold
+            "
+          >
+            BRIGHT
+            <br />
+
+            <span
+              className="
+                text-yellow-500
+                italic
+              "
+            >
+              ONE
             </span>
+          </h1>
 
-            <span className="text-pink-400 transition duration-300 group-hover:translate-x-2">
-              →
-            </span>
+
+          <p
+            className="
+              mt-8
+              text-white
+              text-lg
+              leading-relaxed
+            "
+          >
+            中古車販売・買取・カスタム・タイヤ交換・緊急レッカー
+            <br />
+
+            お客様のカーライフをトータルサポート。
+          </p>
+
+
+          <p
+            className="
+              mt-4
+              text-gray-300
+              leading-relaxed
+            "
+          >
+            スポーツカーから軽自動車まで、
+            <br />
+            幅広い車種に対応いたします。
+          </p>
+
+
+
+          <div
+            className="
+              flex
+              flex-wrap
+              gap-4
+              mt-10
+            "
+          >
+
+            <Link
+              href="/stock"
+              className="
+                bg-yellow-600
+                hover:bg-yellow-500
+                text-white
+                px-8
+                py-4
+                font-semibold
+                transition
+                flex
+                items-center
+                gap-3
+              "
+            >
+              🚗 在庫車を見る
+              <span>
+                →
+              </span>
+            </Link>
+
+
+            <Link
+              href="/purchase"
+              className="
+                border
+                border-yellow-600
+                text-white
+                px-8
+                py-4
+                hover:bg-yellow-600
+                transition
+                flex
+                items-center
+                gap-3
+              "
+            >
+              ¥ 無料査定を依頼する
+              <span>
+                →
+              </span>
+            </Link>
 
           </div>
 
-          <h4 className="mt-5 text-2xl font-bold text-white">
-            Instagram
-          </h4>
-
-          <p className="mt-3 text-sm leading-relaxed text-zinc-400">
-            入庫車両・カスタム事例・納車風景などを掲載しています。
-          </p>
-
         </div>
-
-      </a>
-
+      </div>
 
 
-      {/* X */}
-      <a
-        href="https://x.com/yuya_kf"
-        target="_blank"
-        rel="noopener noreferrer"
+      {/* 下部ライン */}
+      <div
         className="
-          group
-          relative
-          overflow-hidden
-          rounded-2xl
-          border
-          border-white/10
-          bg-white/5
-          backdrop-blur-xl
-          p-6
-          transition-all
-          duration-500
-          hover:-translate-y-2
-          hover:border-sky-400/70
-          hover:bg-sky-400/10
-          hover:shadow-[0_15px_40px_rgba(56,189,248,0.25)]
+          absolute
+          bottom-0
+          left-0
+          w-full
+          h-px
+          bg-yellow-600/40
         "
-      >
-
-        <div className="absolute inset-0 bg-gradient-to-br from-sky-400/10 via-cyan-400/10 to-transparent opacity-0 transition duration-500 group-hover:opacity-100" />
-
-        <div className="relative z-10">
-
-          <div className="flex justify-between items-center">
-
-            <span className="text-xs tracking-[0.35em] uppercase text-zinc-500">
-              旧Twitter
-            </span>
-
-            <span className="text-sky-400 transition duration-300 group-hover:translate-x-2">
-              →
-            </span>
-
-          </div>
-
-          <h4 className="mt-5 text-2xl font-bold text-white">
-            X
-          </h4>
-
-          <p className="mt-3 text-sm leading-relaxed text-zinc-400">
-            最新のお知らせ・店舗情報・日々の出来事を更新しています。
-          </p>
-
-        </div>
-
-      </a>
-
-    </div>
-
-  </div>
-
-</div>
+      />
 
     </section>
   );
