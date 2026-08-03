@@ -2,23 +2,33 @@ import Link from "next/link";
 
 export default function Hero() {
   return (
-    <section
-      className="min-h-screen flex flex-col items-center justify-center text-center px-6 pt-40"
-      style={{
-        backgroundImage:
-          "linear-gradient(rgba(0,0,0,.65), rgba(0,0,0,.65)), url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=2000')",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
+   <section
+className="
+min-h-screen
+flex
+flex-col
+items-start
+justify-center
+text-left
+px-6
+md:px-16
+pt-32
+"
+    style={{
+  backgroundImage:
+    "linear-gradient(90deg, rgba(0,0,0,.85) 0%, rgba(0,0,0,.65) 35%, rgba(0,0,0,.25) 70%, rgba(0,0,0,.15) 100%), url('/images/shop.jpg')",
+  backgroundSize: "cover",
+  backgroundPosition: "center",
+}}
     >
 
-      <h1 className="text-6xl md:text-8xl font-bold tracking-widest">
+     <h1 className="text-7xl md:text-9xl font-black leading-none">
         Bright One
       </h1>
 
 
       <p className="text-yellow-400 text-2xl md:text-3xl mt-6 italic">
-        Drive Your Dream.
+        TOTAL CAR SUPPORT
       </p>
 
 
