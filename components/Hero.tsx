@@ -23,7 +23,7 @@ export default function Hero() {
   style={{
     backgroundImage:
       "url('/shop.png')",
-    backgroundPosition: "center bottom",
+  backgroundPosition: "center 65%",
   }}
 />
 
