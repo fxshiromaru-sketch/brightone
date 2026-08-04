@@ -64,7 +64,7 @@ export default function Hero() {
               font-bold
             "
           >
-            BRIGHT
+            Bright
             <br />
 
             <span
@@ -73,7 +73,7 @@ export default function Hero() {
                 italic
               "
             >
-              ONE
+              One
             </span>
           </h1>
 
