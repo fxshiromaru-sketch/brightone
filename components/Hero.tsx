@@ -18,7 +18,7 @@ export default function Hero() {
   className="
     absolute
     inset-0
-    bg-cover
+    bg-[length:110%_auto]
   "
   style={{
     backgroundImage:
