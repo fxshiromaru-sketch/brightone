@@ -19,10 +19,12 @@ export default function Hero() {
           bg-cover
           bg-center
         "
-        style={{
-          backgroundImage:
-            "url('/shop.jpg')",
-        }}
+      style={{
+  backgroundImage:
+    "linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.75)), url('/hero.jpg')",
+  backgroundSize: "cover",
+  backgroundPosition: "center bottom",
+}}
       />
 
       {/* 左側暗めグラデーション */}
