@@ -2,30 +2,59 @@ import Link from "next/link";
 
 export default function Hero() {
   return (
-   <section
-  className="relative min-h-screen flex items-center justify-center text-center px-6 overflow-hidden"
->
-  <div
-    className="absolute inset-0 bg-cover bg-center"
-    style={{
-      backgroundImage:
-        "linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.75)), url('/shop.png')",
-    }}
-  />
+    <section
+      className="
+        relative
+        min-h-screen
+        flex
+        items-center
+        overflow-hidden
+        px-6
+      "
+    >
 
-      {/* 左側暗めグラデーション */}
+      {/* 背景画像 */}
+      <div
+        className="
+          absolute
+          inset-0
+          bg-cover
+          bg-center
+        "
+        style={{
+          backgroundImage:
+            "url('/shop.png')",
+        }}
+      />
+
+
+      {/* 暗幕（左側を強めに暗くする） */}
       <div
         className="
           absolute
           inset-0
           bg-gradient-to-r
           from-black
-          via-black/80
+          via-black/70
           to-black/20
         "
       />
 
-      {/* コンテンツ */}
+
+      {/* 下部の黒グラデーション */}
+      <div
+        className="
+          absolute
+          inset-0
+          bg-gradient-to-t
+          from-black/60
+          via-transparent
+          to-transparent
+        "
+      />
+
+
+      {/* メインコンテンツ */}
       <div
         className="
           relative
@@ -33,31 +62,33 @@ export default function Hero() {
           max-w-7xl
           mx-auto
           w-full
-          px-6
           pt-20
         "
       >
+
         <div className="max-w-xl">
 
 
+          {/* サブタイトル */}
           <p
             className="
               text-yellow-500
-              tracking-[0.35em]
+              tracking-[0.4em]
               text-sm
               font-semibold
-              mb-5
+              mb-6
             "
           >
             TOTAL CAR SUPPORT
           </p>
 
 
+          {/* ロゴ */}
           <h1
             className="
               text-white
               font-serif
-              text-7xl
+              text-6xl
               md:text-8xl
               leading-none
               tracking-wide
@@ -75,9 +106,12 @@ export default function Hero() {
             >
               One
             </span>
+
           </h1>
 
 
+
+          {/* 説明 */}
           <p
             className="
               mt-8
@@ -88,25 +122,26 @@ export default function Hero() {
           >
             中古車販売・買取・カスタム・タイヤ交換・緊急レッカー
             <br />
-
             お客様のカーライフをトータルサポート。
           </p>
 
 
+
           <p
             className="
-              mt-4
+              mt-5
               text-gray-300
               leading-relaxed
             "
           >
             スポーツカーから軽自動車まで、
             <br />
-            幅広い車種に対応いたします。
+            車好きが選ぶカーショップ。
           </p>
 
 
 
+          {/* ボタン */}
           <div
             className="
               flex
@@ -126,16 +161,12 @@ export default function Hero() {
                 py-4
                 font-semibold
                 transition
-                flex
-                items-center
-                gap-3
+                shadow-lg
               "
             >
-              🚗 在庫車を見る
-              <span>
-                →
-              </span>
+              在庫車を見る →
             </Link>
+
 
 
             <Link
@@ -146,23 +177,22 @@ export default function Hero() {
                 text-white
                 px-8
                 py-4
+                font-semibold
                 hover:bg-yellow-600
                 transition
-                flex
-                items-center
-                gap-3
               "
             >
-              ¥ 無料査定を依頼する
-              <span>
-                →
-              </span>
+              無料査定を依頼する →
             </Link>
+
 
           </div>
 
+
         </div>
+
       </div>
+
 
 
       {/* 下部ライン */}
@@ -176,6 +206,7 @@ export default function Hero() {
           bg-yellow-600/40
         "
       />
+
 
     </section>
   );
