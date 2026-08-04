@@ -2,30 +2,16 @@ import Link from "next/link";
 
 export default function Hero() {
   return (
-    <section
-      className="
-        relative
-        min-h-[720px]
-        flex
-        items-center
-        overflow-hidden
-      "
-    >
-      {/* 背景画像 */}
-      <div
-        className="
-          absolute
-          inset-0
-          bg-cover
-          bg-center
-        "
-      style={{
-  backgroundImage:
-    "linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.75)), url('/shop.jpg')",
-  backgroundSize: "cover",
-  backgroundPosition: "center bottom",
-}}
-      />
+   <section
+  className="relative min-h-screen flex items-center justify-center text-center px-6 overflow-hidden"
+>
+  <div
+    className="absolute inset-0 bg-cover bg-center"
+    style={{
+      backgroundImage:
+        "linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.75)), url('/shop.jpg')",
+    }}
+  />
 
       {/* 左側暗めグラデーション */}
       <div
