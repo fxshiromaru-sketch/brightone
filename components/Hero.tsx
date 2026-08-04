@@ -21,7 +21,7 @@ export default function Hero() {
         "
       style={{
   backgroundImage:
-    "linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.75)), url('/hero.jpg')",
+    "linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.75)), url('/shop.jpg')",
   backgroundSize: "cover",
   backgroundPosition: "center bottom",
 }}
