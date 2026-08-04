@@ -14,19 +14,18 @@ export default function Hero() {
     >
 
       {/* 背景画像 */}
-      <div
-        className="
-          absolute
-          inset-0
-          bg-cover
-          bg-center
-        "
-        style={{
-          backgroundImage:
-            "url('/shop.png')",
-        }}
-      />
-
+     <div
+  className="
+    absolute
+    inset-0
+    bg-cover
+  "
+  style={{
+    backgroundImage:
+      "url('/shop.png')",
+    backgroundPosition: "center bottom",
+  }}
+/>
 
       {/* 暗幕（左側を強めに暗くする） */}
       <div
