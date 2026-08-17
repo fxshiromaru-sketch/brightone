@@ -1,11 +1,10 @@
 import Link from "next/link";
-
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import MobileCTA from "@/components/MobileCTA";
-
 import { supabase } from "@/lib/supabase";
 
+export const dynamic = "force-dynamic";
 
 export default async function PurchaseResultsPage() {
 
