@@ -12,6 +12,7 @@ export default function Footer() {
 
       <p className="text-sm mt-1">
         TEL：0479-21-3038
+        FAX：0479-21-3046
       </p>
 
       <p className="text-xs mt-6 text-gray-600">
