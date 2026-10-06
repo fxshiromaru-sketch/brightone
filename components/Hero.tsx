@@ -150,21 +150,23 @@ export default function Hero() {
             "
           >
 
-            <Link
-              href="/stock"
-              className="
-                bg-yellow-600
-                hover:bg-yellow-500
-                text-white
-                px-8
-                py-4
-                font-semibold
-                transition
-                shadow-lg
-              "
-            >
-              在庫車を見る →
-            </Link>
+         <a
+  href="http://www.carsensor.net/shopnavi/331624001"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="
+    bg-yellow-600
+    hover:bg-yellow-500
+    text-white
+    px-8
+    py-4
+    font-semibold
+    transition
+    shadow-lg
+  "
+>
+  在庫車を見る →
+</a>
 
 
 
