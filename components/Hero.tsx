@@ -165,7 +165,7 @@ export default function Hero() {
     shadow-lg
   "
 >
-  在庫車を見る →
+  カーセンサー在庫車を見る
 </a>
 
 
